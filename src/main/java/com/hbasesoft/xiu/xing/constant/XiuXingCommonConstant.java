@@ -30,9 +30,6 @@ public interface XiuXingCommonConstant {
     /** 法器 */
     String FA_QI = "法器";
 
-    /** 妖兽 */
-    String YAO_SHOU = "妖兽";
-
     /** 人神妖魔鬼怪 */
     String REN_SHEN_YAO_MO_GUI_GUAI = "人神妖魔鬼怪";
 
@@ -57,14 +54,8 @@ public interface XiuXingCommonConstant {
     /** 剑修 */
     String JIAN_XIU = "剑修";
 
-    /** 阵法 */
-    String ZHEN_FA = "阵法";
-
     /** 傀儡 */
     String KUI_LEI = "傀儡";
-
-    /** 其他灵物 */
-    String QI_TA_LING_WU = "其他灵物";
 
     /** 其他机构 */
     String QI_TA_JI_GOU = "其他机构";
@@ -429,5 +420,16 @@ public interface XiuXingCommonConstant {
     String FUNC_MODEL_CODE = "funcModelCode";
 
     String REN_WU = "renWu";
+
+    String JING_JIE = "jingJie";
+
+    /** 其他灵物 */
+    String QI_TA_LING_WU = "qiTaLingWu";
+
+    /** 阵法 */
+    String ZHEN_FA = "zhenFa";
+
+    /** 妖兽 */
+    String YAO_SHOU = "yaoShou";
 
 }
