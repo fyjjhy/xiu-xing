@@ -4,7 +4,13 @@ import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.service.FaShuService;
+import com.hbasesoft.xiu.xing.service.GongFaService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
+import com.hbasesoft.xiu.xing.service.KuiLeiService;
+import com.hbasesoft.xiu.xing.service.LingCaiService;
+import com.hbasesoft.xiu.xing.service.LingDanService;
+import com.hbasesoft.xiu.xing.service.LingQiService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
@@ -42,6 +48,24 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private YaoShouService yaoShouService;
 
+    @Resource
+    private LingQiService lingQiService;
+
+    @Resource
+    private LingDanService lingDanService;
+
+    @Resource
+    private LingCaiService lingCaiService;
+
+    @Resource
+    private KuiLeiService kuiLeiService;
+
+    @Resource
+    private GongFaService gongFaService;
+
+    @Resource
+    private FaShuService faShuService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -62,6 +86,24 @@ public class CodeFilter implements ServiceFilter {
             } else if (XiuXingCommonConstant.YAO_SHOU.equals(funcModelCode)) {
                 int yaoShouCount = yaoShouService.getYaoShouCount();
                 request.put(XiuXingCommonConstant.YAO_SHOU_CODE, yaoShouCount + 1);
+            } else if (XiuXingCommonConstant.LING_QI.equals(funcModelCode)) {
+                int lingQiCount = lingQiService.getLingQiCount();
+                request.put(XiuXingCommonConstant.LING_QI_CODE, lingQiCount + 1);
+            } else if (XiuXingCommonConstant.LING_DAN.equals(funcModelCode)) {
+                int lingDanCount = lingDanService.getLingDanCount();
+                request.put(XiuXingCommonConstant.LING_DAN_CODE, lingDanCount + 1);
+            } else if (XiuXingCommonConstant.LING_CAI.equals(funcModelCode)) {
+                int lingCaiCount = lingCaiService.getLingCaiCount();
+                request.put(XiuXingCommonConstant.LING_CAI_CODE, lingCaiCount + 1);
+            } else if (XiuXingCommonConstant.KUI_LEI.equals(funcModelCode)) {
+                int kuiLeiCount = kuiLeiService.getKuiLeiCount();
+                request.put(XiuXingCommonConstant.KUI_LEI_CODE, kuiLeiCount + 1);
+            } else if (XiuXingCommonConstant.GONG_FA.equals(funcModelCode)) {
+                int gongFaCount = gongFaService.getGongFaCount();
+                request.put(XiuXingCommonConstant.GONG_FA_CODE, gongFaCount + 1);
+            } else if (XiuXingCommonConstant.FA_SHU.equals(funcModelCode)) {
+                int faShuCount = faShuService.getFaShuCount();
+                request.put(XiuXingCommonConstant.FA_SHU_CODE, faShuCount + 1);
             }
         }
         return true;

@@ -12,20 +12,8 @@ package com.hbasesoft.xiu.xing.constant;
  */
 public interface XiuXingCommonConstant {
 
-    /** 法术 */
-    String FA_SHU = "法术";
-
     /** 符箓 */
     String FU_LU = "符箓";
-
-    /** 功法 */
-    String GONG_FA = "功法";
-
-    /** 灵材 */
-    String LING_CAI = "灵材";
-
-    /** 灵丹 */
-    String LING_DAN = "灵丹";
 
     /** 法器 */
     String FA_QI = "法器";
@@ -53,9 +41,6 @@ public interface XiuXingCommonConstant {
 
     /** 剑修 */
     String JIAN_XIU = "剑修";
-
-    /** 傀儡 */
-    String KUI_LEI = "傀儡";
 
     /** 其他机构 */
     String QI_TA_JI_GOU = "其他机构";
@@ -431,5 +416,22 @@ public interface XiuXingCommonConstant {
 
     /** 妖兽 */
     String YAO_SHOU = "yaoShou";
+
+    String LING_QI = "lingQi";
+
+    /** 灵丹 */
+    String LING_DAN = "lingDan";
+
+    /** 灵材 */
+    String LING_CAI = "lingCai";
+
+    /** 傀儡 */
+    String KUI_LEI = "kuiLei";
+
+    /** 功法 */
+    String GONG_FA = "gongFa";
+
+    /** 法术 */
+    String FA_SHU = "faShu";
 
 }
