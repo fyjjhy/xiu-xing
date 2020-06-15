@@ -12,9 +12,6 @@ package com.hbasesoft.xiu.xing.constant;
  */
 public interface XiuXingCommonConstant {
 
-    /** 符箓 */
-    String FU_LU = "符箓";
-
     /** 法器 */
     String FA_QI = "法器";
 
@@ -433,5 +430,14 @@ public interface XiuXingCommonConstant {
 
     /** 法术 */
     String FA_SHU = "faShu";
+
+    /** 符箓 */
+    String FU_LU = "fuLu";
+
+    String SHE_DING = "sheDing";
+
+    String SHE_DING_CODE = "sheDingCode";
+
+    String ZONG_MEN = "zongMen";
 
 }

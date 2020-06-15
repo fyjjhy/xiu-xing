@@ -5,6 +5,7 @@ import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.service.FaShuService;
+import com.hbasesoft.xiu.xing.service.FuLuService;
 import com.hbasesoft.xiu.xing.service.GongFaService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
 import com.hbasesoft.xiu.xing.service.KuiLeiService;
@@ -13,8 +14,10 @@ import com.hbasesoft.xiu.xing.service.LingDanService;
 import com.hbasesoft.xiu.xing.service.LingQiService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
+import com.hbasesoft.xiu.xing.service.SheDingService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
 import com.hbasesoft.xiu.xing.service.ZhenFaService;
+import com.hbasesoft.xiu.xing.service.ZongMenService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -66,6 +69,15 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private FaShuService faShuService;
 
+    @Resource
+    private FuLuService fuLuService;
+
+    @Resource
+    private SheDingService sheDingService;
+
+    @Resource
+    private ZongMenService zongMenService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -104,6 +116,15 @@ public class CodeFilter implements ServiceFilter {
             } else if (XiuXingCommonConstant.FA_SHU.equals(funcModelCode)) {
                 int faShuCount = faShuService.getFaShuCount();
                 request.put(XiuXingCommonConstant.FA_SHU_CODE, faShuCount + 1);
+            } else if (XiuXingCommonConstant.FU_LU.equals(funcModelCode)) {
+                int fuLuCount = fuLuService.getFuLuCount();
+                request.put(XiuXingCommonConstant.FU_LU_CODE, fuLuCount + 1);
+            } else if (XiuXingCommonConstant.SHE_DING.equals(funcModelCode)) {
+                int sheDingCount = sheDingService.getSheDingCount();
+                request.put(XiuXingCommonConstant.SHE_DING_CODE, sheDingCount + 1);
+            } else if (XiuXingCommonConstant.ZONG_MEN.equals(funcModelCode)) {
+                int zongMenCount = zongMenService.getZongMenCount();
+                request.put(XiuXingCommonConstant.ZONG_MEN_CODE, zongMenCount + 1);
             }
         }
         return true;
