@@ -4,9 +4,11 @@ import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.service.DiMingService;
 import com.hbasesoft.xiu.xing.service.FaShuService;
 import com.hbasesoft.xiu.xing.service.FuLuService;
 import com.hbasesoft.xiu.xing.service.GongFaService;
+import com.hbasesoft.xiu.xing.service.JiGouService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
 import com.hbasesoft.xiu.xing.service.KuiLeiService;
 import com.hbasesoft.xiu.xing.service.LingCaiService;
@@ -78,6 +80,12 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private ZongMenService zongMenService;
 
+    @Resource
+    private JiGouService jiGouService;
+
+    @Resource
+    private DiMingService diMingService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -125,6 +133,12 @@ public class CodeFilter implements ServiceFilter {
             } else if (XiuXingCommonConstant.ZONG_MEN.equals(funcModelCode)) {
                 int zongMenCount = zongMenService.getZongMenCount();
                 request.put(XiuXingCommonConstant.ZONG_MEN_CODE, zongMenCount + 1);
+            } else if (XiuXingCommonConstant.JI_GOU.equals(funcModelCode)) {
+                int jiGouCount = jiGouService.getJiGouCount();
+                request.put(XiuXingCommonConstant.JI_GOU_CODE, jiGouCount + 1);
+            } else if (XiuXingCommonConstant.DI_MING.equals(funcModelCode)) {
+                int diMingCount = diMingService.getDiMingCount();
+                request.put(XiuXingCommonConstant.DI_MING_CODE, diMingCount + 1);
             }
         }
         return true;

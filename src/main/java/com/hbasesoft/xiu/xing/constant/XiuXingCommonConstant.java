@@ -135,9 +135,6 @@ public interface XiuXingCommonConstant {
     /** 亭台楼阁峰 */
     String TING_TAI_LOU_GE_FENG = "亭台楼阁峰";
 
-    /** 机构 */
-    String JI_GOU = "机构";
-
     String SUCCESS = "SUCCESS";
 
     /** 妖兽代码 */
@@ -439,5 +436,10 @@ public interface XiuXingCommonConstant {
     String SHE_DING_CODE = "sheDingCode";
 
     String ZONG_MEN = "zongMen";
+
+    /** 机构 */
+    String JI_GOU = "jiGou";
+
+    String DI_MING = "diMing";
 
 }

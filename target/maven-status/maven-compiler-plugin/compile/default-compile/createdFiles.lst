@@ -25,6 +25,7 @@ com\hbasesoft\xiu\xing\service\impl\DatasourceServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\LingDanServiceImpl.class
 com\hbasesoft\xiu\xing\service\ProcessService.class
 com\hbasesoft\xiu\xing\service\ZhenFaService.class
+com\hbasesoft\xiu\xing\dao\JiGouDao.class
 com\hbasesoft\xiu\xing\service\QiTaLingWuService.class
 com\hbasesoft\xiu\xing\dao\LingCaiDao.class
 com\hbasesoft\xiu\xing\util\JdbcUtil.class
@@ -35,16 +36,21 @@ com\hbasesoft\xiu\xing\dao\QiTaLingWuDao.class
 com\hbasesoft\xiu\xing\dao\FuncDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilterHandler.class
 com\hbasesoft\xiu\xing\service\impl\RenWuServiceImpl.class
+com\hbasesoft\xiu\xing\service\JiGouService.class
 com\hbasesoft\xiu\xing\component\SqlServiceComponent.class
 com\hbasesoft\xiu\xing\bean\MetaModel.class
+com\hbasesoft\xiu\xing\entity\JiGouEntity.class
+com\hbasesoft\xiu\xing\service\DiMingService.class
 com\hbasesoft\xiu\xing\bean\ServData.class
 com\hbasesoft\xiu\xing\dao\ZhenFaDao.class
 com\hbasesoft\xiu\xing\entity\GongFaEntity.class
+com\hbasesoft\xiu\xing\service\impl\DiMingServiceImpl.class
 com\hbasesoft\xiu\xing\dao\GongFaDao.class
 com\hbasesoft\xiu\xing\bean\Serv.class
 com\hbasesoft\xiu\xing\dao\DictDataDao.class
 com\hbasesoft\xiu\xing\service\ZongMenService.class
 com\hbasesoft\xiu\xing\api\CommonApi.class
+com\hbasesoft\xiu\xing\entity\DiMingEntity.class
 com\hbasesoft\xiu\xing\service\JingJieService.class
 com\hbasesoft\xiu\xing\dao\ConfigItemDao.class
 com\hbasesoft\xiu\xing\entity\MetaModelEntity.class
@@ -83,6 +89,7 @@ com\hbasesoft\xiu\xing\dao\ServDataDao.class
 com\hbasesoft\xiu\xing\service\LingQiService.class
 com\hbasesoft\xiu\xing\api\RenWuApi.class
 com\hbasesoft\xiu\xing\entity\FuncEntity.class
+com\hbasesoft\xiu\xing\dao\DiMingDao.class
 com\hbasesoft\xiu\xing\dao\ServDao.class
 com\hbasesoft\xiu\xing\service\impl\ConfigItemServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\FuLuServiceImpl.class
@@ -138,6 +145,7 @@ com\hbasesoft\xiu\xing\bean\FuncMetaData.class
 com\hbasesoft\xiu\xing\service\impl\DictServiceImpl.class
 com\hbasesoft\xiu\xing\controller\RenWuController.class
 com\hbasesoft\xiu\xing\entity\KuiLeiEntity.class
+com\hbasesoft\xiu\xing\service\impl\JiGouServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\ZongMenServiceImpl.class
 com\hbasesoft\xiu\xing\service\ConfigItemService.class
 com\hbasesoft\xiu\xing\entity\LingDanEntity.class
