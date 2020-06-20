@@ -10,17 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * <Description> ren_wu的Entity<br>
+ * <Description> ren_wu_his的Entity<br>
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
  * @CreateDate 2020-06-20 <br>
  * @since V1.0<br>
- * @see RenWuEntity <br>
+ * @see RenWuHisEntity <br>
  */
 @Entity
-@Table(name = "ren_wu")
-public class RenWuEntity extends BaseEntity {
+@Table(name = "ren_wu_his")
+public class RenWuHisEntity extends BaseEntity {
 
     /**
      * serialVersionUID
@@ -33,6 +33,14 @@ public class RenWuEntity extends BaseEntity {
     @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
+
+    /** ren_wu_his_code */
+    @Column(name = "ren_wu_his_code")
+    private String renWuHisCode;
+
+    /** ren_wu_id */
+    @Column(name = "ren_wu_id")
+    private String renWuId;
 
     /** ren_wu_code */
     @Column(name = "ren_wu_code")
@@ -80,6 +88,22 @@ public class RenWuEntity extends BaseEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getRenWuHisCode() {
+        return this.renWuHisCode;
+    }
+
+    public void setRenWuHisCode(String renWuHisCode) {
+        this.renWuHisCode = renWuHisCode;
+    }
+
+    public String getRenWuId() {
+        return this.renWuId;
+    }
+
+    public void setRenWuId(String renWuId) {
+        this.renWuId = renWuId;
     }
 
     public String getRenWuCode() {

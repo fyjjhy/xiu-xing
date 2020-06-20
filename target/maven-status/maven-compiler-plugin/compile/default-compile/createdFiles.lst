@@ -142,6 +142,7 @@ com\hbasesoft\xiu\xing\bean\ServiceFlowBean.class
 com\hbasesoft\xiu\xing\util\AbstractVo.class
 com\hbasesoft\xiu\xing\entity\LingCaiEntity.class
 com\hbasesoft\xiu\xing\bean\FuncMetaData.class
+com\hbasesoft\xiu\xing\entity\CangKuEntity.class
 com\hbasesoft\xiu\xing\service\impl\DictServiceImpl.class
 com\hbasesoft\xiu\xing\controller\RenWuController.class
 com\hbasesoft\xiu\xing\entity\KuiLeiEntity.class
