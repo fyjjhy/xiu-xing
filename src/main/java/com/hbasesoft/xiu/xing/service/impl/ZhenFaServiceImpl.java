@@ -1,8 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
-import com.hbasesoft.xiu.xing.dao.QiTaLingWuDao;
 import com.hbasesoft.xiu.xing.dao.ZhenFaDao;
-import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
+import com.hbasesoft.xiu.xing.entity.ZhenFaEntity;
 import com.hbasesoft.xiu.xing.service.ZhenFaService;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +26,10 @@ public class ZhenFaServiceImpl implements ZhenFaService {
     @Override
     public int getZhenFaCount() {
         return zhenFaDao.getZhenFaCount();
+    }
+
+    @Override
+    public ZhenFaEntity getZhenFaById(String zhenFaId) {
+        return zhenFaDao.get(ZhenFaEntity.class, zhenFaId);
     }
 }

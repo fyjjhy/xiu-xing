@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.KuiLeiEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface KuiLeiService {
      */
     @Transactional(readOnly = true)
     int getKuiLeiCount();
+
+    /**
+     * Description: 获取傀儡信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param kuiLeiId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    KuiLeiEntity getKuiLeiById(String kuiLeiId);
 
 }

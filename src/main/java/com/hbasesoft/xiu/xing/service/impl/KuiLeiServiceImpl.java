@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.KuiLeiDao;
+import com.hbasesoft.xiu.xing.entity.KuiLeiEntity;
 import com.hbasesoft.xiu.xing.service.KuiLeiService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class KuiLeiServiceImpl implements KuiLeiService {
     @Override
     public int getKuiLeiCount() {
         return kuiLeiDao.getKuiLeiCount();
+    }
+
+    @Override
+    public KuiLeiEntity getKuiLeiById(String kuiLeiId) {
+        return kuiLeiDao.get(KuiLeiEntity.class, kuiLeiId);
     }
 }

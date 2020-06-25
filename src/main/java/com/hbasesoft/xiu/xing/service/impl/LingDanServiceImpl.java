@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.LingDanDao;
+import com.hbasesoft.xiu.xing.entity.LingDanEntity;
 import com.hbasesoft.xiu.xing.service.LingDanService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class LingDanServiceImpl implements LingDanService {
     @Override
     public int getLingDanCount() {
         return lingDanDao.getLingDanCount();
+    }
+
+    @Override
+    public LingDanEntity getLingDanById(String lingDanId) {
+        return lingDanDao.get(LingDanEntity.class, lingDanId);
     }
 }

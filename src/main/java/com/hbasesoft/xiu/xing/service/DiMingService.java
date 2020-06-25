@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.DiMingEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface DiMingService {
      */
     @Transactional(readOnly = true)
     int getDiMingCount();
+
+    /**
+     * Description: 获取地名信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param diMingId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    DiMingEntity getDiMingById(String diMingId);
 
 }

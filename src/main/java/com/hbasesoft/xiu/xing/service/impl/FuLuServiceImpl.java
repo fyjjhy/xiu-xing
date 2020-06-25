@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.FuLuDao;
+import com.hbasesoft.xiu.xing.entity.FuLuEntity;
 import com.hbasesoft.xiu.xing.service.FuLuService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class FuLuServiceImpl implements FuLuService {
     @Override
     public int getFuLuCount() {
         return fuLuDao.getFuLuCount();
+    }
+
+    @Override
+    public FuLuEntity getFuLuById(String fuLuId) {
+        return fuLuDao.get(FuLuEntity.class, fuLuId);
     }
 }

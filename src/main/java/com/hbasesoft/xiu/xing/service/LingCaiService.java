@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.LingCaiEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface LingCaiService {
      */
     @Transactional(readOnly = true)
     int getLingCaiCount();
+
+    /**
+     * Description: 获取灵材信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingCaiId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    LingCaiEntity getLingCaiById(String lingCaiId);
 
 }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-17 <br>
+ * @CreateDate 2020-06-25 <br>
  * @since V1.0<br>
  * @see CangKuEntity <br>
  */
@@ -66,18 +66,6 @@ public class CangKuEntity extends BaseEntity {
     @Column(name = "ling_wu_miao_shu")
     private String lingWuMiaoShu;
 
-    /** suo_shu_fen_lei */
-    @Column(name = "suo_shu_fen_lei")
-    private String suoShuFenLei;
-
-    /** suo_shu_zhe */
-    @Column(name = "suo_shu_zhe")
-    private String suoShuZhe;
-
-    /** suo_shu_id */
-    @Column(name = "suo_shu_id")
-    private String suoShuId;
-
     /** jing_jie_id */
     @Column(name = "jing_jie_id")
     private String jingJieId;
@@ -94,6 +82,22 @@ public class CangKuEntity extends BaseEntity {
     @Column(name = "pin_ji_name")
     private String pinJiName;
 
+    /** suo_shu_fen_lei */
+    @Column(name = "suo_shu_fen_lei")
+    private String suoShuFenLei;
+
+    /** suo_shu_name */
+    @Column(name = "suo_shu_name")
+    private String suoShuName;
+
+    /** suo_shu_id */
+    @Column(name = "suo_shu_id")
+    private String suoShuId;
+
+    /** suo_shu_miao_shu */
+    @Column(name = "suo_shu_miao_shu")
+    private String suoShuMiaoShu;
+
     /** update_time */
     @Column(name = "update_time")
     private java.util.Date updateTime;
@@ -101,6 +105,22 @@ public class CangKuEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** suo_shu_pin_ji_name */
+    @Column(name = "suo_shu_pin_ji_name")
+    private String suoShuPinJiName;
+
+    /** suo_shu_pin_ji_id */
+    @Column(name = "suo_shu_pin_ji_id")
+    private String suoShuPinJiId;
+
+    /** suo_shu_jing_jie_name */
+    @Column(name = "suo_shu_jing_jie_name")
+    private String suoShuJingJieName;
+
+    /** suo_shu_jing_jie_id */
+    @Column(name = "suo_shu_jing_jie_id")
+    private String suoShuJingJieId;
 
     public String getId() {
         return this.id;
@@ -174,30 +194,6 @@ public class CangKuEntity extends BaseEntity {
         this.lingWuMiaoShu = lingWuMiaoShu;
     }
 
-    public String getSuoShuFenLei() {
-        return this.suoShuFenLei;
-    }
-
-    public void setSuoShuFenLei(String suoShuFenLei) {
-        this.suoShuFenLei = suoShuFenLei;
-    }
-
-    public String getSuoShuZhe() {
-        return this.suoShuZhe;
-    }
-
-    public void setSuoShuZhe(String suoShuZhe) {
-        this.suoShuZhe = suoShuZhe;
-    }
-
-    public String getSuoShuId() {
-        return this.suoShuId;
-    }
-
-    public void setSuoShuId(String suoShuId) {
-        this.suoShuId = suoShuId;
-    }
-
     public String getJingJieId() {
         return this.jingJieId;
     }
@@ -230,6 +226,38 @@ public class CangKuEntity extends BaseEntity {
         this.pinJiName = pinJiName;
     }
 
+    public String getSuoShuFenLei() {
+        return this.suoShuFenLei;
+    }
+
+    public void setSuoShuFenLei(String suoShuFenLei) {
+        this.suoShuFenLei = suoShuFenLei;
+    }
+
+    public String getSuoShuName() {
+        return this.suoShuName;
+    }
+
+    public void setSuoShuName(String suoShuName) {
+        this.suoShuName = suoShuName;
+    }
+
+    public String getSuoShuId() {
+        return this.suoShuId;
+    }
+
+    public void setSuoShuId(String suoShuId) {
+        this.suoShuId = suoShuId;
+    }
+
+    public String getSuoShuMiaoShu() {
+        return this.suoShuMiaoShu;
+    }
+
+    public void setSuoShuMiaoShu(String suoShuMiaoShu) {
+        this.suoShuMiaoShu = suoShuMiaoShu;
+    }
+
     public java.util.Date getUpdateTime() {
         return this.updateTime;
     }
@@ -244,6 +272,38 @@ public class CangKuEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public String getSuoShuPinJiName() {
+        return this.suoShuPinJiName;
+    }
+
+    public void setSuoShuPinJiName(String suoShuPinJiName) {
+        this.suoShuPinJiName = suoShuPinJiName;
+    }
+
+    public String getSuoShuPinJiId() {
+        return this.suoShuPinJiId;
+    }
+
+    public void setSuoShuPinJiId(String suoShuPinJiId) {
+        this.suoShuPinJiId = suoShuPinJiId;
+    }
+
+    public String getSuoShuJingJieName() {
+        return this.suoShuJingJieName;
+    }
+
+    public void setSuoShuJingJieName(String suoShuJingJieName) {
+        this.suoShuJingJieName = suoShuJingJieName;
+    }
+
+    public String getSuoShuJingJieId() {
+        return this.suoShuJingJieId;
+    }
+
+    public void setSuoShuJingJieId(String suoShuJingJieId) {
+        this.suoShuJingJieId = suoShuJingJieId;
     }
 
 }

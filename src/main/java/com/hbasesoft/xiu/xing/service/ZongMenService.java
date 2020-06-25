@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.ZongMenEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface ZongMenService {
      */
     @Transactional(readOnly = true)
     int getZongMenCount();
+
+    /**
+     * Description: 获取宗门信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param zongMenId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    ZongMenEntity getZongMenById(String zongMenId);
 
 }

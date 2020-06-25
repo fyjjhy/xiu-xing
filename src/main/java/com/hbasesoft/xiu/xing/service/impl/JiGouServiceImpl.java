@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.JiGouDao;
+import com.hbasesoft.xiu.xing.entity.JiGouEntity;
 import com.hbasesoft.xiu.xing.service.JiGouService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class JiGouServiceImpl implements JiGouService {
     @Override
     public int getJiGouCount() {
         return jiGouDao.getJiGouCount();
+    }
+
+    @Override
+    public JiGouEntity getJiGouById(String jiGouId) {
+        return jiGouDao.get(JiGouEntity.class, jiGouId);
     }
 }

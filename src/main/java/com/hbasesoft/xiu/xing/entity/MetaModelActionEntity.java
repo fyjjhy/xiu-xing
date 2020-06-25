@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-05-29 <br>
+ * @CreateDate 2020-06-25 <br>
  * @since V1.0<br>
  * @see MetaModelActionEntity <br>
  */
@@ -77,10 +77,6 @@ public class MetaModelActionEntity extends BaseEntity {
     /** seq */
     @Column(name = "seq")
     private Integer seq;
-
-    /** column_13 */
-    @Column(name = "column_13")
-    private Integer column13;
 
     public String getId() {
         return this.id;
@@ -176,14 +172,6 @@ public class MetaModelActionEntity extends BaseEntity {
 
     public void setSeq(Integer seq) {
         this.seq = seq;
-    }
-
-    public Integer getColumn13() {
-        return this.column13;
-    }
-
-    public void setColumn13(Integer column13) {
-        this.column13 = column13;
     }
 
 }

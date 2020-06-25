@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.YaoShouEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface YaoShouService {
      */
     @Transactional(readOnly = true)
     int getYaoShouCount();
+
+    /**
+     * Description: 获取妖兽信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param yaoShouId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    YaoShouEntity getYaoShouById(String yaoShouId);
 
 }

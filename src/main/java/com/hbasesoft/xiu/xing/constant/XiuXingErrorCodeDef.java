@@ -24,9 +24,6 @@ public interface XiuXingErrorCodeDef {
     /** 人物不存在 */
     String REN_WU_NAME_IS_EMPTY = "人物名称不存在";
 
-    /** 人物信息不存在 */
-    String REN_WU_INFO_IS_EMPTY = "人物信息不存在";
-
     /** 剑修信息不存在 */
     String JIAN_XIU_INFO_IS_EMPTY = "剑修信息不存在";
 
@@ -60,9 +57,6 @@ public interface XiuXingErrorCodeDef {
     /** 灵物分类不存在 */
     String FEN_LEI_IS_EMPTY = "灵物分类不存在";
 
-    /** 地名信息不存在 */
-    String DI_MING_INFO_IS_EMPTY = "地名信息不存在";
-
     /** 地名标识不存在 */
     String DI_MING_ID_IS_EMPTY = "地名标识不存在";
 
@@ -81,9 +75,6 @@ public interface XiuXingErrorCodeDef {
     /** 灵性信息不存在 */
     String LING_XING_INFO_IS_EMPTY = "灵性信息不存在";
 
-    /** 宗门信息不存在 */
-    String ZONG_MEN_INFO_IS_EMPTY = "宗门信息不存在";
-
     /** 家族弟子不存在 */
     String JIA_ZU_DI_ZI_IS_EMPTY = "家族弟子不存在";
 
@@ -93,53 +84,26 @@ public interface XiuXingErrorCodeDef {
     /** 灵物信息不存在 */
     String LING_WU_INFO_IS_EMPTY = "灵物信息不存在";
 
-    /** 法术信息不存在 */
-    String FA_SHU_INFO_IS_EMPTY = "法术信息不存在";
-
     /** 法术标识不存在 */
     String FA_SHU_ID_IS_EMPTY = "法术标识不存在";
-
-    /** 符箓信息不存在 */
-    String FU_LU_INFO_IS_EMPTY = "符箓信息不存在";
 
     /** 符箓标识不存在 */
     String FU_LU_ID_IS_EMPTY = "符箓标识不存在";
 
-    /** 功法信息不存在 */
-    String GONG_FA_INFO_IS_EMPTY = "功法信息不存在";
-
     /** 功法标识不存在 */
     String GONG_FA_ID_IS_EMPTY = "功法标识不存在";
-
-    /** 灵材信息不存在 */
-    String LING_CAI_INFO_IS_EMPTY = "灵材信息不存在";
-
-    /** 灵丹信息不存在 */
-    String LING_DAN_INFO_IS_EMPTY = "灵丹信息不存在";
 
     /** 灵丹标识不存在 */
     String LING_DAN_ID_IS_EMPTY = "灵丹标识不存在";
 
-    /** 妖兽信息不存在 */
-    String YAO_SHOU_INFO_IS_EMPTY = "妖兽信息不存在";
-
     /** 妖兽标识不存在 */
     String YAO_SHOU_ID_IS_EMPTY = "妖兽标识不存在";
-
-    /** 阵法信息不存在 */
-    String ZHEN_FA_INFO_IS_EMPTY = "阵法信息不存在";
 
     /** 阵法标识不存在 */
     String ZHEN_FA_ID_IS_EMPTY = "阵法标识不存在";
 
-    /** 傀儡信息不存在 */
-    String KUI_LEI_INFO_IS_EMPTY = "傀儡信息不存在";
-
     /** 傀儡标识不存在 */
     String KUI_LEI_ID_IS_EMPTY = "傀儡标识不存在";
-
-    /** 其他灵物信息不存在 */
-    String QI_TA_LING_WU_INFO_IS_EMPTY = "其他灵物信息不存在";
 
     /** 其他灵物标识不存在 */
     String QI_TA_LING_WU_ID_IS_EMPTY = "其他灵物标识不存在";
@@ -158,9 +122,6 @@ public interface XiuXingErrorCodeDef {
 
     /** 散修联盟机构信息不存在 */
     String SAN_XIU_LIAN_MENG_JI_GOU_INFO_IS_EMPTY = "散修联盟机构信息不存在";
-
-    /** 机构信息不存在 */
-    String JI_GOU_INFO_IS_EMPTY = "机构信息不存在";
 
     /** 机构标识不存在 */
     String JI_GOU_ID_IS_EMPTY = "机构标识不存在";
@@ -342,9 +303,6 @@ public interface XiuXingErrorCodeDef {
     /** 灵器标识不存在 */
     String LING_QI_ID_IS_EMPTY = "灵器标识不存在";
 
-    /** 灵器信息不存在 */
-    String LING_QI_INFO_IS_EMPTY = "灵器信息不存在";
-
     /** 灵材标识不存在 */
     String LING_CAI_ID_IS_EMPTY = "灵材标识不存在";
 
@@ -392,5 +350,47 @@ public interface XiuXingErrorCodeDef {
 
     /** 功能不存在 */
     int CANNOT_FOUND_FUNCTION_ID = 20053104;
+
+    /** 宗门信息不存在 */
+    int ZONG_MEN_INFO_IS_EMPTY = 20062501;
+
+    /** 地名信息不存在 */
+    int DI_MING_INFO_IS_EMPTY = 20062502;
+
+    /** 机构信息不存在 */
+    int JI_GOU_INFO_IS_EMPTY = 20062503;
+
+    /** 妖兽信息不存在 */
+    int YAO_SHOU_INFO_IS_EMPTY = 20062504;
+
+    /** 符箓信息不存在 */
+    int FU_LU_INFO_IS_EMPTY = 20062505;
+
+    /** 功法信息不存在 */
+    int GONG_FA_INFO_IS_EMPTY = 20062506;
+
+    /** 法术信息不存在 */
+    int FA_SHU_INFO_IS_EMPTY = 20062507;
+
+    /** 灵器信息不存在 */
+    int LING_QI_INFO_IS_EMPTY = 20062508;
+
+    /** 其他灵物信息不存在 */
+    int QI_TA_LING_WU_INFO_IS_EMPTY = 20062509;
+
+    /** 灵材信息不存在 */
+    int LING_CAI_INFO_IS_EMPTY = 20062510;
+
+    /** 灵丹信息不存在 */
+    int LING_DAN_INFO_IS_EMPTY = 20062511;
+
+    /** 傀儡信息不存在 */
+    int KUI_LEI_INFO_IS_EMPTY = 20062512;
+
+    /** 阵法信息不存在 */
+    int ZHEN_FA_INFO_IS_EMPTY = 20062513;
+
+    /** 人物信息不存在 */
+    int REN_WU_INFO_IS_EMPTY = 20062514;
 
 }

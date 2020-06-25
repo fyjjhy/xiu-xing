@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.LingQiDao;
+import com.hbasesoft.xiu.xing.entity.LingQiEntity;
 import com.hbasesoft.xiu.xing.service.LingQiService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class LingQiServiceImpl implements LingQiService {
     @Override
     public int getLingQiCount() {
         return lingQiDao.getLingQiCount();
+    }
+
+    @Override
+    public LingQiEntity getLingQiById(String lingQiId) {
+        return lingQiDao.get(LingQiEntity.class, lingQiId);
     }
 }

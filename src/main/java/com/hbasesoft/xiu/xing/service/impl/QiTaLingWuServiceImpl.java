@@ -1,8 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
-import com.hbasesoft.xiu.xing.dao.JingJieDao;
 import com.hbasesoft.xiu.xing.dao.QiTaLingWuDao;
-import com.hbasesoft.xiu.xing.service.JingJieService;
+import com.hbasesoft.xiu.xing.entity.QiTaLingWuEntity;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import org.springframework.stereotype.Service;
 
@@ -27,5 +26,10 @@ public class QiTaLingWuServiceImpl implements QiTaLingWuService {
     @Override
     public int getQiTaLingWuCount() {
         return qiTaLingWuDao.getQiTaLingWuCount();
+    }
+
+    @Override
+    public QiTaLingWuEntity getQiTaLingWuById(String qiTaLingWuId) {
+        return qiTaLingWuDao.get(QiTaLingWuEntity.class, qiTaLingWuId);
     }
 }

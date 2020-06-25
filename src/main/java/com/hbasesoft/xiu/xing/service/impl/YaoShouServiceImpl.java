@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.YaoShouDao;
+import com.hbasesoft.xiu.xing.entity.YaoShouEntity;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,11 @@ public class YaoShouServiceImpl implements YaoShouService {
     @Override
     public int getYaoShouCount() {
         return yaoShouDao.getYaoShouCount();
+    }
+
+    @Override
+    public YaoShouEntity getYaoShouById(String yaoShouId) {
+        return yaoShouDao.get(YaoShouEntity.class, yaoShouId);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.GongFaDao;
+import com.hbasesoft.xiu.xing.entity.GongFaEntity;
 import com.hbasesoft.xiu.xing.service.GongFaService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class GongFaServiceImpl implements GongFaService {
     @Override
     public int getGongFaCount() {
         return gongFaDao.getGongFaCount();
+    }
+
+    @Override
+    public GongFaEntity getGongFaById(String gongFaId) {
+        return gongFaDao.get(GongFaEntity.class, gongFaId);
     }
 }

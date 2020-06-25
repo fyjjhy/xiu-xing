@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.FaShuEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface FaShuService {
      */
     @Transactional(readOnly = true)
     int getFaShuCount();
+
+    /**
+     * Description: 获取法术信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param faShuId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    FaShuEntity getFaShuById(String faShuId);
 
 }

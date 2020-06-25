@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.JiGouEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface JiGouService {
      */
     @Transactional(readOnly = true)
     int getJiGouCount();
+
+    /**
+     * Description: 获取机构信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param jiGouId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    JiGouEntity getJiGouById(String jiGouId);
 
 }

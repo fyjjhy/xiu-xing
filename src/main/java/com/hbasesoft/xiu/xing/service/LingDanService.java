@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.LingDanEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface LingDanService {
      */
     @Transactional(readOnly = true)
     int getLingDanCount();
+
+    /**
+     * Description: 获取灵丹信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingDanId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    LingDanEntity getLingDanById(String lingDanId);
 
 }

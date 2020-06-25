@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.GongFaEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface GongFaService {
      */
     @Transactional(readOnly = true)
     int getGongFaCount();
+
+    /**
+     * Description: 获取功法信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param gongFaId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    GongFaEntity getGongFaById(String gongFaId);
 
 }

@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.FaShuDao;
+import com.hbasesoft.xiu.xing.entity.FaShuEntity;
 import com.hbasesoft.xiu.xing.service.FaShuService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class FaShuServiceImpl implements FaShuService {
     @Override
     public int getFaShuCount() {
         return faShuDao.getFaShuCount();
+    }
+
+    @Override
+    public FaShuEntity getFaShuById(String faShuId) {
+        return faShuDao.get(FaShuEntity.class, faShuId);
     }
 }

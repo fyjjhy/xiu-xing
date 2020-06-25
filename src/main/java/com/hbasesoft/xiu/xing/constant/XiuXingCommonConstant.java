@@ -13,7 +13,7 @@ package com.hbasesoft.xiu.xing.constant;
 public interface XiuXingCommonConstant {
 
     /** 法器 */
-    String FA_QI = "法器";
+    String FA_QI = "faQi";
 
     /** 人神妖魔鬼怪 */
     String REN_SHEN_YAO_MO_GUI_GUAI = "人神妖魔鬼怪";
@@ -437,9 +437,34 @@ public interface XiuXingCommonConstant {
 
     String ZONG_MEN = "zongMen";
 
+    /** 家族 */
+    String JIA_ZU = "jiaZu";
+
+    /** 组织 */
+    String ZU_ZHI = "zuZhi";
+
     /** 机构 */
     String JI_GOU = "jiGou";
 
+    /** 地名 */
     String DI_MING = "diMing";
+
+    /** 所属分类 */
+    String SUO_SHU_FEN_LEI = "suoShuFenLei";
+
+    /** 所属标识 */
+    String SUO_SHU_ID = "suoShuId";
+
+    /** 灵物标识 */
+    String LING_WU_ID = "lingWuId";
+
+    /** 所属编码 */
+    String SUO_SHU_CODE = "suoShuCode";
+
+    /** 所属名称 */
+    String SUO_SHU_MIAO_SHU = "suoShuMiaoShu";
+
+    /** 灵物属性 */
+    String LING_WU_SHU_XING = "lingWuShuXing";
 
 }

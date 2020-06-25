@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.ZongMenDao;
+import com.hbasesoft.xiu.xing.entity.ZongMenEntity;
 import com.hbasesoft.xiu.xing.service.ZongMenService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class ZongMenServiceImpl implements ZongMenService {
     @Override
     public int getZongMenCount() {
         return zongMenDao.getZongMenCount();
+    }
+
+    @Override
+    public ZongMenEntity getZongMenById(String zongMenId) {
+        return zongMenDao.get(ZongMenEntity.class, zongMenId);
     }
 }

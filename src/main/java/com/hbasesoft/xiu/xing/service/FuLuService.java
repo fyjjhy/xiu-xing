@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.FuLuEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface FuLuService {
      */
     @Transactional(readOnly = true)
     int getFuLuCount();
+
+    /**
+     * Description: 获取符箓信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param fuLuId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    FuLuEntity getFuLuById(String fuLuId);
 
 }

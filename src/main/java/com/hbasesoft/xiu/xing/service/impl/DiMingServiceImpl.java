@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.DiMingDao;
+import com.hbasesoft.xiu.xing.entity.DiMingEntity;
 import com.hbasesoft.xiu.xing.service.DiMingService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class DiMingServiceImpl implements DiMingService {
     @Override
     public int getDiMingCount() {
         return diMingDao.getDiMingCount();
+    }
+
+    @Override
+    public DiMingEntity getDiMingById(String diMingId) {
+        return diMingDao.get(DiMingEntity.class, diMingId);
     }
 }

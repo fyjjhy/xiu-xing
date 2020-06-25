@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.QiTaLingWuEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface QiTaLingWuService {
      */
     @Transactional(readOnly = true)
     int getQiTaLingWuCount();
+
+    /**
+     * Description: 获取其他灵物信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param qiTaLingWuId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    QiTaLingWuEntity getQiTaLingWuById(String qiTaLingWuId);
 
 }
