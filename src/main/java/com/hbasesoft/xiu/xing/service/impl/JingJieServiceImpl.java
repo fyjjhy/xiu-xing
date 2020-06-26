@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.JingJieDao;
+import com.hbasesoft.xiu.xing.entity.JingJieEntity;
 import com.hbasesoft.xiu.xing.service.JingJieService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class JingJieServiceImpl implements JingJieService {
     @Override
     public int getJingJieCount() {
         return jingJieDao.getJingJieCount();
+    }
+
+    @Override
+    public JingJieEntity getJingJieById(String jingJieId) {
+        return jingJieDao.get(JingJieEntity.class, jingJieId);
     }
 }

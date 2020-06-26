@@ -32,4 +32,9 @@ public class LingCaiServiceImpl implements LingCaiService {
     public LingCaiEntity getLingCaiById(String lingCaiId) {
         return lingCaiDao.get(LingCaiEntity.class, lingCaiId);
     }
+
+    @Override
+    public void updateLingCai(LingCaiEntity lingCaiEntity) {
+        lingCaiDao.updateEntity(lingCaiEntity);
+    }
 }

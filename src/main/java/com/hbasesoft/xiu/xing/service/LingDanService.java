@@ -37,4 +37,15 @@ public interface LingDanService {
     @Transactional(readOnly = true)
     LingDanEntity getLingDanById(String lingDanId);
 
+    /**
+     * Description: 更新灵丹信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingDanEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateLingDan(LingDanEntity lingDanEntity);
+
 }

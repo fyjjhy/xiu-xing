@@ -37,4 +37,15 @@ public interface YaoShouService {
     @Transactional(readOnly = true)
     YaoShouEntity getYaoShouById(String yaoShouId);
 
+    /**
+     * Description: 更新妖兽信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param yaoShouEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateYaoShou(YaoShouEntity yaoShouEntity);
+
 }

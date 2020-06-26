@@ -48,6 +48,7 @@ import java.util.Map;
  * @see com.hbasesoft.xiu.xing.fc <br>
  * @since V1.0 <br>
  */
+@Deprecated
 @Component("LingWuFilter")
 public class LingWuFilter implements ServiceFilter {
 

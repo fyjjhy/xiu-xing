@@ -32,4 +32,9 @@ public class ZhenFaServiceImpl implements ZhenFaService {
     public ZhenFaEntity getZhenFaById(String zhenFaId) {
         return zhenFaDao.get(ZhenFaEntity.class, zhenFaId);
     }
+
+    @Override
+    public void updateZhenFa(ZhenFaEntity entity) {
+        zhenFaDao.updateEntity(entity);
+    }
 }

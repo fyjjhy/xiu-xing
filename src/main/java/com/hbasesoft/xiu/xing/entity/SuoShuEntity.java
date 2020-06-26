@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-25 <br>
+ * @CreateDate 2020-06-26 <br>
  * @since V1.0<br>
  * @see SuoShuEntity <br>
  */
@@ -34,17 +34,25 @@ public class SuoShuEntity extends BaseEntity {
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
 
-    /** suo_shu_fen_lei */
-    @Column(name = "suo_shu_fen_lei")
-    private String suoShuFenLei;
+    /** suo_shu_code */
+    @Column(name = "suo_shu_code")
+    private String suoShuCode;
 
     /** suo_shu_name */
     @Column(name = "suo_shu_name")
     private String suoShuName;
 
-    /** suo_shu_id */
-    @Column(name = "suo_shu_id")
-    private String suoShuId;
+    /** suo_shu_fen_lei */
+    @Column(name = "suo_shu_fen_lei")
+    private String suoShuFenLei;
+
+    /** suo_shu_miao_shu */
+    @Column(name = "suo_shu_miao_shu")
+    private String suoShuMiaoShu;
+
+    /** update_time */
+    @Column(name = "update_time")
+    private java.util.Date updateTime;
 
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
@@ -58,12 +66,12 @@ public class SuoShuEntity extends BaseEntity {
         this.id = id;
     }
 
-    public String getSuoShuFenLei() {
-        return this.suoShuFenLei;
+    public String getSuoShuCode() {
+        return this.suoShuCode;
     }
 
-    public void setSuoShuFenLei(String suoShuFenLei) {
-        this.suoShuFenLei = suoShuFenLei;
+    public void setSuoShuCode(String suoShuCode) {
+        this.suoShuCode = suoShuCode;
     }
 
     public String getSuoShuName() {
@@ -74,12 +82,28 @@ public class SuoShuEntity extends BaseEntity {
         this.suoShuName = suoShuName;
     }
 
-    public String getSuoShuId() {
-        return this.suoShuId;
+    public String getSuoShuFenLei() {
+        return this.suoShuFenLei;
     }
 
-    public void setSuoShuId(String suoShuId) {
-        this.suoShuId = suoShuId;
+    public void setSuoShuFenLei(String suoShuFenLei) {
+        this.suoShuFenLei = suoShuFenLei;
+    }
+
+    public String getSuoShuMiaoShu() {
+        return this.suoShuMiaoShu;
+    }
+
+    public void setSuoShuMiaoShu(String suoShuMiaoShu) {
+        this.suoShuMiaoShu = suoShuMiaoShu;
+    }
+
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(java.util.Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getXiaoShuoId() {

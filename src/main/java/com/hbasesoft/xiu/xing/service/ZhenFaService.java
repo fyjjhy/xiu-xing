@@ -37,4 +37,15 @@ public interface ZhenFaService {
     @Transactional(readOnly = true)
     ZhenFaEntity getZhenFaById(String zhenFaId);
 
+    /**
+     * Description: 保存或修改阵法信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param entity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateZhenFa(ZhenFaEntity entity);
+
 }

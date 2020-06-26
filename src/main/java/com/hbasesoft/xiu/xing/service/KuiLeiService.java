@@ -37,4 +37,15 @@ public interface KuiLeiService {
     @Transactional(readOnly = true)
     KuiLeiEntity getKuiLeiById(String kuiLeiId);
 
+    /**
+     * Description: 更新傀儡信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param kuiLeiEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateKuiLei(KuiLeiEntity kuiLeiEntity);
+
 }

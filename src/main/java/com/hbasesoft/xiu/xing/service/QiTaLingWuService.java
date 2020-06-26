@@ -37,4 +37,15 @@ public interface QiTaLingWuService {
     @Transactional(readOnly = true)
     QiTaLingWuEntity getQiTaLingWuById(String qiTaLingWuId);
 
+    /**
+     * Description: 更新其他灵物信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param qiTaLingWuEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateQiTaLingWu(QiTaLingWuEntity qiTaLingWuEntity);
+
 }

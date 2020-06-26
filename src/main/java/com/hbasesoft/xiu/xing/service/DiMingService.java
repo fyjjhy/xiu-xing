@@ -37,4 +37,15 @@ public interface DiMingService {
     @Transactional(readOnly = true)
     DiMingEntity getDiMingById(String diMingId);
 
+    /**
+     * Description: 更新地名信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param diMingEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateDiMing(DiMingEntity diMingEntity);
+
 }

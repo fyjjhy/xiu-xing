@@ -32,4 +32,9 @@ public class QiTaLingWuServiceImpl implements QiTaLingWuService {
     public QiTaLingWuEntity getQiTaLingWuById(String qiTaLingWuId) {
         return qiTaLingWuDao.get(QiTaLingWuEntity.class, qiTaLingWuId);
     }
+
+    @Override
+    public void updateQiTaLingWu(QiTaLingWuEntity qiTaLingWuEntity) {
+        qiTaLingWuDao.updateEntity(qiTaLingWuEntity);
+    }
 }

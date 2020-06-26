@@ -37,4 +37,15 @@ public interface LingQiService {
     @Transactional(readOnly = true)
     LingQiEntity getLingQiById(String lingQiId);
 
+    /**
+     * Description: 更新灵器信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingQiEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateLingQi(LingQiEntity lingQiEntity);
+
 }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-25 <br>
+ * @CreateDate 2020-06-26 <br>
  * @since V1.0<br>
  * @see LingWuEntity <br>
  */
@@ -34,21 +34,37 @@ public class LingWuEntity extends BaseEntity {
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
 
+    /** ling_wu_code */
+    @Column(name = "ling_wu_code")
+    private String lingWuCode;
+
     /** ling_wu_name */
     @Column(name = "ling_wu_name")
     private String lingWuName;
+
+    /** ling_wu_state */
+    @Column(name = "ling_wu_state")
+    private String lingWuState;
 
     /** ling_wu_fen_lei */
     @Column(name = "ling_wu_fen_lei")
     private String lingWuFenLei;
 
-    /** ling_wu_id */
-    @Column(name = "ling_wu_id")
-    private String lingWuId;
+    /** update_time */
+    @Column(name = "update_time")
+    private java.util.Date updateTime;
 
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** ling_wu_miao_shu */
+    @Column(name = "ling_wu_miao_shu")
+    private String lingWuMiaoShu;
+
+    /** ling_wu_shu_xing */
+    @Column(name = "ling_wu_shu_xing")
+    private String lingWuShuXing;
 
     public String getId() {
         return this.id;
@@ -56,6 +72,14 @@ public class LingWuEntity extends BaseEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getLingWuCode() {
+        return this.lingWuCode;
+    }
+
+    public void setLingWuCode(String lingWuCode) {
+        this.lingWuCode = lingWuCode;
     }
 
     public String getLingWuName() {
@@ -66,6 +90,14 @@ public class LingWuEntity extends BaseEntity {
         this.lingWuName = lingWuName;
     }
 
+    public String getLingWuState() {
+        return this.lingWuState;
+    }
+
+    public void setLingWuState(String lingWuState) {
+        this.lingWuState = lingWuState;
+    }
+
     public String getLingWuFenLei() {
         return this.lingWuFenLei;
     }
@@ -74,12 +106,12 @@ public class LingWuEntity extends BaseEntity {
         this.lingWuFenLei = lingWuFenLei;
     }
 
-    public String getLingWuId() {
-        return this.lingWuId;
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
     }
 
-    public void setLingWuId(String lingWuId) {
-        this.lingWuId = lingWuId;
+    public void setUpdateTime(java.util.Date updateTime) {
+        this.updateTime = updateTime;
     }
 
     public String getXiaoShuoId() {
@@ -88,6 +120,22 @@ public class LingWuEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public String getLingWuMiaoShu() {
+        return this.lingWuMiaoShu;
+    }
+
+    public void setLingWuMiaoShu(String lingWuMiaoShu) {
+        this.lingWuMiaoShu = lingWuMiaoShu;
+    }
+
+    public String getLingWuShuXing() {
+        return this.lingWuShuXing;
+    }
+
+    public void setLingWuShuXing(String lingWuShuXing) {
+        this.lingWuShuXing = lingWuShuXing;
     }
 
 }

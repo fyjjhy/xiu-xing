@@ -37,4 +37,15 @@ public interface FuLuService {
     @Transactional(readOnly = true)
     FuLuEntity getFuLuById(String fuLuId);
 
+    /**
+     * Description: 更新符箓信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param fuLuEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateFuLu(FuLuEntity fuLuEntity);
+
 }

@@ -81,9 +81,6 @@ public interface XiuXingErrorCodeDef {
     /** 家族机构不存在 */
     String JIA_ZU_JI_GOU_INFO_IS_EMPTY = "家族机构不存在";
 
-    /** 灵物信息不存在 */
-    String LING_WU_INFO_IS_EMPTY = "灵物信息不存在";
-
     /** 法术标识不存在 */
     String FA_SHU_ID_IS_EMPTY = "法术标识不存在";
 
@@ -392,5 +389,11 @@ public interface XiuXingErrorCodeDef {
 
     /** 人物信息不存在 */
     int REN_WU_INFO_IS_EMPTY = 20062514;
+
+    /** 灵物信息不存在 */
+    int LING_WU_INFO_IS_EMPTY = 20060601;
+
+    /** 所属信息不存在 */
+    int SUO_SHU_INFO_IS_EMPTY = 20062602;
 
 }

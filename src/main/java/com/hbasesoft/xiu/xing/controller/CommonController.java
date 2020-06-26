@@ -68,6 +68,7 @@ public class CommonController implements CommonApi {
     }
 
     @Override
+    @Transactional(rollbackFor = Throwable.class, propagation = Propagation.REQUIRED)
     public <T> T add(@PathVariable("category") String category, @PathVariable("servCode") String servCode,
                      @RequestBody Map<String, Object> data) {
         String resId = (String) perform(category, servCode, ServiceFlowBean.ACTION_ADD, data, null);

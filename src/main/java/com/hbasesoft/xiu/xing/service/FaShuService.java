@@ -37,4 +37,15 @@ public interface FaShuService {
     @Transactional(readOnly = true)
     FaShuEntity getFaShuById(String faShuId);
 
+    /**
+     * Description: 更新法术信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param faShuEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateFaShu(FaShuEntity faShuEntity);
+
 }

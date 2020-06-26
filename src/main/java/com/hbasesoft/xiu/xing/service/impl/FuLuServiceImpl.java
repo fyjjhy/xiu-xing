@@ -32,4 +32,9 @@ public class FuLuServiceImpl implements FuLuService {
     public FuLuEntity getFuLuById(String fuLuId) {
         return fuLuDao.get(FuLuEntity.class, fuLuId);
     }
+
+    @Override
+    public void updateFuLu(FuLuEntity fuLuEntity) {
+        fuLuDao.updateEntity(fuLuEntity);
+    }
 }

@@ -14,9 +14,11 @@ import com.hbasesoft.xiu.xing.service.KuiLeiService;
 import com.hbasesoft.xiu.xing.service.LingCaiService;
 import com.hbasesoft.xiu.xing.service.LingDanService;
 import com.hbasesoft.xiu.xing.service.LingQiService;
+import com.hbasesoft.xiu.xing.service.LingWuService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.SheDingService;
+import com.hbasesoft.xiu.xing.service.SuoShuService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
 import com.hbasesoft.xiu.xing.service.ZhenFaService;
 import com.hbasesoft.xiu.xing.service.ZongMenService;
@@ -86,6 +88,12 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private DiMingService diMingService;
 
+    @Resource
+    private SuoShuService suoShuService;
+
+    @Resource
+    private LingWuService lingWuService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -139,6 +147,12 @@ public class CodeFilter implements ServiceFilter {
             } else if (XiuXingCommonConstant.DI_MING.equals(funcModelCode)) {
                 int diMingCount = diMingService.getDiMingCount();
                 request.put(XiuXingCommonConstant.DI_MING_CODE, diMingCount + 1);
+            } else if (XiuXingCommonConstant.LING_WU.equals(funcModelCode)) {
+                int lingWuCount = lingWuService.getLingWuCount();
+                request.put(XiuXingCommonConstant.LING_WU_CODE, lingWuCount + 1);
+            } else if (XiuXingCommonConstant.SUO_SHU.equals(funcModelCode)) {
+                int suoShuCount = suoShuService.getSuoShuCount();
+                request.put(XiuXingCommonConstant.SUO_SHU_CODE, suoShuCount + 1);
             }
         }
         return true;

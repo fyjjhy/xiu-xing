@@ -37,4 +37,15 @@ public interface JiGouService {
     @Transactional(readOnly = true)
     JiGouEntity getJiGouById(String jiGouId);
 
+    /**
+     * Description: 更新机构信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param jiGouEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateJiGou(JiGouEntity jiGouEntity);
+
 }

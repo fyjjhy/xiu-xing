@@ -37,4 +37,15 @@ public interface LingCaiService {
     @Transactional(readOnly = true)
     LingCaiEntity getLingCaiById(String lingCaiId);
 
+    /**
+     * Description: 更新灵材信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingCaiEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateLingCai(LingCaiEntity lingCaiEntity);
+
 }

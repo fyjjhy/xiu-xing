@@ -32,4 +32,9 @@ public class JiGouServiceImpl implements JiGouService {
     public JiGouEntity getJiGouById(String jiGouId) {
         return jiGouDao.get(JiGouEntity.class, jiGouId);
     }
+
+    @Override
+    public void updateJiGou(JiGouEntity jiGouEntity) {
+        jiGouDao.updateEntity(jiGouEntity);
+    }
 }

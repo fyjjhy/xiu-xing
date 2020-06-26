@@ -32,4 +32,9 @@ public class KuiLeiServiceImpl implements KuiLeiService {
     public KuiLeiEntity getKuiLeiById(String kuiLeiId) {
         return kuiLeiDao.get(KuiLeiEntity.class, kuiLeiId);
     }
+
+    @Override
+    public void updateKuiLei(KuiLeiEntity kuiLeiEntity) {
+        kuiLeiDao.updateEntity(kuiLeiEntity);
+    }
 }

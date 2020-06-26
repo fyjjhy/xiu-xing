@@ -37,4 +37,15 @@ public interface GongFaService {
     @Transactional(readOnly = true)
     GongFaEntity getGongFaById(String gongFaId);
 
+    /**
+     * Description: 获取功法信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param gongFaEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateGongFa(GongFaEntity gongFaEntity);
+
 }

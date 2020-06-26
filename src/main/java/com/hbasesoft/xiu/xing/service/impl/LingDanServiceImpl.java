@@ -32,4 +32,9 @@ public class LingDanServiceImpl implements LingDanService {
     public LingDanEntity getLingDanById(String lingDanId) {
         return lingDanDao.get(LingDanEntity.class, lingDanId);
     }
+
+    @Override
+    public void updateLingDan(LingDanEntity lingDanEntity) {
+        lingDanDao.updateEntity(lingDanEntity);
+    }
 }

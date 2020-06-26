@@ -32,4 +32,9 @@ public class DiMingServiceImpl implements DiMingService {
     public DiMingEntity getDiMingById(String diMingId) {
         return diMingDao.get(DiMingEntity.class, diMingId);
     }
+
+    @Override
+    public void updateDiMing(DiMingEntity diMingEntity) {
+        diMingDao.updateEntity(diMingEntity);
+    }
 }

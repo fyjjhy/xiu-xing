@@ -33,4 +33,9 @@ public class YaoShouServiceImpl implements YaoShouService {
         return yaoShouDao.get(YaoShouEntity.class, yaoShouId);
     }
 
+    @Override
+    public void updateYaoShou(YaoShouEntity yaoShouEntity) {
+        yaoShouDao.updateEntity(yaoShouEntity);
+    }
+
 }

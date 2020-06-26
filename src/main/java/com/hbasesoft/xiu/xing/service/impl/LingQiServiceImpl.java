@@ -32,4 +32,9 @@ public class LingQiServiceImpl implements LingQiService {
     public LingQiEntity getLingQiById(String lingQiId) {
         return lingQiDao.get(LingQiEntity.class, lingQiId);
     }
+
+    @Override
+    public void updateLingQi(LingQiEntity lingQiEntity) {
+        lingQiDao.updateEntity(lingQiEntity);
+    }
 }

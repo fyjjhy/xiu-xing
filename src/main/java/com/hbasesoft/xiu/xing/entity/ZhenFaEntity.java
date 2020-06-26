@@ -114,4 +114,6 @@ public class ZhenFaEntity extends BaseEntity {
         this.xiaoShuoId = xiaoShuoId;
     }
 
+
+
 }

@@ -106,7 +106,10 @@ public interface XiuXingCommonConstant {
     String DI_ZI = "弟子";
 
     /** 灵物 */
-    String LING_WU = "灵物";
+    String LING_WU = "lingWu";
+
+    /** 所属 */
+    String SUO_SHU = "suoShu";
 
     /** 未查询到任何信息 */
     String NO_DATA = "未查询到任何信息";
@@ -466,5 +469,13 @@ public interface XiuXingCommonConstant {
 
     /** 灵物属性 */
     String LING_WU_SHU_XING = "lingWuShuXing";
+
+    String JING_JIE_ID = "jingJieId";
+
+    String PIN_JI_ID = "pinJiId";
+
+    String SUO_SHU_JING_JIE_ID = "suoShuJingJieId";
+
+    String SUO_SHU_PIN_JI_ID = "suoShuPinJiId";
 
 }

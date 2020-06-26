@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.JingJieEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface JingJieService {
      */
     @Transactional(readOnly = true)
     int getJingJieCount();
+
+    /**
+     * Description: 获取境界信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param jingJieId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    JingJieEntity getJingJieById(String jingJieId);
 
 }

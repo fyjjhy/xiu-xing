@@ -32,4 +32,9 @@ public class FaShuServiceImpl implements FaShuService {
     public FaShuEntity getFaShuById(String faShuId) {
         return faShuDao.get(FaShuEntity.class, faShuId);
     }
+
+    @Override
+    public void updateFaShu(FaShuEntity faShuEntity) {
+        faShuDao.updateEntity(faShuEntity);
+    }
 }

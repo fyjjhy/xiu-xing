@@ -32,4 +32,9 @@ public class ZongMenServiceImpl implements ZongMenService {
     public ZongMenEntity getZongMenById(String zongMenId) {
         return zongMenDao.get(ZongMenEntity.class, zongMenId);
     }
+
+    @Override
+    public void updateZongMen(ZongMenEntity zongMenEntity) {
+        zongMenDao.updateEntity(zongMenEntity);
+    }
 }

@@ -67,4 +67,9 @@ public class RenWuServiceImpl implements RenWuService {
     public void saveRenWuHis(RenWuHisEntity hisEntity) {
         renWuDao.save(hisEntity);
     }
+
+    @Override
+    public void updateRenWu(RenWuEntity renWuEntity) {
+        renWuDao.updateEntity(renWuEntity);
+    }
 }

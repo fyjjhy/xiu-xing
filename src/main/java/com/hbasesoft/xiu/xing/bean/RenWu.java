@@ -62,10 +62,7 @@ public class RenWu extends AbstractVo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RenWu renWu = (RenWu) o;
-        return Objects.equals(renWuCode, renWu.renWuCode) &&
-                Objects.equals(renWuName, renWu.renWuName) &&
-                Objects.equals(renWuFenLei, renWu.renWuFenLei) &&
-                Objects.equals(renWuState, renWu.renWuState) &&
+        return Objects.equals(renWuName, renWu.renWuName) &&
                 Objects.equals(renWuShuXing, renWu.renWuShuXing) &&
                 Objects.equals(renWuMiaoShu, renWu.renWuMiaoShu) &&
                 Objects.equals(xiaoShuoId, renWu.xiaoShuoId);
@@ -74,6 +71,6 @@ public class RenWu extends AbstractVo {
     @Override
     public int hashCode() {
 
-        return Objects.hash(renWuCode, renWuName, renWuFenLei, renWuState, renWuShuXing, renWuMiaoShu, xiaoShuoId);
+        return Objects.hash(renWuName, renWuShuXing, renWuMiaoShu, xiaoShuoId);
     }
 }

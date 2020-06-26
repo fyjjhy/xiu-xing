@@ -32,4 +32,9 @@ public class GongFaServiceImpl implements GongFaService {
     public GongFaEntity getGongFaById(String gongFaId) {
         return gongFaDao.get(GongFaEntity.class, gongFaId);
     }
+
+    @Override
+    public void updateGongFa(GongFaEntity gongFaEntity) {
+        gongFaDao.updateEntity(gongFaEntity);
+    }
 }

@@ -75,4 +75,15 @@ public interface RenWuService {
     @Transactional(rollbackFor = Throwable.class)
     void saveRenWuHis(RenWuHisEntity hisEntity);
 
+    /**
+     * Description: 更新人物信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param renWuEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateRenWu(RenWuEntity renWuEntity);
+
 }

@@ -37,4 +37,15 @@ public interface ZongMenService {
     @Transactional(readOnly = true)
     ZongMenEntity getZongMenById(String zongMenId);
 
+    /**
+     * Description: 更新宗门信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param zongMenEntity
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    void updateZongMen(ZongMenEntity zongMenEntity);
+
 }

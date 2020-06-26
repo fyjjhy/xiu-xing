@@ -1,6 +1,7 @@
 com\hbasesoft\xiu\xing\component\CheckServiceTypeComponent.class
 com\hbasesoft\xiu\xing\dao\LingDanDao.class
 com\hbasesoft\xiu\xing\service\impl\ZhenFaServiceImpl.class
+com\hbasesoft\xiu\xing\service\impl\SuoShuServiceImpl.class
 com\hbasesoft\xiu\xing\service\GongFaService.class
 com\hbasesoft\xiu\xing\service\DictDataService.class
 com\hbasesoft\xiu\xing\dao\RenWuDao.class
@@ -50,6 +51,7 @@ com\hbasesoft\xiu\xing\dao\GongFaDao.class
 com\hbasesoft\xiu\xing\bean\Serv.class
 com\hbasesoft\xiu\xing\dao\DictDataDao.class
 com\hbasesoft\xiu\xing\service\ZongMenService.class
+com\hbasesoft\xiu\xing\dao\PinJiDao.class
 com\hbasesoft\xiu\xing\api\CommonApi.class
 com\hbasesoft\xiu\xing\entity\PinJiEntity.class
 com\hbasesoft\xiu\xing\entity\DiMingEntity.class
@@ -57,6 +59,7 @@ com\hbasesoft\xiu\xing\service\JingJieService.class
 com\hbasesoft\xiu\xing\dao\ConfigItemDao.class
 com\hbasesoft\xiu\xing\entity\MetaModelEntity.class
 com\hbasesoft\xiu\xing\service\MetaModelColumnService.class
+com\hbasesoft\xiu\xing\dao\SuoShuDao.class
 com\hbasesoft\xiu\xing\service\MetaModelActionService.class
 com\hbasesoft\xiu\xing\component\ServiceFilterComponent.class
 com\hbasesoft\xiu\xing\constant\XiuXingErrorCodeDef.class
@@ -119,7 +122,6 @@ com\hbasesoft\xiu\xing\fc\SuoShuFilter.class
 com\hbasesoft\xiu\xing\entity\ServDataEntity.class
 com\hbasesoft\xiu\xing\service\impl\JingJieServiceImpl.class
 com\hbasesoft\xiu\xing\fc\CodeFilter.class
-com\hbasesoft\xiu\xing\fc\CangKuAddFilter.class
 com\hbasesoft\xiu\xing\service\FuncService.class
 com\hbasesoft\xiu\xing\service\DatasourceService.class
 com\hbasesoft\xiu\xing\service\impl\LingCaiServiceImpl.class
@@ -130,6 +132,7 @@ com\hbasesoft\xiu\xing\service\impl\ServServiceImpl.class
 com\hbasesoft\xiu\xing\bean\ConfigItem.class
 com\hbasesoft\xiu\xing\bean\DictData.class
 com\hbasesoft\xiu\xing\service\ServFilterService.class
+com\hbasesoft\xiu\xing\fc\CangKuAddUpdateFilter.class
 com\hbasesoft\xiu\xing\dao\LingQiDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilter.class
 com\hbasesoft\xiu\xing\dao\ServiceFilterDao.class
@@ -138,11 +141,13 @@ com\hbasesoft\xiu\xing\fc\RenWuQueryFilter.class
 com\hbasesoft\xiu\xing\fc\LingWuFilter.class
 com\hbasesoft\xiu\xing\entity\MetaModelColumnEntity.class
 com\hbasesoft\xiu\xing\entity\RenWuHisEntity.class
+com\hbasesoft\xiu\xing\service\SuoShuService.class
 com\hbasesoft\xiu\xing\entity\ZongMenEntity.class
 com\hbasesoft\xiu\xing\entity\DictEntity.class
 com\hbasesoft\xiu\xing\entity\FaShuEntity.class
 com\hbasesoft\xiu\xing\entity\MetaModelActionEntity.class
 com\hbasesoft\xiu\xing\service\FuLuService.class
+com\hbasesoft\xiu\xing\service\PinJiService.class
 com\hbasesoft\xiu\xing\dao\DictDao.class
 com\hbasesoft\xiu\xing\service\RenWuService.class
 com\hbasesoft\xiu\xing\service\SheDingService.class
@@ -155,6 +160,7 @@ com\hbasesoft\xiu\xing\entity\LingCaiEntity.class
 com\hbasesoft\xiu\xing\bean\FuncMetaData.class
 com\hbasesoft\xiu\xing\entity\CangKuEntity.class
 com\hbasesoft\xiu\xing\service\impl\DictServiceImpl.class
+com\hbasesoft\xiu\xing\service\impl\PinJiServiceImpl.class
 com\hbasesoft\xiu\xing\controller\RenWuController.class
 com\hbasesoft\xiu\xing\entity\KuiLeiEntity.class
 com\hbasesoft\xiu\xing\service\impl\JiGouServiceImpl.class
