@@ -288,9 +288,6 @@ public interface XiuXingErrorCodeDef {
     /** 修行日志信息不存在 */
     String XIU_XING_RI_ZHI_INFO_IS_EMPTY = "修行日志信息不存在";
 
-    /** 仓库标识不存在 */
-    String CANG_KU_ID_IS_EMPTY = "仓库标识不存在";
-
     /** 修行日志标识不存在 */
     String XIU_XING_RI_ZHI_ID_IS_EMPTY = "修行日志标识不存在";
 
@@ -395,5 +392,8 @@ public interface XiuXingErrorCodeDef {
 
     /** 所属信息不存在 */
     int SUO_SHU_INFO_IS_EMPTY = 20062602;
+
+    /** 仓库标识不存在 */
+    int CANG_KU_ID_IS_EMPTY = 20062701;
 
 }

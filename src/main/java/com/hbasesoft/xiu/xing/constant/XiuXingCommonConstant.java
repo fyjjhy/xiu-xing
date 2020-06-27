@@ -314,14 +314,8 @@ public interface XiuXingCommonConstant {
     /** 境界代码 */
     String JING_JIE_CODE = "code";
 
-    /** 境界名称 */
-    String JING_JIE_NAME = "name";
-
     /** 境界描述 */
     String JING_JIE_MIAO_SHU = "miaoShu";
-
-    /** 品级名称 */
-    String PIN_JI_NAME = "name";
 
     /** 品级描述 */
     String PIN_JI_MIAO_SHU = "miaoShu";
@@ -477,5 +471,23 @@ public interface XiuXingCommonConstant {
     String SUO_SHU_JING_JIE_ID = "suoShuJingJieId";
 
     String SUO_SHU_PIN_JI_ID = "suoShuPinJiId";
+
+    String PIN_JI_NAME = "pinJiName";
+
+    String JING_JIE_NAME = "jingJieName";
+
+    String DAN_WEI = "danWei";
+
+    String LING_WU_SHU_LIANG = "lingWuShuLiang";
+
+    String SUO_SHU_NAME = "suoShuName";
+
+    String SUO_SHU_JING_JIE_NAME = "suoShuJingJieName";
+
+    String SUO_SHU_PIN_JI_NAME = "suoShuPinJiName";
+
+    String XIU_XING_RI_ZHI = "xiuXingRiZhi";
+
+    String XIU_XING_CODE = "xiuXingCode";
 
 }

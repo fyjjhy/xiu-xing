@@ -1,9 +1,11 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.hbasesoft.framework.common.utils.Assert;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
 import com.hbasesoft.xiu.xing.service.DiMingService;
 import com.hbasesoft.xiu.xing.service.FaShuService;
 import com.hbasesoft.xiu.xing.service.FuLuService;
@@ -19,6 +21,7 @@ import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.SheDingService;
 import com.hbasesoft.xiu.xing.service.SuoShuService;
+import com.hbasesoft.xiu.xing.service.XiuXingRiZhiService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
 import com.hbasesoft.xiu.xing.service.ZhenFaService;
 import com.hbasesoft.xiu.xing.service.ZongMenService;
@@ -94,6 +97,9 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private LingWuService lingWuService;
 
+    @Resource
+    private XiuXingRiZhiService xiuXingRiZhiService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -153,6 +159,13 @@ public class CodeFilter implements ServiceFilter {
             } else if (XiuXingCommonConstant.SUO_SHU.equals(funcModelCode)) {
                 int suoShuCount = suoShuService.getSuoShuCount();
                 request.put(XiuXingCommonConstant.SUO_SHU_CODE, suoShuCount + 1);
+            } else if (XiuXingCommonConstant.XIU_XING_RI_ZHI.equals(funcModelCode)) {
+                int xiuXingRiZhiCount = xiuXingRiZhiService.getXiuXingRiZhiCount(null);
+                request.put(XiuXingCommonConstant.XIU_XING_CODE, xiuXingRiZhiCount + 1);
+                String cangKuId = (String) request.get(XiuXingCommonConstant.CANG_KU_ID);
+                Assert.notEmpty(cangKuId, XiuXingErrorCodeDef.CANG_KU_ID_IS_EMPTY);
+                int riZhiCode = xiuXingRiZhiService.getXiuXingRiZhiCount(cangKuId);
+                request.put(XiuXingCommonConstant.RI_ZHI_CODE, riZhiCode + 1);
             }
         }
         return true;
