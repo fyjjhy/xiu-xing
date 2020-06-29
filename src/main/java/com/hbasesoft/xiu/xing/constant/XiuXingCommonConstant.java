@@ -490,4 +490,8 @@ public interface XiuXingCommonConstant {
 
     String XIU_XING_CODE = "xiuXingCode";
 
+    String ADDERSS = "address";
+
+    String ADDR_CODE = "addrCode";
+
 }

@@ -6,6 +6,7 @@ import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
+import com.hbasesoft.xiu.xing.service.AddressService;
 import com.hbasesoft.xiu.xing.service.DiMingService;
 import com.hbasesoft.xiu.xing.service.FaShuService;
 import com.hbasesoft.xiu.xing.service.FuLuService;
@@ -100,6 +101,9 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private XiuXingRiZhiService xiuXingRiZhiService;
 
+    @Resource
+    private AddressService addressService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -166,6 +170,9 @@ public class CodeFilter implements ServiceFilter {
                 Assert.notEmpty(cangKuId, XiuXingErrorCodeDef.CANG_KU_ID_IS_EMPTY);
                 int riZhiCode = xiuXingRiZhiService.getXiuXingRiZhiCount(cangKuId);
                 request.put(XiuXingCommonConstant.RI_ZHI_CODE, riZhiCode + 1);
+            } else if (XiuXingCommonConstant.ADDERSS.equals(funcModelCode)) {
+                int addressCount = addressService.getAddressCount();
+                request.put(XiuXingCommonConstant.ADDR_CODE, addressCount + 1);
             }
         }
         return true;
