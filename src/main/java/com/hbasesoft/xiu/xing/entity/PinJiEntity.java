@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-23 <br>
+ * @CreateDate 2020-07-18 <br>
  * @since V1.0<br>
  * @see PinJiEntity <br>
  */
@@ -34,17 +34,17 @@ public class PinJiEntity extends BaseEntity {
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
 
-    /** name */
-    @Column(name = "name")
-    private String name;
+    /** pin_ji_code */
+    @Column(name = "pin_ji_code")
+    private String pinJiCode;
 
-    /** pin_ji_fen_lei */
-    @Column(name = "pin_ji_fen_lei")
-    private String pinJiFenLei;
+    /** pin_ji_name */
+    @Column(name = "pin_ji_name")
+    private String pinJiName;
 
-    /** miao_shu */
-    @Column(name = "miao_shu")
-    private String miaoShu;
+    /** pin_ji_miao_shu */
+    @Column(name = "pin_ji_miao_shu")
+    private String pinJiMiaoShu;
 
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
@@ -58,28 +58,28 @@ public class PinJiEntity extends BaseEntity {
         this.id = id;
     }
 
-    public String getName() {
-        return this.name;
+    public String getPinJiCode() {
+        return this.pinJiCode;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPinJiCode(String pinJiCode) {
+        this.pinJiCode = pinJiCode;
     }
 
-    public String getPinJiFenLei() {
-        return this.pinJiFenLei;
+    public String getPinJiName() {
+        return this.pinJiName;
     }
 
-    public void setPinJiFenLei(String pinJiFenLei) {
-        this.pinJiFenLei = pinJiFenLei;
+    public void setPinJiName(String pinJiName) {
+        this.pinJiName = pinJiName;
     }
 
-    public String getMiaoShu() {
-        return this.miaoShu;
+    public String getPinJiMiaoShu() {
+        return this.pinJiMiaoShu;
     }
 
-    public void setMiaoShu(String miaoShu) {
-        this.miaoShu = miaoShu;
+    public void setPinJiMiaoShu(String pinJiMiaoShu) {
+        this.pinJiMiaoShu = pinJiMiaoShu;
     }
 
     public String getXiaoShuoId() {

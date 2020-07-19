@@ -59,7 +59,7 @@ public class MetaModelAction extends AbstractVo {
 
     private String category;
 
-    private String seq;
+    private Integer seq;
 
     private String displayType;
 

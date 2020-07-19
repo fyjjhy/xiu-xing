@@ -10,14 +10,14 @@ import com.hbasesoft.framework.db.hibernate.IGenericBaseDao;
  * @author 付永杰<br>
  * @version 1.0<br>
  * @taskId <br>
- * @CreateDate 2020年06月26日 <br>
+ * @CreateDate 2020年07月05日 <br>
  * @see com.hbasesoft.xiu.xing.dao <br>
  * @since V1.0 <br>
  */
 @Dao
-public interface PinJiDao extends IGenericBaseDao {
+public interface FenLeiDao extends IGenericBaseDao {
 
-    @Sql("SELECT COUNT(1) FROM pin_ji")
-    int getPinJiCount();
+    @Sql("select count(1) from fen_lei")
+    int getFenLeiDao();
 
 }

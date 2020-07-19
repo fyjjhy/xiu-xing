@@ -312,7 +312,7 @@ public interface XiuXingCommonConstant {
     String BAI_JIA_XING_NAME = "name";
 
     /** 境界代码 */
-    String JING_JIE_CODE = "code";
+    String JING_JIE_CODE = "jingJieCode";
 
     /** 境界描述 */
     String JING_JIE_MIAO_SHU = "miaoShu";
@@ -324,7 +324,7 @@ public interface XiuXingCommonConstant {
     String CANG_KU_LING_WU_SHU_XING = "lingWuShuXing";
 
     /** 仓库灵物状态 */
-    String CANG_KU_LING_WU_STATE = "lingWuState";
+    String CANG_KU_LING_WU_STATE = "lingWuStateName";
 
     /** 仓库灵物 */
     String CANG_KU_LING_WU = "lingWu";
@@ -493,5 +493,17 @@ public interface XiuXingCommonConstant {
     String ADDERSS = "address";
 
     String ADDR_CODE = "addrCode";
+
+    String FEN_LEI = "fenLei";
+
+    String FEN_LEI_CODE = "fenLeiCode";
+
+    String PIN_JI = "pinJi";
+
+    String PIN_JI_CODE = "pinJiCode";
+
+    String ID = "id";
+
+    String ADDR_ID = "addrId";
 
 }

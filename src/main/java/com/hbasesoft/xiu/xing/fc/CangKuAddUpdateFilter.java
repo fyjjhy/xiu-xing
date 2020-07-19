@@ -8,9 +8,11 @@ import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
 import com.hbasesoft.xiu.xing.entity.JingJieEntity;
 import com.hbasesoft.xiu.xing.entity.LingWuEntity;
+import com.hbasesoft.xiu.xing.entity.LingWuHisEntity;
 import com.hbasesoft.xiu.xing.entity.PinJiEntity;
 import com.hbasesoft.xiu.xing.entity.SuoShuEntity;
 import com.hbasesoft.xiu.xing.service.JingJieService;
+import com.hbasesoft.xiu.xing.service.LingWuHisService;
 import com.hbasesoft.xiu.xing.service.LingWuService;
 import com.hbasesoft.xiu.xing.service.PinJiService;
 import com.hbasesoft.xiu.xing.service.SuoShuService;
@@ -39,6 +41,9 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
     private LingWuService lingWuService;
 
     @Resource
+    private LingWuHisService lingWuHisService;
+
+    @Resource
     private SuoShuService suoShuService;
 
     @Resource
@@ -54,40 +59,35 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
             String lingWuId = (String) cangKuRequest.get("lingWuId");
             String lingWuFenLei = (String) cangKuRequest.get("lingWuFenLei");
             String lingWuName = (String) cangKuRequest.get("lingWuName");
-            String lingWuShuXing = (String) cangKuRequest.get("lingWuShuXing");
-            String lingWuState = (String) cangKuRequest.get("lingWuState");
             String lingWuMiaoShu = (String) cangKuRequest.get("lingWuMiaoShu");
             String xiaoShuoId = (String) cangKuRequest.get("xiaoShuoId");
+            LingWuHisEntity lingWuHisEntity = new LingWuHisEntity();
+            lingWuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
+            lingWuHisEntity.setXiaoShuoId(xiaoShuoId);
+            lingWuHisEntity.setLingWuMiaoShu(lingWuMiaoShu);
+            lingWuHisEntity.setLingWuFenLei(lingWuFenLei);
+            lingWuHisEntity.setLingWuName(lingWuName);
             if (StringUtils.isNotEmpty(lingWuId)) {
                 LingWuEntity lingWuEntity = lingWuService.getLingWuById(lingWuId);
                 Assert.notNull(lingWuEntity, XiuXingErrorCodeDef.LING_WU_INFO_IS_EMPTY);
-                if (!(StringUtils.equals(lingWuName, lingWuEntity.getLingWuName()) &&
-                        StringUtils.equals(lingWuFenLei, lingWuEntity.getLingWuFenLei()) &&
-                        StringUtils.equals(lingWuShuXing, lingWuEntity.getLingWuShuXing()) &&
-                        StringUtils.equals(lingWuState, lingWuEntity.getLingWuState()) &&
-                        StringUtils.equals(lingWuMiaoShu, lingWuEntity.getLingWuMiaoShu()) &&
-                        StringUtils.equals(xiaoShuoId, lingWuEntity.getXiaoShuoId()))) {
-                    lingWuEntity.setLingWuName(lingWuName);
-                    lingWuEntity.setLingWuFenLei(lingWuFenLei);
-                    lingWuEntity.setLingWuShuXing(lingWuShuXing);
-                    lingWuEntity.setLingWuState(lingWuState);
-                    lingWuEntity.setLingWuMiaoShu(lingWuMiaoShu);
-                    lingWuEntity.setXiaoShuoId(xiaoShuoId);
-                    lingWuEntity.setUpdateTime(DateUtil.getCurrentDate());
-                    lingWuService.updateLingWu(lingWuEntity);
-                }
+                lingWuHisEntity.setLingWuId(lingWuId);
+                lingWuHisEntity.setLingWuCode(lingWuEntity.getLingWuCode());
+                lingWuHisService.saveOrUpdateLingWuHis(lingWuHisEntity);
             } else {
                 LingWuEntity lingWuEntity = new LingWuEntity();
                 int lingWuCount = lingWuService.getLingWuCount();
                 lingWuEntity.setLingWuCode(String.valueOf(++lingWuCount));
                 lingWuEntity.setLingWuName(lingWuName);
                 lingWuEntity.setLingWuFenLei(lingWuFenLei);
-                lingWuEntity.setLingWuState(lingWuState);
-                lingWuEntity.setLingWuShuXing(lingWuShuXing);
+                // lingWuEntity.setLingWuState(lingWuState);
+                // lingWuEntity.setLingWuShuXing(lingWuShuXing);
                 lingWuEntity.setLingWuMiaoShu(lingWuMiaoShu);
-                lingWuEntity.setUpdateTime(DateUtil.getCurrentDate());
+                lingWuEntity.setUpdateTime(lingWuHisEntity.getUpdateTime());
                 lingWuEntity.setXiaoShuoId(xiaoShuoId);
                 String lingWuInfoId = lingWuService.saveLingWu(lingWuEntity);
+                lingWuHisEntity.setLingWuId(lingWuInfoId);
+                lingWuHisEntity.setLingWuCode(lingWuEntity.getLingWuCode());
+                lingWuHisService.saveOrUpdateLingWuHis(lingWuHisEntity);
                 cangKuRequest.put("lingWuId", lingWuInfoId);
             }
 
@@ -127,22 +127,22 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
             String suoShuPinJiId = (String) cangKuRequest.get(XiuXingCommonConstant.SUO_SHU_PIN_JI_ID);
             if (StringUtils.isNotEmpty(lingWuJingJieId)) {
                 JingJieEntity jingJieEntity = jingJieService.getJingJieById(lingWuJingJieId);
-                cangKuRequest.put("jingJieName", jingJieEntity.getName());
+                cangKuRequest.put("jingJieName", jingJieEntity.getJingJieName());
             }
 
             if (StringUtils.isNotEmpty(suoShuJingJieId)) {
                 JingJieEntity jingJieEntity = jingJieService.getJingJieById(suoShuJingJieId);
-                cangKuRequest.put("suoShuJingJieName", jingJieEntity.getName());
+                cangKuRequest.put("suoShuJingJieName", jingJieEntity.getJingJieName());
             }
 
             if (StringUtils.isNotEmpty(lingWuPinJiId)) {
                 PinJiEntity pinJiEntity = pinJiService.getPinJiById(lingWuPinJiId);
-                cangKuRequest.put("pinJiName", pinJiEntity.getName());
+                cangKuRequest.put("pinJiName", pinJiEntity.getPinJiName());
             }
 
             if (StringUtils.isNotEmpty(suoShuPinJiId)) {
                 PinJiEntity pinJiEntity = pinJiService.getPinJiById(suoShuPinJiId);
-                cangKuRequest.put("suoShuPinJiName", pinJiEntity.getName());
+                cangKuRequest.put("suoShuPinJiName", pinJiEntity.getPinJiName());
             }
         }
         return true;

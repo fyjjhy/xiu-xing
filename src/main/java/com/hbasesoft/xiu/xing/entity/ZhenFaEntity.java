@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-25 <br>
+ * @CreateDate 2020-07-03 <br>
  * @since V1.0<br>
  * @see ZhenFaEntity <br>
  */
@@ -45,6 +45,10 @@ public class ZhenFaEntity extends BaseEntity {
     /** zhen_fa_shu_xing */
     @Column(name = "zhen_fa_shu_xing")
     private String zhenFaShuXing;
+
+    /** zhen_fa_fen_lei */
+    @Column(name = "zhen_fa_fen_lei")
+    private String zhenFaFenLei;
 
     /** zhen_fa_miao_shu */
     @Column(name = "zhen_fa_miao_shu")
@@ -90,6 +94,14 @@ public class ZhenFaEntity extends BaseEntity {
         this.zhenFaShuXing = zhenFaShuXing;
     }
 
+    public String getZhenFaFenLei() {
+        return this.zhenFaFenLei;
+    }
+
+    public void setZhenFaFenLei(String zhenFaFenLei) {
+        this.zhenFaFenLei = zhenFaFenLei;
+    }
+
     public String getZhenFaMiaoShu() {
         return this.zhenFaMiaoShu;
     }
@@ -113,7 +125,5 @@ public class ZhenFaEntity extends BaseEntity {
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
     }
-
-
 
 }

@@ -10,17 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * <Description> suo_shu的Entity<br>
+ * <Description> suo_shu_his的Entity<br>
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-05 <br>
+ * @CreateDate 2020-07-19 <br>
  * @since V1.0<br>
- * @see SuoShuEntity <br>
+ * @see SuoShuHisEntity <br>
  */
 @Entity
-@Table(name = "suo_shu")
-public class SuoShuEntity extends BaseEntity {
+@Table(name = "suo_shu_his")
+public class SuoShuHisEntity extends BaseEntity {
 
     /**
      * serialVersionUID
@@ -33,6 +33,10 @@ public class SuoShuEntity extends BaseEntity {
     @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
+
+    /** suo_shu_id */
+    @Column(name = "suo_shu_id")
+    private String suoShuId;
 
     /** suo_shu_code */
     @Column(name = "suo_shu_code")
@@ -68,6 +72,14 @@ public class SuoShuEntity extends BaseEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getSuoShuId() {
+        return this.suoShuId;
+    }
+
+    public void setSuoShuId(String suoShuId) {
+        this.suoShuId = suoShuId;
     }
 
     public String getSuoShuCode() {

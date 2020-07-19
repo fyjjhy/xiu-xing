@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-22 <br>
+ * @CreateDate 2020-07-18 <br>
  * @since V1.0<br>
  * @see JingJieEntity <br>
  */
@@ -34,25 +34,17 @@ public class JingJieEntity extends BaseEntity {
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
 
-    /** p_id */
-    @Column(name = "p_id")
-    private String pId;
+    /** jing_jie_code */
+    @Column(name = "jing_jie_code")
+    private String jingJieCode;
 
-    /** code */
-    @Column(name = "code")
-    private String code;
+    /** jing_jie_name */
+    @Column(name = "jing_jie_name")
+    private String jingJieName;
 
-    /** name */
-    @Column(name = "name")
-    private String name;
-
-    /** jing_jie_fen_lei */
-    @Column(name = "jing_jie_fen_lei")
-    private String jingJieFenLei;
-
-    /** miao_shu */
-    @Column(name = "miao_shu")
-    private String miaoShu;
+    /** jing_jie_miao_shu */
+    @Column(name = "jing_jie_miao_shu")
+    private String jingJieMiaoShu;
 
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
@@ -66,44 +58,28 @@ public class JingJieEntity extends BaseEntity {
         this.id = id;
     }
 
-    public String getPId() {
-        return this.pId;
+    public String getJingJieCode() {
+        return this.jingJieCode;
     }
 
-    public void setPId(String pId) {
-        this.pId = pId;
+    public void setJingJieCode(String jingJieCode) {
+        this.jingJieCode = jingJieCode;
     }
 
-    public String getCode() {
-        return this.code;
+    public String getJingJieName() {
+        return this.jingJieName;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setJingJieName(String jingJieName) {
+        this.jingJieName = jingJieName;
     }
 
-    public String getName() {
-        return this.name;
+    public String getJingJieMiaoShu() {
+        return this.jingJieMiaoShu;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getJingJieFenLei() {
-        return this.jingJieFenLei;
-    }
-
-    public void setJingJieFenLei(String jingJieFenLei) {
-        this.jingJieFenLei = jingJieFenLei;
-    }
-
-    public String getMiaoShu() {
-        return this.miaoShu;
-    }
-
-    public void setMiaoShu(String miaoShu) {
-        this.miaoShu = miaoShu;
+    public void setJingJieMiaoShu(String jingJieMiaoShu) {
+        this.jingJieMiaoShu = jingJieMiaoShu;
     }
 
     public String getXiaoShuoId() {

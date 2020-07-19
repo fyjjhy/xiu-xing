@@ -5,6 +5,7 @@ import com.hbasesoft.xiu.xing.dao.MetaModelActionDao;
 import com.hbasesoft.xiu.xing.entity.MetaModelActionEntity;
 import com.hbasesoft.xiu.xing.service.MetaModelActionService;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,7 @@ public class MetaModelActionServiceImpl implements MetaModelActionService {
     public List<MetaModelActionEntity> queryMetaModelActionByModelId(String metaModelId) {
         DetachedCriteria criteria = DetachedCriteria.forClass(MetaModelActionEntity.class);
         criteria.add(Restrictions.eq(XiuXingCommonConstant.MODEL_ID, metaModelId));
+        criteria.addOrder(Order.asc(XiuXingCommonConstant.SEQ));
         return metaModelActionDao.getListByCriteriaQuery(criteria);
     }
 }

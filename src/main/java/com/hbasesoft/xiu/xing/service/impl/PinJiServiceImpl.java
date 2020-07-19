@@ -24,6 +24,11 @@ public class PinJiServiceImpl implements PinJiService {
     private PinJiDao pinJiDao;
 
     @Override
+    public int getPinJiCount() {
+        return pinJiDao.getPinJiCount();
+    }
+
+    @Override
     public PinJiEntity getPinJiById(String pinJiId) {
         return pinJiDao.get(PinJiEntity.class, pinJiId);
     }

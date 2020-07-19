@@ -16,6 +16,17 @@ import org.springframework.transaction.annotation.Transactional;
 public interface PinJiService {
 
     /**
+     * Description: 获取品级数据<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    int getPinJiCount();
+
+    /**
      * Description: 获取品级信息<br>
      *
      * @author 付永杰<br>
