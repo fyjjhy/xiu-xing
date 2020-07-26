@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.hbasesoft.framework.db.core.annotation.Param;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
@@ -29,14 +30,26 @@ public class CangKuInfoFilter implements ServiceFilter {
     @Override
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
         if (ServiceFlowBean.ACTION_QUERY.equals(flowBean.getAction())) {
-            PagerListVo<Map<String, Object>> response = (PagerListVo<Map<String, Object>>) flowBean.getResponse();
-            if (response != null) {
-                List<Map<String, Object>> resultList = response.getDatas();
-                if (CollectionUtils.isNotEmpty(resultList)) {
-                    for (Map<String, Object> result : resultList) {
+            Map<String, Object> cangKuMap = flowBean.getRequest();
+            if (cangKuMap.containsKey(Param.PAGE_INDEX)) {
+                PagerListVo<Map<String, Object>> response = (PagerListVo<Map<String, Object>>) flowBean.getResponse();
+                if (response != null) {
+                    List<Map<String, Object>> resultList = response.getDatas();
+                    if (CollectionUtils.isNotEmpty(resultList)) {
+                        for (Map<String, Object> result : resultList) {
+                            processCangKuInfo(result);
+                        }
+                        response.setDatas(resultList);
+                        flowBean.setResponse(response);
+                    }
+                }
+            }
+            else {
+                List<Map<String, Object>> response = (List<Map<String, Object>>) flowBean.getResponse();
+                if (CollectionUtils.isNotEmpty(response)) {
+                    for (Map<String, Object> result : response) {
                         processCangKuInfo(result);
                     }
-                    response.setDatas(resultList);
                     flowBean.setResponse(response);
                 }
             }

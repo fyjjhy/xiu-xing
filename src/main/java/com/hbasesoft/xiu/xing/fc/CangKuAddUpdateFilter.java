@@ -1,16 +1,20 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hbasesoft.framework.common.utils.Assert;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
+import com.hbasesoft.xiu.xing.entity.CangKuHisEntity;
 import com.hbasesoft.xiu.xing.entity.JingJieEntity;
 import com.hbasesoft.xiu.xing.entity.LingWuEntity;
 import com.hbasesoft.xiu.xing.entity.LingWuHisEntity;
 import com.hbasesoft.xiu.xing.entity.PinJiEntity;
 import com.hbasesoft.xiu.xing.entity.SuoShuEntity;
+import com.hbasesoft.xiu.xing.service.CangKuHisService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
 import com.hbasesoft.xiu.xing.service.LingWuHisService;
 import com.hbasesoft.xiu.xing.service.LingWuService;
@@ -51,6 +55,9 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
 
     @Resource
     private PinJiService pinJiService;
+
+    @Resource
+    private CangKuHisService cangKuHisService;
 
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
@@ -146,5 +153,21 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
             }
         }
         return true;
+    }
+
+    @Override
+    public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
+        Map<String, Object> cangKuReqMap = flowBean.getRequest();
+        JSONObject cangKuJson = new JSONObject(cangKuReqMap);
+        CangKuHisEntity cangKuHisEntity =  JSON.toJavaObject(cangKuJson, CangKuHisEntity.class);
+        if (ServiceFlowBean.ACTION_ADD.equals(flowBean.getAction())) {
+            String cangKuId = (String) flowBean.getResponse();
+            cangKuHisEntity.setCangKuId(cangKuId);
+            cangKuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
+        } else if (ServiceFlowBean.ACTION_UPDATE.equals(flowBean.getAction())) {
+            cangKuHisEntity.setCangKuId(cangKuHisEntity.getId());
+            cangKuHisEntity.setId(null);
+        }
+        cangKuHisService.saveOrUpdateCangKuHis(cangKuHisEntity);
     }
 }

@@ -31,12 +31,14 @@ com\hbasesoft\xiu\xing\entity\PinJiEntity.class
 com\hbasesoft\xiu\xing\service\JingJieService.class
 com\hbasesoft\xiu\xing\dao\ConfigItemDao.class
 com\hbasesoft\xiu\xing\entity\XiuXingRiZhiEntity.class
+com\hbasesoft\xiu\xing\service\CangKuHisService.class
 com\hbasesoft\xiu\xing\dao\SuoShuDao.class
 com\hbasesoft\xiu\xing\service\MetaModelActionService.class
 com\hbasesoft\xiu\xing\component\ServiceFilterComponent.class
 com\hbasesoft\xiu\xing\service\KuiLeiService.class
 com\hbasesoft\xiu\xing\entity\DictDataEntity.class
 com\hbasesoft\xiu\xing\util\GlobalConstants.class
+com\hbasesoft\xiu\xing\service\impl\CangKuHisServiceImpl.class
 com\hbasesoft\xiu\xing\entity\ProcessEntity.class
 com\hbasesoft\xiu\xing\service\DictService.class
 com\hbasesoft\xiu\xing\service\impl\LingQiServiceImpl.class
@@ -97,6 +99,7 @@ com\hbasesoft\xiu\xing\service\GongFaService.class
 com\hbasesoft\xiu\xing\dao\RenWuDao.class
 com\hbasesoft\xiu\xing\service\impl\KuiLeiServiceImpl.class
 com\hbasesoft\xiu\xing\service\LingCaiService.class
+com\hbasesoft\xiu\xing\entity\CangKuHisEntity.class
 com\hbasesoft\xiu\xing\service\impl\FaShuServiceImpl.class
 com\hbasesoft\xiu\xing\dao\YaoShouDao.class
 com\hbasesoft\xiu\xing\service\ServDataService.class
@@ -125,6 +128,7 @@ com\hbasesoft\xiu\xing\service\MetaModelColumnService.class
 com\hbasesoft\xiu\xing\constant\XiuXingErrorCodeDef.class
 com\hbasesoft\xiu\xing\dao\JingJieDao.class
 com\hbasesoft\xiu\xing\util\ManulInsertGenerator.class
+com\hbasesoft\xiu\xing\dao\CangKuHisDao.class
 com\hbasesoft\xiu\xing\util\CommonUtil.class
 com\hbasesoft\xiu\xing\bean\FuncComponent.class
 com\hbasesoft\xiu\xing\dao\ZongMenDao.class
