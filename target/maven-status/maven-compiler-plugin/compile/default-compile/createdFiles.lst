@@ -3,6 +3,7 @@ com\hbasesoft\xiu\xing\service\impl\ZhenFaServiceImpl.class
 com\hbasesoft\xiu\xing\service\DictDataService.class
 com\hbasesoft\xiu\xing\service\FuncComponentService.class
 com\hbasesoft\xiu\xing\entity\RenWuEntity.class
+com\hbasesoft\xiu\xing\bean\CangKuHis.class
 com\hbasesoft\xiu\xing\component\RuleServiceComponent.class
 com\hbasesoft\xiu\xing\entity\LingQiEntity.class
 com\hbasesoft\xiu\xing\service\LingDanService.class
@@ -177,10 +178,12 @@ com\hbasesoft\xiu\xing\dao\LingQiDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilter.class
 com\hbasesoft\xiu\xing\dao\ServiceFilterDao.class
 com\hbasesoft\xiu\xing\fc\RenWuQueryFilter.class
+com\hbasesoft\xiu\xing\controller\CangKuHisController.class
 com\hbasesoft\xiu\xing\dao\FenLeiDao.class
 com\hbasesoft\xiu\xing\fc\LingWuFilter.class
 com\hbasesoft\xiu\xing\entity\RenWuHisEntity.class
 com\hbasesoft\xiu\xing\service\SuoShuService.class
+com\hbasesoft\xiu\xing\api\CangKuHisApi.class
 com\hbasesoft\xiu\xing\entity\FaShuEntity.class
 com\hbasesoft\xiu\xing\service\PinJiService.class
 com\hbasesoft\xiu\xing\service\RenWuService.class

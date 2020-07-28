@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service;
 
+import com.hbasesoft.xiu.xing.entity.FenLeiEntity;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -24,5 +25,16 @@ public interface FenLeiService {
      */
     @Transactional(readOnly = true)
     int getFenLeiCount();
+
+    /**
+     * Description: 获取分类信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param fenLeiId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    FenLeiEntity getFenLei(String fenLeiId);
 
 }

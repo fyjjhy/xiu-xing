@@ -1,7 +1,12 @@
 package com.hbasesoft.xiu.xing.dao;
 
 import com.hbasesoft.framework.db.Dao;
+import com.hbasesoft.framework.db.core.annotation.Param;
+import com.hbasesoft.framework.db.core.annotation.Sql;
 import com.hbasesoft.framework.db.hibernate.IGenericBaseDao;
+import com.hbasesoft.xiu.xing.entity.CangKuHisEntity;
+
+import java.util.List;
 
 /**
  * <Description> <br>
@@ -15,4 +20,8 @@ import com.hbasesoft.framework.db.hibernate.IGenericBaseDao;
  */
 @Dao
 public interface CangKuHisDao extends IGenericBaseDao {
+
+    @Sql(bean = CangKuHisEntity.class)
+    List<CangKuHisEntity> queryCangKuHisBySuoShu(@Param("suoShuId") String suoShuId);
+
 }

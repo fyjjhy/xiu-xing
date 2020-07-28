@@ -6,6 +6,7 @@ import com.hbasesoft.xiu.xing.service.CangKuHisService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <Description> <br>
@@ -26,5 +27,10 @@ public class CangKuHisServiceImpl implements CangKuHisService {
     @Override
     public void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity) {
         cangKuHisDao.save(hisEntity);
+    }
+
+    @Override
+    public List<CangKuHisEntity> queryCangKuHisBySuoShu(String suoShuId) {
+        return cangKuHisDao.queryCangKuHisBySuoShu(suoShuId);
     }
 }

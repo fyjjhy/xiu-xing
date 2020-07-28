@@ -3,6 +3,8 @@ package com.hbasesoft.xiu.xing.service;
 import com.hbasesoft.xiu.xing.entity.CangKuHisEntity;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * <Description> <br>
  *
@@ -25,5 +27,16 @@ public interface CangKuHisService {
      */
     @Transactional(rollbackFor = Throwable.class)
     void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity);
+
+    /**
+     * Description: 查询所属者的仓库信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param suoShuId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    List<CangKuHisEntity> queryCangKuHisBySuoShu(String suoShuId);
 
 }

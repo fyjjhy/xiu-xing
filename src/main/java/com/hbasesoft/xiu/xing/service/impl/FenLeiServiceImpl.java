@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.dao.FenLeiDao;
+import com.hbasesoft.xiu.xing.entity.FenLeiEntity;
 import com.hbasesoft.xiu.xing.service.FenLeiService;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class FenLeiServiceImpl implements FenLeiService {
     @Override
     public int getFenLeiCount() {
         return fenLeiDao.getFenLeiDao();
+    }
+
+    @Override
+    public FenLeiEntity getFenLei(String fenLeiId) {
+        return fenLeiDao.get(FenLeiEntity.class, fenLeiId);
     }
 }

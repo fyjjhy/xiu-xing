@@ -74,6 +74,7 @@ D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\dao\FuncComponentDao.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\CangKuHisService.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\LingWuHisService.java
+D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\api\CangKuHisApi.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\impl\JiGouServiceImpl.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\entity\DiMingEntity.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\entity\LingDanEntity.java
@@ -112,6 +113,7 @@ D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\controller\CommonController.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\FuncService.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\impl\FuncMetaDataServiceImpl.java
+D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\bean\CangKuHis.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\dao\JingJieDao.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\dao\MetaModelActionDao.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\MetaModelActionService.java
@@ -175,6 +177,7 @@ D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\component\ServiceFilterComponent.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\entity\ZhenFaEntity.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\entity\ServFilterEntity.java
+D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\controller\CangKuHisController.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\entity\CangKuHisEntity.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\bean\FuLu.java
 D:\临时文件存放位置\xiu-xing-server\src\main\java\com\hbasesoft\xiu\xing\service\impl\KuiLeiServiceImpl.java
