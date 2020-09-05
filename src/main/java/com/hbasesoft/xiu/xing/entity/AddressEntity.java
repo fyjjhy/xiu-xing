@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-29 <br>
+ * @CreateDate 2020-08-12 <br>
  * @since V1.0<br>
  * @see AddressEntity <br>
  */
@@ -33,6 +33,14 @@ public class AddressEntity extends BaseEntity {
     @GenericGenerator(name = "paymentableGenerator", strategy = "uuid")
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
+
+    /** p_id */
+    @Column(name = "p_id")
+    private String pId;
+
+    /** addr_type */
+    @Column(name = "addr_type")
+    private String addrType;
 
     /** addr_code */
     @Column(name = "addr_code")
@@ -64,6 +72,22 @@ public class AddressEntity extends BaseEntity {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPId() {
+        return this.pId;
+    }
+
+    public void setPId(String pId) {
+        this.pId = pId;
+    }
+
+    public String getAddrType() {
+        return this.addrType;
+    }
+
+    public void setAddrType(String addrType) {
+        this.addrType = addrType;
     }
 
     public String getAddrCode() {

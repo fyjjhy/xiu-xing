@@ -1,8 +1,9 @@
 select
-   ckh.ling_wu_id id,
+   DISTINCT ckh.ling_wu_id id,
    ckh.ling_wu_id,
    ckh.ling_wu_state,
    ckh.ling_wu_shu_liang,
+   ckh.dan_wei,
    ckh.ling_wu_name,
    ckh.ling_wu_fen_lei,
    ckh.ling_wu_shu_xing,
@@ -15,10 +16,11 @@ from cang_ku_his ckh
 inner join (
     select
        h.suo_shu_id,
-       min(ling_wu_shu_liang) ling_wu_shu_liang
+       h.ling_wu_id,
+       MAX(update_time) update_time
     from cang_ku_his h
     where h.suo_shu_id = :suoShuId
-    group by h.suo_shu_id
+    group by h.ling_wu_id, h.ling_wu_shu_xing
 ) k
-on k.suo_shu_id = ckh.suo_shu_id and ckh.ling_wu_shu_liang = k.ling_wu_shu_liang
+on (k.suo_shu_id = ckh.suo_shu_id AND k.ling_wu_id = ckh.ling_wu_id AND k.update_time = ckh.update_time)
 where ckh.suo_shu_id = :suoShuId

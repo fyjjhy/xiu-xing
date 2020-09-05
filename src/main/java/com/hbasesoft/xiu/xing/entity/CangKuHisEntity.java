@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-21 <br>
+ * @CreateDate 2020-08-15 <br>
  * @since V1.0<br>
  * @see CangKuHisEntity <br>
  */
@@ -129,6 +129,18 @@ public class CangKuHisEntity extends BaseEntity {
     /** bei_zhu */
     @Column(name = "bei_zhu")
     private String beiZhu;
+
+    /** shi_jian */
+    @Column(name = "shi_jian")
+    private String shiJian;
+
+    /** xiu_xing_sui_yue */
+    @Column(name = "xiu_xing_sui_yue")
+    private String xiuXingSuiYue;
+
+    /** addr_id */
+    @Column(name = "addr_id")
+    private String addrId;
 
     public String getId() {
         return this.id;
@@ -328,6 +340,30 @@ public class CangKuHisEntity extends BaseEntity {
 
     public void setBeiZhu(String beiZhu) {
         this.beiZhu = beiZhu;
+    }
+
+    public String getShiJian() {
+        return this.shiJian;
+    }
+
+    public void setShiJian(String shiJian) {
+        this.shiJian = shiJian;
+    }
+
+    public String getXiuXingSuiYue() {
+        return this.xiuXingSuiYue;
+    }
+
+    public void setXiuXingSuiYue(String xiuXingSuiYue) {
+        this.xiuXingSuiYue = xiuXingSuiYue;
+    }
+
+    public String getAddrId() {
+        return this.addrId;
+    }
+
+    public void setAddrId(String addrId) {
+        this.addrId = addrId;
     }
 
 }

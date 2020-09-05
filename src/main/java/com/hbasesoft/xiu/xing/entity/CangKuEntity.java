@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-25 <br>
+ * @CreateDate 2020-08-15 <br>
  * @since V1.0<br>
  * @see CangKuEntity <br>
  */
@@ -121,6 +121,22 @@ public class CangKuEntity extends BaseEntity {
     /** suo_shu_jing_jie_id */
     @Column(name = "suo_shu_jing_jie_id")
     private String suoShuJingJieId;
+
+    /** bei_zhu */
+    @Column(name = "bei_zhu")
+    private String beiZhu;
+
+    /** shi_jian */
+    @Column(name = "shi_jian")
+    private String shiJian;
+
+    /** xiu_xing_sui_yue */
+    @Column(name = "xiu_xing_sui_yue")
+    private String xiuXingSuiYue;
+
+    /** addr_id */
+    @Column(name = "addr_id")
+    private String addrId;
 
     public String getId() {
         return this.id;
@@ -304,6 +320,38 @@ public class CangKuEntity extends BaseEntity {
 
     public void setSuoShuJingJieId(String suoShuJingJieId) {
         this.suoShuJingJieId = suoShuJingJieId;
+    }
+
+    public String getBeiZhu() {
+        return this.beiZhu;
+    }
+
+    public void setBeiZhu(String beiZhu) {
+        this.beiZhu = beiZhu;
+    }
+
+    public String getShiJian() {
+        return this.shiJian;
+    }
+
+    public void setShiJian(String shiJian) {
+        this.shiJian = shiJian;
+    }
+
+    public String getXiuXingSuiYue() {
+        return this.xiuXingSuiYue;
+    }
+
+    public void setXiuXingSuiYue(String xiuXingSuiYue) {
+        this.xiuXingSuiYue = xiuXingSuiYue;
+    }
+
+    public String getAddrId() {
+        return this.addrId;
+    }
+
+    public void setAddrId(String addrId) {
+        this.addrId = addrId;
     }
 
 }

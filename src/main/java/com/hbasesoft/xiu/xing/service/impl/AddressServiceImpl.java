@@ -1,10 +1,16 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
+import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.dao.AddressDao;
+import com.hbasesoft.xiu.xing.entity.AddressEntity;
 import com.hbasesoft.xiu.xing.service.AddressService;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <Description> <br>
@@ -25,5 +31,14 @@ public class AddressServiceImpl implements AddressService {
     @Override
     public int getAddressCount() {
         return addressDao.getAddressCount();
+    }
+
+    @Override
+    public List<AddressEntity> queryAddressListByAddrType(String addrType) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(AddressEntity.class);
+        if (StringUtils.isNotEmpty(addrType)) {
+            criteria.add(Restrictions.ne(XiuXingCommonConstant.ADDR_TYPE, addrType));
+        }
+        return addressDao.getListByCriteriaQuery(criteria);
     }
 }

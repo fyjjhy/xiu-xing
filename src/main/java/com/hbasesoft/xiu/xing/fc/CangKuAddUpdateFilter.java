@@ -136,20 +136,32 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
                 JingJieEntity jingJieEntity = jingJieService.getJingJieById(lingWuJingJieId);
                 cangKuRequest.put("jingJieName", jingJieEntity.getJingJieName());
             }
+            else {
+                cangKuRequest.put("jingJieName", null);
+            }
 
             if (StringUtils.isNotEmpty(suoShuJingJieId)) {
                 JingJieEntity jingJieEntity = jingJieService.getJingJieById(suoShuJingJieId);
                 cangKuRequest.put("suoShuJingJieName", jingJieEntity.getJingJieName());
+            }
+            else {
+                cangKuRequest.put("suoShuJingJieName", null);
             }
 
             if (StringUtils.isNotEmpty(lingWuPinJiId)) {
                 PinJiEntity pinJiEntity = pinJiService.getPinJiById(lingWuPinJiId);
                 cangKuRequest.put("pinJiName", pinJiEntity.getPinJiName());
             }
+            else {
+                cangKuRequest.put("pinJiName", null);
+            }
 
             if (StringUtils.isNotEmpty(suoShuPinJiId)) {
                 PinJiEntity pinJiEntity = pinJiService.getPinJiById(suoShuPinJiId);
                 cangKuRequest.put("suoShuPinJiName", pinJiEntity.getPinJiName());
+            }
+            else {
+                cangKuRequest.put("suoShuPinJiName", null);
             }
         }
         return true;
@@ -160,10 +172,10 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
         Map<String, Object> cangKuReqMap = flowBean.getRequest();
         JSONObject cangKuJson = new JSONObject(cangKuReqMap);
         CangKuHisEntity cangKuHisEntity =  JSON.toJavaObject(cangKuJson, CangKuHisEntity.class);
+        cangKuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
         if (ServiceFlowBean.ACTION_ADD.equals(flowBean.getAction())) {
             String cangKuId = (String) flowBean.getResponse();
             cangKuHisEntity.setCangKuId(cangKuId);
-            cangKuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
         } else if (ServiceFlowBean.ACTION_UPDATE.equals(flowBean.getAction())) {
             cangKuHisEntity.setCangKuId(cangKuHisEntity.getId());
             cangKuHisEntity.setId(null);

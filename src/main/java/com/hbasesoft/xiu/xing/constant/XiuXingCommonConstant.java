@@ -506,4 +506,6 @@ public interface XiuXingCommonConstant {
 
     String ADDR_ID = "addrId";
 
+    String ADDR_TYPE = "addrType";
+
 }

@@ -1,12 +1,8 @@
 package com.hbasesoft.xiu.xing.api;
 
-import com.hbasesoft.xiu.xing.bean.CangKuHis;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * <Description> <br>
@@ -18,18 +14,18 @@ import java.util.Map;
  * @see com.hbasesoft.xiu.xing.api <br>
  * @since V1.0 <br>
  */
-@RequestMapping("/cangKuHis")
-public interface CangKuHisApi {
+@RequestMapping("/address")
+public interface AddressApi {
 
     /**
-     * Description: 查询所属者的仓库信息<br>
+     * Description: 查询父级地址列表信息<br>
      *
      * @author 付永杰<br>
      * @taskId <br>
-     * @param suoShuId
+     * @param addrType
      * @return <br>
      */
-    @GetMapping("/minLingWuList")
-    Map<String, List<CangKuHis>> queryCangKuHisBySuoShu(@RequestParam("suoShuId") String suoShuId);
+    @GetMapping
+    Object queryAddress(@RequestParam(name = "addrType", required = false) String addrType);
 
 }

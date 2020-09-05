@@ -22,10 +22,12 @@ com\hbasesoft\xiu\xing\dao\QiTaLingWuDao.class
 com\hbasesoft\xiu\xing\dao\FuncDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilterHandler.class
 com\hbasesoft\xiu\xing\service\impl\RenWuServiceImpl.class
+com\hbasesoft\xiu\xing\util\Select.class
 com\hbasesoft\xiu\xing\bean\MetaModel.class
 com\hbasesoft\xiu\xing\service\DiMingService.class
 com\hbasesoft\xiu\xing\service\impl\DiMingServiceImpl.class
 com\hbasesoft\xiu\xing\dao\GongFaDao.class
+com\hbasesoft\xiu\xing\controller\AddressController.class
 com\hbasesoft\xiu\xing\dao\DictDataDao.class
 com\hbasesoft\xiu\xing\dao\SuoShuHisDao.class
 com\hbasesoft\xiu\xing\entity\PinJiEntity.class
@@ -69,6 +71,7 @@ com\hbasesoft\xiu\xing\fc\SuoShuFilter.class
 com\hbasesoft\xiu\xing\service\impl\JingJieServiceImpl.class
 com\hbasesoft\xiu\xing\util\DateUtil.class
 com\hbasesoft\xiu\xing\entity\YaoShouEntity.class
+com\hbasesoft\xiu\xing\util\AbstractTreeAble.class
 com\hbasesoft\xiu\xing\bean\ConfigItem.class
 com\hbasesoft\xiu\xing\bean\DictData.class
 com\hbasesoft\xiu\xing\service\ServFilterService.class
@@ -173,6 +176,7 @@ com\hbasesoft\xiu\xing\service\DatasourceService.class
 com\hbasesoft\xiu\xing\service\impl\LingCaiServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\FuncMetaDataServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\ServServiceImpl.class
+com\hbasesoft\xiu\xing\api\AddressApi.class
 com\hbasesoft\xiu\xing\fc\CangKuAddUpdateFilter.class
 com\hbasesoft\xiu\xing\dao\LingQiDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilter.class
