@@ -508,4 +508,16 @@ public interface XiuXingCommonConstant {
 
     String ADDR_TYPE = "addrType";
 
+    String XIU_XING_SUI_YUE = "xiuXingSuiYue";
+
+    String SHI_JIAN = "shiJian";
+
+    String BEI_ZHU = "beiZhu";
+
+    String HEN_JI_ID = "henJiId";
+
+    String HEN_JI = "henJi";
+
+    String HEN_JI_CODE = "henJiCode";
+
 }

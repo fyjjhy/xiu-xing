@@ -1,5 +1,7 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
@@ -32,24 +34,14 @@ public class SuoShuAddUpdateFilter implements ServiceFilter {
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
         String action =  flowBean.getAction();
         Map<String, Object> suoShuReqMap = flowBean.getRequest();
-        String suoShuCode = (String) suoShuReqMap.get(XiuXingCommonConstant.SUO_SHU_CODE);
-        String suoShuName = (String) suoShuReqMap.get(XiuXingCommonConstant.SUO_SHU_NAME);
-        String suoShuFenLei = (String) suoShuReqMap.get(XiuXingCommonConstant.SUO_SHU_FEN_LEI);
-        String suoShuMiaoShu = (String) suoShuReqMap.get(XiuXingCommonConstant.SUO_SHU_MIAO_SHU);
-        String xiaoShuoId = (String) suoShuReqMap.get(XiuXingCommonConstant.XIAO_SHUO_ID);
-        String addrId = (String) suoShuReqMap.get(XiuXingCommonConstant.ADDR_ID);
-        SuoShuHisEntity suoShuHisEntity = new SuoShuHisEntity();
+        JSONObject cangKuJson = new JSONObject(suoShuReqMap);
+        SuoShuHisEntity suoShuHisEntity =  JSON.toJavaObject(cangKuJson, SuoShuHisEntity.class);
+        suoShuHisEntity.setId(null);
         if (ServiceFlowBean.ACTION_ADD.equals(action)) {
             suoShuHisEntity.setSuoShuId((String) flowBean.getResponse());
         } else {
             suoShuHisEntity.setSuoShuId((String) suoShuReqMap.get(XiuXingCommonConstant.ID));
         }
-        suoShuHisEntity.setSuoShuCode(suoShuCode);
-        suoShuHisEntity.setSuoShuName(suoShuName);
-        suoShuHisEntity.setSuoShuFenLei(suoShuFenLei);
-        suoShuHisEntity.setSuoShuMiaoShu(suoShuMiaoShu);
-        suoShuHisEntity.setXiaoShuoId(xiaoShuoId);
-        suoShuHisEntity.setAddrId(addrId);
         suoShuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
         suoShuHisService.saveOrUpdateSuoShuHis(suoShuHisEntity);
     }

@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-18 <br>
+ * @CreateDate 2020-09-06 <br>
  * @since V1.0<br>
  * @see LingWuHisEntity <br>
  */
@@ -61,6 +61,10 @@ public class LingWuHisEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** xiu_xing_sui_yue */
+    @Column(name = "xiu_xing_sui_yue")
+    private String xiuXingSuiYue;
 
     public String getId() {
         return this.id;
@@ -124,6 +128,14 @@ public class LingWuHisEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public String getXiuXingSuiYue() {
+        return this.xiuXingSuiYue;
+    }
+
+    public void setXiuXingSuiYue(String xiuXingSuiYue) {
+        this.xiuXingSuiYue = xiuXingSuiYue;
     }
 
 }

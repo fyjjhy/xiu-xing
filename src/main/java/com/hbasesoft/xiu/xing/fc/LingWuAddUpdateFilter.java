@@ -1,5 +1,7 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
@@ -32,22 +34,14 @@ public class LingWuAddUpdateFilter implements ServiceFilter {
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
         String action =  flowBean.getAction();
         Map<String, Object> lingWuReqMap = flowBean.getRequest();
-        String lingWuCode = (String) lingWuReqMap.get(XiuXingCommonConstant.LING_WU_CODE);
-        String lingWuName = (String) lingWuReqMap.get(XiuXingCommonConstant.LING_WU_NAME);
-        String lingWuFenLei = (String) lingWuReqMap.get(XiuXingCommonConstant.LING_WU_FEN_LEI);
-        String lingWuMiaoShu = (String) lingWuReqMap.get(XiuXingCommonConstant.LING_WU_MIAO_SHU);
-        String xiaoShuoId = (String) lingWuReqMap.get(XiuXingCommonConstant.XIAO_SHUO_ID);
-        LingWuHisEntity lingWuHisEntity = new LingWuHisEntity();
+        JSONObject cangKuJson = new JSONObject(lingWuReqMap);
+        LingWuHisEntity lingWuHisEntity =  JSON.toJavaObject(cangKuJson, LingWuHisEntity.class);
+        lingWuHisEntity.setId(null);
         if (ServiceFlowBean.ACTION_ADD.equals(action)) {
             lingWuHisEntity.setLingWuId((String) flowBean.getResponse());
         } else {
             lingWuHisEntity.setLingWuId((String) lingWuReqMap.get(XiuXingCommonConstant.ID));
         }
-        lingWuHisEntity.setLingWuCode(lingWuCode);
-        lingWuHisEntity.setLingWuName(lingWuName);
-        lingWuHisEntity.setLingWuFenLei(lingWuFenLei);
-        lingWuHisEntity.setLingWuMiaoShu(lingWuMiaoShu);
-        lingWuHisEntity.setXiaoShuoId(xiaoShuoId);
         lingWuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
         lingWuHisService.saveOrUpdateLingWuHis(lingWuHisEntity);
     }

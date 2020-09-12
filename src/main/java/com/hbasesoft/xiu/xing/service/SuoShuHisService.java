@@ -26,7 +26,7 @@ public interface SuoShuHisService {
      * @return <br>
      */
     @Transactional(rollbackFor = Throwable.class)
-    void saveOrUpdateSuoShuHis(SuoShuHisEntity suoShuHisEntity);
+    String saveOrUpdateSuoShuHis(SuoShuHisEntity suoShuHisEntity);
 
     /**
      * Description: 获取所属操作记录列表信息<br>

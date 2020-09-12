@@ -32,4 +32,15 @@ public interface CangKuHisApi {
     @GetMapping("/minLingWuList")
     Map<String, List<CangKuHis>> queryCangKuHisBySuoShu(@RequestParam("suoShuId") String suoShuId);
 
+    /**
+     * Description: 同步灵物所属历史信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param xiaoShuoId
+     * @return <br>
+     */
+    @GetMapping("/lingWuSuoShuHis")
+    void syncLingWuSuoShuHisId(@RequestParam("xiaoShuoId") String xiaoShuoId);
+
 }

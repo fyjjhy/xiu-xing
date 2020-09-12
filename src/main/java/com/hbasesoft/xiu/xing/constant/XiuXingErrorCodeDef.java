@@ -396,4 +396,7 @@ public interface XiuXingErrorCodeDef {
     /** 仓库标识不存在 */
     int CANG_KU_ID_IS_EMPTY = 20062701;
 
+    /** 痕迹信息不存在 */
+    int HEN_JI_INFO_IS_EMPTY = 20090601;
+
 }

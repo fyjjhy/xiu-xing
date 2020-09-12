@@ -12,6 +12,7 @@ import com.hbasesoft.xiu.xing.service.FaShuService;
 import com.hbasesoft.xiu.xing.service.FenLeiService;
 import com.hbasesoft.xiu.xing.service.FuLuService;
 import com.hbasesoft.xiu.xing.service.GongFaService;
+import com.hbasesoft.xiu.xing.service.HenJiService;
 import com.hbasesoft.xiu.xing.service.JiGouService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
 import com.hbasesoft.xiu.xing.service.KuiLeiService;
@@ -112,6 +113,9 @@ public class CodeFilter implements ServiceFilter {
     @Resource
     private FenLeiService fenLeiService;
 
+    @Resource
+    private HenJiService henJiService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> request = flowBean.getRequest();
@@ -210,6 +214,9 @@ public class CodeFilter implements ServiceFilter {
                     int pinJiCode = pinJiService.getPinJiCount();
                     request.put(XiuXingCommonConstant.PIN_JI_CODE, pinJiCode + 1);
                     break;
+                case XiuXingCommonConstant.HEN_JI:
+                    int henJiCode = henJiService.getHenJiCount();
+                    request.put(XiuXingCommonConstant.HEN_JI_CODE, henJiCode + 1);
             }
         }
         return true;

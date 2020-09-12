@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-06-26 <br>
+ * @CreateDate 2020-09-06 <br>
  * @since V1.0<br>
  * @see LingWuEntity <br>
  */
@@ -46,9 +46,17 @@ public class LingWuEntity extends BaseEntity {
     @Column(name = "ling_wu_state")
     private String lingWuState;
 
+    /** ling_wu_shu_xing */
+    @Column(name = "ling_wu_shu_xing")
+    private String lingWuShuXing;
+
     /** ling_wu_fen_lei */
     @Column(name = "ling_wu_fen_lei")
     private String lingWuFenLei;
+
+    /** ling_wu_miao_shu */
+    @Column(name = "ling_wu_miao_shu")
+    private String lingWuMiaoShu;
 
     /** update_time */
     @Column(name = "update_time")
@@ -58,13 +66,9 @@ public class LingWuEntity extends BaseEntity {
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
 
-    /** ling_wu_miao_shu */
-    @Column(name = "ling_wu_miao_shu")
-    private String lingWuMiaoShu;
-
-    /** ling_wu_shu_xing */
-    @Column(name = "ling_wu_shu_xing")
-    private String lingWuShuXing;
+    /** xiu_xing_sui_yue */
+    @Column(name = "xiu_xing_sui_yue")
+    private String xiuXingSuiYue;
 
     public String getId() {
         return this.id;
@@ -98,12 +102,28 @@ public class LingWuEntity extends BaseEntity {
         this.lingWuState = lingWuState;
     }
 
+    public String getLingWuShuXing() {
+        return this.lingWuShuXing;
+    }
+
+    public void setLingWuShuXing(String lingWuShuXing) {
+        this.lingWuShuXing = lingWuShuXing;
+    }
+
     public String getLingWuFenLei() {
         return this.lingWuFenLei;
     }
 
     public void setLingWuFenLei(String lingWuFenLei) {
         this.lingWuFenLei = lingWuFenLei;
+    }
+
+    public String getLingWuMiaoShu() {
+        return this.lingWuMiaoShu;
+    }
+
+    public void setLingWuMiaoShu(String lingWuMiaoShu) {
+        this.lingWuMiaoShu = lingWuMiaoShu;
     }
 
     public java.util.Date getUpdateTime() {
@@ -122,20 +142,12 @@ public class LingWuEntity extends BaseEntity {
         this.xiaoShuoId = xiaoShuoId;
     }
 
-    public String getLingWuMiaoShu() {
-        return this.lingWuMiaoShu;
+    public String getXiuXingSuiYue() {
+        return this.xiuXingSuiYue;
     }
 
-    public void setLingWuMiaoShu(String lingWuMiaoShu) {
-        this.lingWuMiaoShu = lingWuMiaoShu;
-    }
-
-    public String getLingWuShuXing() {
-        return this.lingWuShuXing;
-    }
-
-    public void setLingWuShuXing(String lingWuShuXing) {
-        this.lingWuShuXing = lingWuShuXing;
+    public void setXiuXingSuiYue(String xiuXingSuiYue) {
+        this.xiuXingSuiYue = xiuXingSuiYue;
     }
 
 }

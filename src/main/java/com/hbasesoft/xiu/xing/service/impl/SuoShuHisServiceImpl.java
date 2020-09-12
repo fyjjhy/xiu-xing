@@ -30,7 +30,7 @@ public class SuoShuHisServiceImpl implements SuoShuHisService {
     private SuoShuHisDao suoShuHisDao;
 
     @Override
-    public void saveOrUpdateSuoShuHis(SuoShuHisEntity suoShuHisEntity) {
+    public String saveOrUpdateSuoShuHis(SuoShuHisEntity suoShuHisEntity) {
         DetachedCriteria suoShuCriteria = DetachedCriteria.forClass(SuoShuHisEntity.class);
         if (StringUtils.isNotEmpty(suoShuHisEntity.getSuoShuMiaoShu())) {
             suoShuCriteria.add(Restrictions.eq(XiuXingCommonConstant.SUO_SHU_MIAO_SHU, suoShuHisEntity.getSuoShuMiaoShu()));
@@ -51,8 +51,9 @@ public class SuoShuHisServiceImpl implements SuoShuHisService {
         suoShuCriteria.add(Restrictions.eq(XiuXingCommonConstant.XIAO_SHUO_ID, suoShuHisEntity.getXiaoShuoId()));
         List<SuoShuHisEntity> suoShuHisEntityList = suoShuHisDao.getListByCriteriaQuery(suoShuCriteria);
         if (CollectionUtils.isEmpty(suoShuHisEntityList)) {
-            suoShuHisDao.save(suoShuHisEntity);
+            return (String) suoShuHisDao.save(suoShuHisEntity);
         }
+        return suoShuHisEntityList.get(0).getId();
     }
 
     @Override

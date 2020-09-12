@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-05-30 <br>
+ * @CreateDate 2020-09-06 <br>
  * @since V1.0<br>
  * @see MetaModelColumnEntity <br>
  */
@@ -145,6 +145,10 @@ public class MetaModelColumnEntity extends BaseEntity {
     /** feign_flag */
     @Column(name = "feign_flag")
     private String feignFlag;
+
+    /** state */
+    @Column(name = "state")
+    private String state;
 
     public String getId() {
         return this.id;
@@ -376,6 +380,14 @@ public class MetaModelColumnEntity extends BaseEntity {
 
     public void setFeignFlag(String feignFlag) {
         this.feignFlag = feignFlag;
+    }
+
+    public String getState() {
+        return this.state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
 }

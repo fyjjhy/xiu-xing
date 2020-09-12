@@ -1,9 +1,7 @@
 package com.hbasesoft.xiu.xing.service;
 
-import com.hbasesoft.xiu.xing.entity.CangKuHisEntity;
+import com.hbasesoft.xiu.xing.entity.HenJiEntity;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 /**
  * <Description> <br>
@@ -11,43 +9,43 @@ import java.util.List;
  * @author 付永杰<br>
  * @version 1.0<br>
  * @taskId <br>
- * @CreateDate 2020年07月22日 <br>
+ * @CreateDate 2020年09月06日 <br>
  * @see com.hbasesoft.xiu.xing.service <br>
  * @since V1.0 <br>
  */
-public interface CangKuHisService {
+public interface HenJiService {
 
     /**
-     * Description: 保存或更新仓库操作记录信息<br>
+     * Description: 查询痕迹列表总量<br>
      *
      * @author 付永杰<br>
      * @taskId <br>
-     * @param hisEntity
-     * @return <br>
-     */
-    @Transactional(rollbackFor = Throwable.class)
-    void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity);
-
-    /**
-     * Description: 查询所属者的仓库信息<br>
-     *
-     * @author 付永杰<br>
-     * @taskId <br>
-     * @param suoShuId
+     * @param
      * @return <br>
      */
     @Transactional(readOnly = true)
-    List<CangKuHisEntity> queryCangKuHisBySuoShu(String suoShuId);
+    int getHenJiCount();
 
     /**
-     * Description: 同步灵物所属历史信息<br>
+     * Description: 获取痕迹信息<br>
      *
      * @author 付永杰<br>
      * @taskId <br>
-     * @param xiaoShuoId
+     * @param henJiId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    HenJiEntity getHenJi(String henJiId);
+
+    /**
+     * Description: 保存痕迹信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param henJiEntity
      * @return <br>
      */
     @Transactional(rollbackFor = Throwable.class)
-    void syncLingWuSuoShuHisId(String xiaoShuoId);
+    String saveHenJi(HenJiEntity henJiEntity);
 
 }

@@ -1,16 +1,14 @@
 select
    DISTINCT ckh.ling_wu_id id,
    ckh.ling_wu_id,
+   ckh.ling_wu_his_id,
    ckh.ling_wu_state,
    ckh.ling_wu_shu_liang,
    ckh.dan_wei,
-   ckh.ling_wu_name,
-   ckh.ling_wu_fen_lei,
    ckh.ling_wu_shu_xing,
-   ckh.ling_wu_miao_shu,
-   ckh.jing_jie_name,
-   ckh.pin_ji_name,
-   ckh.bei_zhu,
+   ckh.hen_ji_id,
+   ckh.jing_jie_id,
+   ckh.pin_ji_id,
    ckh.suo_shu_id
 from cang_ku_his ckh
 inner join (

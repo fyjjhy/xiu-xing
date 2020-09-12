@@ -30,13 +30,19 @@ public class LingWuHisServiceImpl implements LingWuHisService {
     private LingWuHisDao lingWuHisDao;
 
     @Override
-    public void saveOrUpdateLingWuHis(LingWuHisEntity lingWuHisEntity) {
+    public String saveOrUpdateLingWuHis(LingWuHisEntity lingWuHisEntity) {
         DetachedCriteria lingWuCriteria = DetachedCriteria.forClass(LingWuHisEntity.class);
         if (StringUtils.isNotEmpty(lingWuHisEntity.getLingWuMiaoShu())) {
             lingWuCriteria.add(Restrictions.eq(XiuXingCommonConstant.LING_WU_MIAO_SHU, lingWuHisEntity.getLingWuMiaoShu()));
         }
         else {
             lingWuCriteria.add(Restrictions.isNull(XiuXingCommonConstant.LING_WU_MIAO_SHU));
+        }
+        if (StringUtils.isNotEmpty(lingWuHisEntity.getXiuXingSuiYue())) {
+            lingWuCriteria.add(Restrictions.eq(XiuXingCommonConstant.XIU_XING_SUI_YUE, lingWuHisEntity.getXiuXingSuiYue()));
+        }
+        else {
+            lingWuCriteria.add(Restrictions.isNull(XiuXingCommonConstant.XIU_XING_SUI_YUE));
         }
         lingWuCriteria.add(Restrictions.eq(XiuXingCommonConstant.LING_WU_NAME, lingWuHisEntity.getLingWuName()));
         lingWuCriteria.add(Restrictions.eq(XiuXingCommonConstant.LING_WU_CODE, lingWuHisEntity.getLingWuCode()));
@@ -45,8 +51,9 @@ public class LingWuHisServiceImpl implements LingWuHisService {
         lingWuCriteria.add(Restrictions.eq(XiuXingCommonConstant.XIAO_SHUO_ID, lingWuHisEntity.getXiaoShuoId()));
         List<LingWuHisEntity> lingWuHisEntityList = lingWuHisDao.getListByCriteriaQuery(lingWuCriteria);
         if (CollectionUtils.isEmpty(lingWuHisEntityList)) {
-            lingWuHisDao.save(lingWuHisEntity);
+            return (String) lingWuHisDao.save(lingWuHisEntity);
         }
+        return lingWuHisEntityList.get(0).getId();
     }
 
     @Override
@@ -54,4 +61,8 @@ public class LingWuHisServiceImpl implements LingWuHisService {
         return lingWuHisDao.findByProperty(LingWuHisEntity.class, XiuXingCommonConstant.LING_WU_ID, lingWuId);
     }
 
+    @Override
+    public LingWuHisEntity getLingWuHis(String lingWuHisId) {
+        return lingWuHisDao.get(LingWuHisEntity.class, lingWuHisId);
+    }
 }

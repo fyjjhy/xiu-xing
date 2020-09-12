@@ -101,4 +101,14 @@ public class CangKuHis extends AbstractVo {
 
     private String lingWuFenLeiName;
 
+    private String xiuXingSuiYue;
+
+    private String lingWuHisId;
+
+    private String suoShuHisId;
+
+    private String henJiId;
+
+    private String shiJian;
+
 }

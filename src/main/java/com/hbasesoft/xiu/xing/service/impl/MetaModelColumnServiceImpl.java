@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.constant.XiuXingStatusCodeDef;
 import com.hbasesoft.xiu.xing.dao.MetaModelColumnDao;
 import com.hbasesoft.xiu.xing.entity.MetaModelColumnEntity;
 import com.hbasesoft.xiu.xing.service.MetaModelColumnService;
@@ -31,6 +32,7 @@ public class MetaModelColumnServiceImpl implements MetaModelColumnService {
     @Override
     public List<MetaModelColumnEntity> queryMetaModelColumnByModelId(String metaModelId) {
         DetachedCriteria criteria = DetachedCriteria.forClass(MetaModelColumnEntity.class);
+        criteria.add(Restrictions.ne(XiuXingCommonConstant.STATE, XiuXingStatusCodeDef.DISABLE));
         criteria.add(Restrictions.eq(XiuXingCommonConstant.MODEL_ID, metaModelId));
         criteria.addOrder(Order.asc(XiuXingCommonConstant.SEQ));
         return metaModelColumnDao.getListByCriteriaQuery(criteria);

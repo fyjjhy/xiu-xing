@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.constant.XiuXingStatusCodeDef;
 import com.hbasesoft.xiu.xing.dao.MetaModelActionDao;
 import com.hbasesoft.xiu.xing.entity.MetaModelActionEntity;
 import com.hbasesoft.xiu.xing.service.MetaModelActionService;
@@ -31,6 +32,7 @@ public class MetaModelActionServiceImpl implements MetaModelActionService {
     @Override
     public List<MetaModelActionEntity> queryMetaModelActionByModelId(String metaModelId) {
         DetachedCriteria criteria = DetachedCriteria.forClass(MetaModelActionEntity.class);
+        criteria.add(Restrictions.ne(XiuXingCommonConstant.STATE, XiuXingStatusCodeDef.DISABLE));
         criteria.add(Restrictions.eq(XiuXingCommonConstant.MODEL_ID, metaModelId));
         criteria.addOrder(Order.asc(XiuXingCommonConstant.SEQ));
         return metaModelActionDao.getListByCriteriaQuery(criteria);

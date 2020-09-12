@@ -26,7 +26,7 @@ public interface LingWuHisService {
      * @return <br>
      */
     @Transactional(rollbackFor = Throwable.class)
-    void saveOrUpdateLingWuHis(LingWuHisEntity lingWuHisEntity);
+    String saveOrUpdateLingWuHis(LingWuHisEntity lingWuHisEntity);
 
     /**
      * Description: 获取灵物操作记录列表信息<br>
@@ -38,5 +38,16 @@ public interface LingWuHisService {
      */
     @Transactional(readOnly = true)
     List<LingWuHisEntity> getLingWuHisList(String lingWuId);
+
+    /**
+     * Description: 获取灵物历史信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param lingWuHisId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    LingWuHisEntity getLingWuHis(String lingWuHisId);
 
 }
