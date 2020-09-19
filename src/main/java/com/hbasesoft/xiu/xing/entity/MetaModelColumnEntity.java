@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-09-06 <br>
+ * @CreateDate 2020-09-12 <br>
  * @since V1.0<br>
  * @see MetaModelColumnEntity <br>
  */
@@ -149,6 +149,54 @@ public class MetaModelColumnEntity extends BaseEntity {
     /** state */
     @Column(name = "state")
     private String state;
+
+    /** ext_str_01 */
+    @Column(name = "ext_str_01")
+    private String extStr01;
+
+    /** ext_str_02 */
+    @Column(name = "ext_str_02")
+    private String extStr02;
+
+    /** ext_str_03 */
+    @Column(name = "ext_str_03")
+    private String extStr03;
+
+    /** ext_str_04 */
+    @Column(name = "ext_str_04")
+    private String extStr04;
+
+    /** ext_str_05 */
+    @Column(name = "ext_str_05")
+    private String extStr05;
+
+    /** ext_str_06 */
+    @Column(name = "ext_str_06")
+    private String extStr06;
+
+    /** ext_str_07 */
+    @Column(name = "ext_str_07")
+    private String extStr07;
+
+    /** ext_str_08 */
+    @Column(name = "ext_str_08")
+    private String extStr08;
+
+    /** ext_str_09 */
+    @Column(name = "ext_str_09")
+    private String extStr09;
+
+    /** ext_str_10 */
+    @Column(name = "ext_str_10")
+    private String extStr10;
+
+    /** ext_str_11 */
+    @Column(name = "ext_str_11")
+    private String extStr11;
+
+    /** ext_str_12 */
+    @Column(name = "ext_str_12")
+    private String extStr12;
 
     public String getId() {
         return this.id;
@@ -388,6 +436,102 @@ public class MetaModelColumnEntity extends BaseEntity {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getExtStr01() {
+        return this.extStr01;
+    }
+
+    public void setExtStr01(String extStr01) {
+        this.extStr01 = extStr01;
+    }
+
+    public String getExtStr02() {
+        return this.extStr02;
+    }
+
+    public void setExtStr02(String extStr02) {
+        this.extStr02 = extStr02;
+    }
+
+    public String getExtStr03() {
+        return this.extStr03;
+    }
+
+    public void setExtStr03(String extStr03) {
+        this.extStr03 = extStr03;
+    }
+
+    public String getExtStr04() {
+        return this.extStr04;
+    }
+
+    public void setExtStr04(String extStr04) {
+        this.extStr04 = extStr04;
+    }
+
+    public String getExtStr05() {
+        return this.extStr05;
+    }
+
+    public void setExtStr05(String extStr05) {
+        this.extStr05 = extStr05;
+    }
+
+    public String getExtStr06() {
+        return this.extStr06;
+    }
+
+    public void setExtStr06(String extStr06) {
+        this.extStr06 = extStr06;
+    }
+
+    public String getExtStr07() {
+        return this.extStr07;
+    }
+
+    public void setExtStr07(String extStr07) {
+        this.extStr07 = extStr07;
+    }
+
+    public String getExtStr08() {
+        return this.extStr08;
+    }
+
+    public void setExtStr08(String extStr08) {
+        this.extStr08 = extStr08;
+    }
+
+    public String getExtStr09() {
+        return this.extStr09;
+    }
+
+    public void setExtStr09(String extStr09) {
+        this.extStr09 = extStr09;
+    }
+
+    public String getExtStr10() {
+        return this.extStr10;
+    }
+
+    public void setExtStr10(String extStr10) {
+        this.extStr10 = extStr10;
+    }
+
+    public String getExtStr11() {
+        return this.extStr11;
+    }
+
+    public void setExtStr11(String extStr11) {
+        this.extStr11 = extStr11;
+    }
+
+    public String getExtStr12() {
+        return this.extStr12;
+    }
+
+    public void setExtStr12(String extStr12) {
+        this.extStr12 = extStr12;
     }
 
 }

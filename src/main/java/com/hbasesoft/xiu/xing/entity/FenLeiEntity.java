@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-05 <br>
+ * @CreateDate 2020-09-12 <br>
  * @since V1.0<br>
  * @see FenLeiEntity <br>
  */
@@ -53,6 +53,14 @@ public class FenLeiEntity extends BaseEntity {
     /** fen_lei_miao_shu */
     @Column(name = "fen_lei_miao_shu")
     private String fenLeiMiaoShu;
+
+    /** xiao_shuo_id */
+    @Column(name = "xiao_shuo_id")
+    private String xiaoShuoId;
+
+    /** update_time */
+    @Column(name = "update_time")
+    private java.util.Date updateTime;
 
     public String getId() {
         return this.id;
@@ -100,6 +108,22 @@ public class FenLeiEntity extends BaseEntity {
 
     public void setFenLeiMiaoShu(String fenLeiMiaoShu) {
         this.fenLeiMiaoShu = fenLeiMiaoShu;
+    }
+
+    public String getXiaoShuoId() {
+        return this.xiaoShuoId;
+    }
+
+    public void setXiaoShuoId(String xiaoShuoId) {
+        this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(java.util.Date updateTime) {
+        this.updateTime = updateTime;
     }
 
 }

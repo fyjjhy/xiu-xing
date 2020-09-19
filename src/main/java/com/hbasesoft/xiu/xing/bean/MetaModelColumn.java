@@ -108,4 +108,43 @@ public class MetaModelColumn extends AbstractVo {
     /** title_flag */
     private String titleFlag;
 
+    /** state */
+    private String state;
+
+    /** ext_str_01 */
+    private String extStr01;
+
+    /** ext_str_02 */
+    private String extStr02;
+
+    /** ext_str_03 */
+    private String extStr03;
+
+    /** ext_str_04 */
+    private String extStr04;
+
+    /** ext_str_05 */
+    private String extStr05;
+
+    /** ext_str_06 */
+    private String extStr06;
+
+    /** ext_str_07 */
+    private String extStr07;
+
+    /** ext_str_08 */
+    private String extStr08;
+
+    /** ext_str_09 */
+    private String extStr09;
+
+    /** ext_str_10 */
+    private String extStr10;
+
+    /** ext_str_11 */
+    private String extStr11;
+
+    /** ext_str_12 */
+    private String extStr12;
+
 }

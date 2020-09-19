@@ -165,30 +165,13 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
 
             String shiJian = (String) cangKuRequest.get(XiuXingCommonConstant.SHI_JIAN);
             String beiZhu = (String) cangKuRequest.get(XiuXingCommonConstant.BEI_ZHU);
-            String henJiId = (String) cangKuRequest.get(XiuXingCommonConstant.HEN_JI_ID);
             HenJiEntity henJiEntity = new HenJiEntity();
-            henJiEntity.setShiJian(shiJian);
-            henJiEntity.setBeiZhu(beiZhu);
+            henJiEntity.setShiJian(StringUtils.isNotEmpty(shiJian) ? shiJian : null);
+            henJiEntity.setBeiZhu(StringUtils.isNotEmpty(beiZhu) ? beiZhu : null);
             henJiEntity.setXiaoShuoId(xiaoShuoId);
             if (!(StringUtils.isEmpty(beiZhu) && StringUtils.isEmpty(shiJian))) {
-                if (StringUtils.isNotEmpty(henJiId)) {
-                    HenJiEntity henJi = henJiService.getHenJi(henJiId);
-                    Assert.notNull(henJi, XiuXingErrorCodeDef.HEN_JI_INFO_IS_EMPTY);
-                    if (!(StringUtils.equals(shiJian, henJi.getShiJian())
-                            && StringUtils.equals(beiZhu, henJi.getBeiZhu())
-                            && StringUtils.equals(xiaoShuoId, henJi.getXiaoShuoId()))) {
-                        int henJiCount = henJiService.getHenJiCount();
-                        henJiEntity.setHenJiCode(String.valueOf(++henJiCount));
-                        henJiId = henJiService.saveHenJi(henJiEntity);
-                        cangKuRequest.put("henJiId", henJiId);
-                    }
-                }
-                else {
-                    int henJiCount = henJiService.getHenJiCount();
-                    henJiEntity.setHenJiCode(String.valueOf(++henJiCount));
-                    henJiId = henJiService.saveHenJi(henJiEntity);
-                    cangKuRequest.put("henJiId", henJiId);
-                }
+                String henJiId = henJiService.saveHenJi(henJiEntity);
+                cangKuRequest.put("henJiId", henJiId);
             }
             else {
                 cangKuRequest.put("henJiId", null);

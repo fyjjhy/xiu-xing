@@ -1,8 +1,12 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
+import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.dao.HenJiDao;
 import com.hbasesoft.xiu.xing.entity.HenJiEntity;
 import com.hbasesoft.xiu.xing.service.HenJiService;
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -35,6 +39,26 @@ public class HenJiServiceImpl implements HenJiService {
 
     @Override
     public String saveHenJi(HenJiEntity henJiEntity) {
+        DetachedCriteria criteria = DetachedCriteria.forClass(HenJiEntity.class);
+        if (StringUtils.isNotEmpty(henJiEntity.getShiJian())) {
+            criteria.add(Restrictions.eq(XiuXingCommonConstant.SHI_JIAN, henJiEntity.getShiJian()));
+        }
+        else {
+            criteria.add(Restrictions.isNull(XiuXingCommonConstant.SHI_JIAN));
+        }
+        if (StringUtils.isNotEmpty(henJiEntity.getBeiZhu())) {
+            criteria.add(Restrictions.eq(XiuXingCommonConstant.BEI_ZHU, henJiEntity.getBeiZhu()));
+        }
+        else {
+            criteria.add(Restrictions.isNull(XiuXingCommonConstant.BEI_ZHU));
+        }
+        criteria.add(Restrictions.eq(XiuXingCommonConstant.XIAO_SHUO_ID, henJiEntity.getXiaoShuoId()));
+        HenJiEntity entity = henJiDao.getCriteriaQuery(criteria);
+        if (entity != null) {
+            return entity.getId();
+        }
+        int henJiCount = henJiDao.getHenJiCount();
+        henJiEntity.setHenJiCode(String.valueOf(++henJiCount));
         return (String) henJiDao.save(henJiEntity);
     }
 }
