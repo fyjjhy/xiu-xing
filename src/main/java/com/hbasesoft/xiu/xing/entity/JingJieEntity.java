@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-18 <br>
+ * @CreateDate 2020-09-20 <br>
  * @since V1.0<br>
  * @see JingJieEntity <br>
  */
@@ -38,6 +38,10 @@ public class JingJieEntity extends BaseEntity {
     @Column(name = "jing_jie_code")
     private String jingJieCode;
 
+    /** jing_jie_fen_lei */
+    @Column(name = "jing_jie_fen_lei")
+    private String jingJieFenLei;
+
     /** jing_jie_name */
     @Column(name = "jing_jie_name")
     private String jingJieName;
@@ -49,6 +53,10 @@ public class JingJieEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** update_time */
+    @Column(name = "update_time")
+    private java.util.Date updateTime;
 
     public String getId() {
         return this.id;
@@ -64,6 +72,14 @@ public class JingJieEntity extends BaseEntity {
 
     public void setJingJieCode(String jingJieCode) {
         this.jingJieCode = jingJieCode;
+    }
+
+    public String getJingJieFenLei() {
+        return this.jingJieFenLei;
+    }
+
+    public void setJingJieFenLei(String jingJieFenLei) {
+        this.jingJieFenLei = jingJieFenLei;
     }
 
     public String getJingJieName() {
@@ -88,6 +104,14 @@ public class JingJieEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(java.util.Date updateTime) {
+        this.updateTime = updateTime;
     }
 
 }

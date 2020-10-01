@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
+import com.hbasesoft.xiu.xing.constant.XiuXingStatusCodeDef;
 import com.hbasesoft.xiu.xing.dao.DictDao;
 import com.hbasesoft.xiu.xing.entity.DictEntity;
 import com.hbasesoft.xiu.xing.service.DictService;
@@ -30,6 +31,7 @@ public class DictServiceImpl implements DictService {
     @Override
     public List<DictEntity> queryDictByFuncId(String funcId) {
         DetachedCriteria criteria = DetachedCriteria.forClass(DictEntity.class);
+        criteria.add(Restrictions.ne(XiuXingCommonConstant.STATE, XiuXingStatusCodeDef.DISABLE));
         criteria.add(Restrictions.eq(XiuXingCommonConstant.FUNC_ID, funcId));
         return dictDao.getListByCriteriaQuery(criteria);
     }

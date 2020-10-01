@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-07-18 <br>
+ * @CreateDate 2020-09-20 <br>
  * @since V1.0<br>
  * @see PinJiEntity <br>
  */
@@ -49,6 +49,10 @@ public class PinJiEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** update_time */
+    @Column(name = "update_time")
+    private java.util.Date updateTime;
 
     public String getId() {
         return this.id;
@@ -88,6 +92,14 @@ public class PinJiEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public java.util.Date getUpdateTime() {
+        return this.updateTime;
+    }
+
+    public void setUpdateTime(java.util.Date updateTime) {
+        this.updateTime = updateTime;
     }
 
 }

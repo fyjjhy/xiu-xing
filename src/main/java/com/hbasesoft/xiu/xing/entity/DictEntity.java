@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-05-30 <br>
+ * @CreateDate 2020-09-20 <br>
  * @since V1.0<br>
  * @see DictEntity <br>
  */
@@ -49,6 +49,10 @@ public class DictEntity extends BaseEntity {
     /** seq */
     @Column(name = "seq")
     private Integer seq;
+
+    /** state */
+    @Column(name = "state")
+    private String state;
 
     public String getId() {
         return this.id;
@@ -88,6 +92,14 @@ public class DictEntity extends BaseEntity {
 
     public void setSeq(Integer seq) {
         this.seq = seq;
+    }
+
+    public String getState() {
+        return this.state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
 }
