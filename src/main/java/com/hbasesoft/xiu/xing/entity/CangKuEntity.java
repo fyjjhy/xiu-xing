@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Objects;
 
 /**
  * <Description> cang_ku的Entity<br>
@@ -222,4 +223,30 @@ public class CangKuEntity extends BaseEntity {
         this.lingWuId = lingWuId;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CangKuEntity that = (CangKuEntity) o;
+        return Objects.equals(lingWuShuXing, that.lingWuShuXing) &&
+                Objects.equals(lingWuState, that.lingWuState) &&
+                Objects.equals(lingWuShuLiang, that.lingWuShuLiang) &&
+                Objects.equals(danWei, that.danWei) &&
+                Objects.equals(jingJieId, that.jingJieId) &&
+                Objects.equals(pinJiId, that.pinJiId) &&
+                Objects.equals(suoShuId, that.suoShuId) &&
+                Objects.equals(xiaoShuoId, that.xiaoShuoId) &&
+                Objects.equals(suoShuPinJiId, that.suoShuPinJiId) &&
+                Objects.equals(suoShuJingJieId, that.suoShuJingJieId) &&
+                Objects.equals(lingWuHisId, that.lingWuHisId) &&
+                Objects.equals(suoShuHisId, that.suoShuHisId) &&
+                Objects.equals(henJiId, that.henJiId) &&
+                Objects.equals(lingWuId, that.lingWuId);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(lingWuShuXing, lingWuState, lingWuShuLiang, danWei, jingJieId, pinJiId, suoShuId, xiaoShuoId, suoShuPinJiId, suoShuJingJieId, lingWuHisId, suoShuHisId, henJiId, lingWuId);
+    }
 }

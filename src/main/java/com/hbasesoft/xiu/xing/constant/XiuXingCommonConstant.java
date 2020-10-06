@@ -520,4 +520,7 @@ public interface XiuXingCommonConstant {
 
     String HEN_JI_CODE = "henJiCode";
 
+    /** 翻转标识 */
+    String FAN_ZHUAN_FLAG = "fanZhuanFlag";
+
 }

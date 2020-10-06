@@ -1,6 +1,7 @@
 com\hbasesoft\xiu\xing\dao\LingDanDao.class
 com\hbasesoft\xiu\xing\service\impl\ZhenFaServiceImpl.class
 com\hbasesoft\xiu\xing\service\DictDataService.class
+com\hbasesoft\xiu\xing\fc\CangKuHisQueryFilter.class
 com\hbasesoft\xiu\xing\service\FuncComponentService.class
 com\hbasesoft\xiu\xing\entity\RenWuEntity.class
 com\hbasesoft\xiu\xing\bean\CangKuHis.class
@@ -11,6 +12,8 @@ com\hbasesoft\xiu\xing\controller\CommonController.class
 com\hbasesoft\xiu\xing\dao\FuncComponentDao.class
 com\hbasesoft\xiu\xing\service\impl\ProcessServiceImpl.class
 com\hbasesoft\xiu\xing\dao\AddressDao.class
+com\hbasesoft\xiu\xing\dao\CangKuDao.class
+com\hbasesoft\xiu\xing\service\CangKuService.class
 com\hbasesoft\xiu\xing\service\ProcessService.class
 com\hbasesoft\xiu\xing\service\ZhenFaService.class
 com\hbasesoft\xiu\xing\dao\JiGouDao.class
@@ -198,6 +201,7 @@ com\hbasesoft\xiu\xing\service\RenWuService.class
 com\hbasesoft\xiu\xing\service\SheDingService.class
 com\hbasesoft\xiu\xing\util\DateConstants.class
 com\hbasesoft\xiu\xing\util\AbstractVo.class
+com\hbasesoft\xiu\xing\service\impl\CangKuServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\DictServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\XiuXingRiZhiServiceImpl.class
 com\hbasesoft\xiu\xing\service\XiuXingRiZhiService.class
