@@ -27,4 +27,19 @@ public class CangKuServiceImpl implements CangKuService {
     public CangKuEntity getCangKuByCangKuId(String cangKuId) {
         return cangKuDao.get(CangKuEntity.class, cangKuId);
     }
+
+    @Override
+    public int updateCangKuBySuoShuId(String origin, String target) {
+        return cangKuDao.updateCangKuBySuoShuId(origin, target);
+    }
+
+    @Override
+    public int updateCangKuByCongShuId(String origin, String target) {
+        return cangKuDao.updateCangKuByCongShuId(origin, target);
+    }
+
+    @Override
+    public int updateCangKuByCongShuHisId(String congHisId, String congId) {
+        return cangKuDao.updateCangKuByCongShuHisId(congHisId, congId);
+    }
 }

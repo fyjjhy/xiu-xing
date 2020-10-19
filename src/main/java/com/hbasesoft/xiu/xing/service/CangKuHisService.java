@@ -29,15 +29,15 @@ public interface CangKuHisService {
     void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity);
 
     /**
-     * Description: 查询所属者的仓库信息<br>
+     * Description: 查询从属者的仓库信息<br>
      *
      * @author 付永杰<br>
      * @taskId <br>
-     * @param suoShuId
+     * @param congShuId
      * @return <br>
      */
     @Transactional(readOnly = true)
-    List<CangKuHisEntity> queryCangKuHisBySuoShu(String suoShuId);
+    List<CangKuHisEntity> queryCangKuHisByCongShu(String congShuId);
 
     /**
      * Description: 同步灵物所属历史信息<br>
@@ -49,5 +49,29 @@ public interface CangKuHisService {
      */
     @Transactional(rollbackFor = Throwable.class)
     void syncLingWuSuoShuHisId(String xiaoShuoId);
+
+    /**
+     * Description: 更新仓库历史信息，将源属信息更新成目标属信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param origin
+     * @param target
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    int updateCangKuHisByCongShuId(String origin, String target);
+
+    /**
+     * Description: 更新仓库历史信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param congHisId
+     * @param congId
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    int updateCangKuHisByCongShuHisId(String congHisId, String congId);
 
 }

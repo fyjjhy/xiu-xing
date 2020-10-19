@@ -399,4 +399,16 @@ public interface XiuXingErrorCodeDef {
     /** 痕迹信息不存在 */
     int HEN_JI_INFO_IS_EMPTY = 20090601;
 
+    /** 从属信息不存在 */
+    int CONG_SHU_INFO_IS_EMPTY = 20100901;
+
+    /** 从信息不存在 */
+    int CONG_INFO_IS_EMPTY = 20101101;
+
+    /** 属信息不存在 */
+    int SHU_INFO_IS_EMPTY = 20101201;
+
+    /** 从历史信息不存在 */
+    int CONG_HIS_INFO_IS_EMPTY = 20101801;
+
 }

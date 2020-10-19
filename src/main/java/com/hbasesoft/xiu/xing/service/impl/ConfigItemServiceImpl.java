@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
+import com.hbasesoft.framework.common.GlobalConstants;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.dao.ConfigItemDao;
 import com.hbasesoft.xiu.xing.entity.ConfigItemEntity;
@@ -33,4 +34,11 @@ public class ConfigItemServiceImpl implements ConfigItemService {
         criteria.add(Restrictions.eq(XiuXingCommonConstant.FUNC_ID, funcId));
         return configItemDao.getListByCriteriaQuery(criteria);
     }
+
+    @Override
+    public String getConfigItem(String funcCode, String configCode) {
+        ConfigItemEntity entity = configItemDao.getConfigItem(funcCode, configCode);
+        return entity == null ? GlobalConstants.BLANK : entity.getConfigValue();
+    }
+
 }

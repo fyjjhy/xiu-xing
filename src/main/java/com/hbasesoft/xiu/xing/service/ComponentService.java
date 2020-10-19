@@ -30,7 +30,7 @@ public interface ComponentService {
      * @param processEntity
      * @return <br>
      */
-    @Transactional(readOnly = true)
+    @Transactional(rollbackFor = Throwable.class)
     Object perform(String action, Map<String, Object> data, String resId, Serv entity, ProcessEntity processEntity);
 
 }

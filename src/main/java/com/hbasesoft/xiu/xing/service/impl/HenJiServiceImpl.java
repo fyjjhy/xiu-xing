@@ -40,11 +40,11 @@ public class HenJiServiceImpl implements HenJiService {
     @Override
     public String saveHenJi(HenJiEntity henJiEntity) {
         DetachedCriteria criteria = DetachedCriteria.forClass(HenJiEntity.class);
-        if (StringUtils.isNotEmpty(henJiEntity.getShiJian())) {
-            criteria.add(Restrictions.eq(XiuXingCommonConstant.SHI_JIAN, henJiEntity.getShiJian()));
+        if (StringUtils.isNotEmpty(henJiEntity.getXiuXingShiJian())) {
+            criteria.add(Restrictions.eq(XiuXingCommonConstant.XIU_XING_SHI_JIAN, henJiEntity.getXiuXingShiJian()));
         }
         else {
-            criteria.add(Restrictions.isNull(XiuXingCommonConstant.SHI_JIAN));
+            criteria.add(Restrictions.isNull(XiuXingCommonConstant.XIU_XING_SHI_JIAN));
         }
         if (StringUtils.isNotEmpty(henJiEntity.getBeiZhu())) {
             criteria.add(Restrictions.eq(XiuXingCommonConstant.BEI_ZHU, henJiEntity.getBeiZhu()));

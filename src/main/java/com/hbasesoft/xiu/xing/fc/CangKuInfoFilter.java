@@ -63,7 +63,7 @@ public class CangKuInfoFilter implements ServiceFilter {
     }
 
     /**
-     * Description: 处理所属分类信息<br>
+     * Description: 处理属分类信息<br>
      *
      * @author 付永杰<br>
      * @taskId <br>
@@ -71,53 +71,53 @@ public class CangKuInfoFilter implements ServiceFilter {
      * @return <br>
      */
     private void processCangKuInfo(Map<String, Object> result) {
-        // 灵物名称
-        String lingWuName = (String) result.get(XiuXingCommonConstant.LING_WU_NAME);
+        // 从名称
+        String congName = (String) result.get(XiuXingCommonConstant.CONG_NAME);
         StringBuilder lingWu = new StringBuilder();
-        if (StringUtils.isNotEmpty(lingWuName)) {
-            // 灵物状态
-            String lingWuState = (String) result.get(XiuXingCommonConstant.CANG_KU_LING_WU_STATE);
-            if (StringUtils.isNotEmpty(lingWuState)) {
-                lingWu.append("[").append(lingWuState).append("]");
+        if (StringUtils.isNotEmpty(congName)) {
+            // 从状态
+            String congStateName = (String) result.get(XiuXingCommonConstant.CONG_STATE_NAME);
+            if (StringUtils.isNotEmpty(congStateName)) {
+                lingWu.append("[").append(congStateName).append("]");
             }
-            // 灵物数量
-            String lingWuShuLiang = (String) result.get(XiuXingCommonConstant.LING_WU_SHU_LIANG);
-            if (StringUtils.isNotEmpty(lingWuShuLiang)) {
-                lingWu.append(lingWuShuLiang);
+            // 从数量
+            String congShuLiang = (String) result.get(XiuXingCommonConstant.CONG_SHU_LIANG);
+            if (StringUtils.isNotEmpty(congShuLiang)) {
+                lingWu.append(congShuLiang);
             }
             // 单位
             String danWei = (String) result.get(XiuXingCommonConstant.DAN_WEI);
             if (StringUtils.isNotEmpty(danWei)) {
                 lingWu.append(danWei);
             }
-            // 境界
-            String jingJieName = (String) result.get(XiuXingCommonConstant.JING_JIE_NAME);
-            if (StringUtils.isNotEmpty(jingJieName) && !XiuXingCommonConstant.WU.equals(jingJieName)) {
-                lingWu.append(jingJieName);
+            // 从境界
+            String congJingJieName = (String) result.get(XiuXingCommonConstant.CONG_JING_JIE_NAME);
+            if (StringUtils.isNotEmpty(congJingJieName) && !XiuXingCommonConstant.WU.equals(congJingJieName)) {
+                lingWu.append(congJingJieName);
             }
-            // 品级
-            String pinJiName = (String) result.get(XiuXingCommonConstant.PIN_JI_NAME);
-            if (StringUtils.isNotEmpty(pinJiName) && !XiuXingCommonConstant.WU.equals(pinJiName)) {
-                lingWu.append(pinJiName);
+            // 从品级
+            String congPinJiName = (String) result.get(XiuXingCommonConstant.CONG_PIN_JI_NAME);
+            if (StringUtils.isNotEmpty(congPinJiName) && !XiuXingCommonConstant.WU.equals(congPinJiName)) {
+                lingWu.append(congPinJiName);
             }
-            result.put("lingWuFullName", lingWu.append(lingWuName).toString());
+            result.put("congFullName", lingWu.append(congName).toString());
         }
         
-        // 所属名称
-        String suoShuName = (String) result.get(XiuXingCommonConstant.SUO_SHU_NAME);
+        // 属名称
+        String shuName = (String) result.get(XiuXingCommonConstant.SHU_NAME);
         StringBuilder suoShu = new StringBuilder();
-        if (StringUtils.isNotEmpty(suoShuName)) {
-            // 所属境界
-            String suoShuJingJieName = (String) result.get(XiuXingCommonConstant.SUO_SHU_JING_JIE_NAME);
-            if (StringUtils.isNotEmpty(suoShuJingJieName) && !XiuXingCommonConstant.WU.equals(suoShuJingJieName)) {
-                suoShu.append(suoShuJingJieName);
+        if (StringUtils.isNotEmpty(shuName)) {
+            // 属境界
+            String shuJingJieName = (String) result.get(XiuXingCommonConstant.SHU_JING_JIE_NAME);
+            if (StringUtils.isNotEmpty(shuJingJieName) && !XiuXingCommonConstant.WU.equals(shuJingJieName)) {
+                suoShu.append(shuJingJieName);
             }
-            // 所属品级
-            String suoShuPinJiName = (String) result.get(XiuXingCommonConstant.SUO_SHU_PIN_JI_NAME);
-            if (StringUtils.isNotEmpty(suoShuPinJiName) && !XiuXingCommonConstant.WU.equals(suoShuPinJiName)) {
-                suoShu.append(suoShuPinJiName);
+            // 属品级
+            String shuPinJiName = (String) result.get(XiuXingCommonConstant.SHU_PIN_JI_NAME);
+            if (StringUtils.isNotEmpty(shuPinJiName) && !XiuXingCommonConstant.WU.equals(shuPinJiName)) {
+                suoShu.append(shuPinJiName);
             }
-            result.put("suoShuFullName", suoShu.append(suoShuName).toString());
+            result.put("shuFullName", suoShu.append(shuName).toString());
         }        
     }
 }

@@ -3,27 +3,29 @@ package com.hbasesoft.xiu.xing.fc;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.hbasesoft.framework.common.utils.Assert;
+import com.hbasesoft.framework.common.utils.logger.LoggerUtil;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
 import com.hbasesoft.xiu.xing.component.ServiceFilter;
-import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
 import com.hbasesoft.xiu.xing.entity.CangKuHisEntity;
+import com.hbasesoft.xiu.xing.entity.CongEntity;
+import com.hbasesoft.xiu.xing.entity.CongHisEntity;
 import com.hbasesoft.xiu.xing.entity.HenJiEntity;
-import com.hbasesoft.xiu.xing.entity.JingJieEntity;
-import com.hbasesoft.xiu.xing.entity.LingWuEntity;
-import com.hbasesoft.xiu.xing.entity.LingWuHisEntity;
-import com.hbasesoft.xiu.xing.entity.PinJiEntity;
-import com.hbasesoft.xiu.xing.entity.SuoShuEntity;
-import com.hbasesoft.xiu.xing.entity.SuoShuHisEntity;
+import com.hbasesoft.xiu.xing.entity.ShuEntity;
+import com.hbasesoft.xiu.xing.entity.ShuHisEntity;
+import com.hbasesoft.xiu.xing.entity.ZhangJieCongShuEntity;
 import com.hbasesoft.xiu.xing.service.CangKuHisService;
+import com.hbasesoft.xiu.xing.service.CongHisService;
+import com.hbasesoft.xiu.xing.service.CongService;
+import com.hbasesoft.xiu.xing.service.CongShuHisService;
+import com.hbasesoft.xiu.xing.service.CongShuService;
 import com.hbasesoft.xiu.xing.service.HenJiService;
 import com.hbasesoft.xiu.xing.service.JingJieService;
-import com.hbasesoft.xiu.xing.service.LingWuHisService;
-import com.hbasesoft.xiu.xing.service.LingWuService;
 import com.hbasesoft.xiu.xing.service.PinJiService;
-import com.hbasesoft.xiu.xing.service.SuoShuHisService;
-import com.hbasesoft.xiu.xing.service.SuoShuService;
+import com.hbasesoft.xiu.xing.service.ShuHisService;
+import com.hbasesoft.xiu.xing.service.ShuService;
+import com.hbasesoft.xiu.xing.service.ZhangJieCongShuService;
 import com.hbasesoft.xiu.xing.util.DateUtil;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -46,18 +48,6 @@ import java.util.Map;
 public class CangKuAddUpdateFilter implements ServiceFilter {
 
     @Resource
-    private LingWuService lingWuService;
-
-    @Resource
-    private LingWuHisService lingWuHisService;
-
-    @Resource
-    private SuoShuService suoShuService;
-
-    @Resource
-    private SuoShuHisService suoShuHisService;
-
-    @Resource
     private JingJieService jingJieService;
 
     @Resource
@@ -69,107 +59,123 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
     @Resource
     private HenJiService henJiService;
 
+    @Resource
+    private CongShuService congShuService;
+
+    @Resource
+    private CongShuHisService congShuHisService;
+
+    @Resource
+    private CongService congService;
+
+    @Resource
+    private CongHisService congHisService;
+
+    @Resource
+    private ShuService shuService;
+
+    @Resource
+    private ShuHisService shuHisService;
+
+    @Resource
+    private ZhangJieCongShuService zhangJieCongShuService;
+
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
         Map<String, Object> cangKuRequest = flowBean.getRequest();
         if (MapUtils.isNotEmpty(cangKuRequest)) {
-            String lingWuId = (String) cangKuRequest.get("lingWuId");
-            String lingWuFenLei = (String) cangKuRequest.get("lingWuFenLei");
-            String lingWuName = (String) cangKuRequest.get("lingWuName");
-            String lingWuMiaoShu = (String) cangKuRequest.get("lingWuMiaoShu");
+            String congId = (String) cangKuRequest.get("congId");
+            String congFenLei = (String) cangKuRequest.get("congFenLei");
+            String congName = (String) cangKuRequest.get("congName");
+            String congMiaoShu = (String) cangKuRequest.get("congMiaoShu");
             String xiaoShuoId = (String) cangKuRequest.get("xiaoShuoId");
-            String xiuXingSuiYue = (String) cangKuRequest.get("xiuXingSuiYue");
-            LingWuHisEntity lingWuHisEntity = new LingWuHisEntity();
-            lingWuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
-            lingWuHisEntity.setXiaoShuoId(xiaoShuoId);
-            lingWuHisEntity.setLingWuMiaoShu(lingWuMiaoShu);
-            lingWuHisEntity.setLingWuFenLei(lingWuFenLei);
-            lingWuHisEntity.setLingWuName(lingWuName);
-            lingWuHisEntity.setXiuXingSuiYue(xiuXingSuiYue);
-            if (StringUtils.isNotEmpty(lingWuId)) {
-                LingWuEntity lingWuEntity = lingWuService.getLingWuById(lingWuId);
-                Assert.notNull(lingWuEntity, XiuXingErrorCodeDef.LING_WU_INFO_IS_EMPTY);
-                lingWuHisEntity.setLingWuId(lingWuId);
-                lingWuHisEntity.setLingWuCode(lingWuEntity.getLingWuCode());
-                String lingWuHisId = lingWuHisService.saveOrUpdateLingWuHis(lingWuHisEntity);
-                cangKuRequest.put("lingWuHisId", lingWuHisId);
+            CongHisEntity congHisEntity = new CongHisEntity();
+            congHisEntity.setUpdateTime(DateUtil.getCurrentDate());
+            congHisEntity.setXiaoShuoId(xiaoShuoId);
+            congHisEntity.setCongMiaoShu(congMiaoShu);
+            congHisEntity.setCongFenLei(congFenLei);
+            congHisEntity.setCongName(congName);
+            if (StringUtils.isNotEmpty(congId)) {
+                CongEntity congEntity = congService.getCongById(congId);
+                Assert.notNull(congEntity, XiuXingErrorCodeDef.CONG_INFO_IS_EMPTY);
+                congHisEntity.setCongId(congId);
+                congHisEntity.setCongCode(congEntity.getCongCode());
+                String congHisId = congHisService.saveOrUpdateCongHis(congHisEntity);
+                congHisEntity.setId(congHisId);
+                cangKuRequest.put("congHisId", congHisId);
             }
             else {
-                LingWuEntity lingWuEntity = new LingWuEntity();
-                int lingWuCount = lingWuService.getLingWuCount();
-                lingWuEntity.setLingWuCode(String.valueOf(++lingWuCount));
-                lingWuEntity.setLingWuName(lingWuName);
-                lingWuEntity.setLingWuFenLei(lingWuFenLei);
-                // lingWuEntity.setLingWuState(lingWuState);
-                // lingWuEntity.setLingWuShuXing(lingWuShuXing);
-                lingWuEntity.setLingWuMiaoShu(lingWuMiaoShu);
-                lingWuEntity.setUpdateTime(lingWuHisEntity.getUpdateTime());
-                lingWuEntity.setXiaoShuoId(xiaoShuoId);
-                lingWuEntity.setXiuXingSuiYue(xiuXingSuiYue);
-                String lingWuInfoId = lingWuService.saveLingWu(lingWuEntity);
-                lingWuHisEntity.setLingWuId(lingWuInfoId);
-                lingWuHisEntity.setLingWuCode(lingWuEntity.getLingWuCode());
-                lingWuHisEntity.setUpdateTime(lingWuEntity.getUpdateTime());
-                String lingWuHisId = lingWuHisService.saveOrUpdateLingWuHis(lingWuHisEntity);
-                cangKuRequest.put("lingWuId", lingWuInfoId);
-                cangKuRequest.put("lingWuHisId", lingWuHisId);
+                CongEntity congEntity = new CongEntity();
+                int congCount = congService.getCongCount();
+                congEntity.setCongCode(String.valueOf(++congCount));
+                congEntity.setCongName(congName);
+                congEntity.setCongFenLei(congFenLei);
+                congEntity.setCongMiaoShu(congMiaoShu);
+                congEntity.setUpdateTime(congHisEntity.getUpdateTime());
+                congEntity.setXiaoShuoId(xiaoShuoId);
+                String congInfoId = congService.saveCong(congEntity);
+                congHisEntity.setCongId(congInfoId);
+                congHisEntity.setCongCode(congEntity.getCongCode());
+                congHisEntity.setUpdateTime(congEntity.getUpdateTime());
+                String congHisId = congHisService.saveOrUpdateCongHis(congHisEntity);
+                congHisEntity.setId(congHisId);
+                cangKuRequest.put("congId", congInfoId);
+                cangKuRequest.put("congHisId", congHisId);
             }
 
-            String suoShuId = (String) cangKuRequest.get("suoShuId");
-            String suoShuFenLei = (String) cangKuRequest.get("suoShuFenLei");
-            String suoShuName = (String) cangKuRequest.get("suoShuName");
-            String suoShuMiaoShu = (String) cangKuRequest.get("suoShuMiaoShu");
+            String shuId = (String) cangKuRequest.get("shuId");
+            String shuFenLei = (String) cangKuRequest.get("shuFenLei");
+            String shuName = (String) cangKuRequest.get("shuName");
+            String shuMiaoShu = (String) cangKuRequest.get("shuMiaoShu");
             String addrId = (String) cangKuRequest.get("addrId");
-            SuoShuHisEntity suoShuHisEntity = new SuoShuHisEntity();
-            suoShuHisEntity.setSuoShuId(suoShuId);
-            suoShuHisEntity.setSuoShuFenLei(suoShuFenLei);
-            suoShuHisEntity.setSuoShuName(suoShuName);
-            suoShuHisEntity.setSuoShuMiaoShu(suoShuMiaoShu);
-            suoShuHisEntity.setXiaoShuoId(xiaoShuoId);
-            suoShuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
-            suoShuHisEntity.setAddrId(addrId);
-            if (StringUtils.isNotEmpty(suoShuId)) {
-                SuoShuEntity suoShuEntity = suoShuService.getSuoShuById(suoShuId);
-                Assert.notNull(suoShuEntity, XiuXingErrorCodeDef.SUO_SHU_INFO_IS_EMPTY);
-//                if (!(StringUtils.equals(suoShuName, suoShuEntity.getSuoShuName()) &&
-//                        StringUtils.equals(suoShuFenLei, suoShuEntity.getSuoShuFenLei()) &&
-//                        StringUtils.equals(suoShuMiaoShu, suoShuEntity.getSuoShuMiaoShu()) &&
-//                        StringUtils.equals(xiaoShuoId, suoShuEntity.getXiaoShuoId()))) {
-//                    suoShuEntity.setSuoShuName(suoShuName);
-//                    suoShuEntity.setSuoShuFenLei(suoShuFenLei);
-//                    suoShuEntity.setSuoShuMiaoShu(suoShuMiaoShu);
-//                    suoShuEntity.setXiaoShuoId(xiaoShuoId);
-//                    suoShuService.updateSuoShu(suoShuEntity);
-//                }
-                suoShuHisEntity.setSuoShuCode(suoShuEntity.getSuoShuCode());
-                String suoShuHisId = suoShuHisService.saveOrUpdateSuoShuHis(suoShuHisEntity);
-                cangKuRequest.put("suoShuHisId", suoShuHisId);
+            String shuJingJieId = (String) cangKuRequest.get("shuJingJieId");
+            String shuPinJiId = (String) cangKuRequest.get("shuPinJiId");
+            ShuHisEntity shuHisEntity = new ShuHisEntity();
+            shuHisEntity.setShuId(shuId);
+            shuHisEntity.setShuFenLei(shuFenLei);
+            shuHisEntity.setShuName(shuName);
+            shuHisEntity.setShuMiaoShu(shuMiaoShu);
+            shuHisEntity.setXiaoShuoId(xiaoShuoId);
+            shuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
+            shuHisEntity.setAddrId(addrId);
+            shuHisEntity.setShuJingJieId(shuJingJieId);
+            shuHisEntity.setShuPinJiId(shuPinJiId);
+            if (StringUtils.isNotEmpty(shuId)) {
+                ShuEntity shuEntity = shuService.getShuById(shuId);
+                Assert.notNull(shuEntity, XiuXingErrorCodeDef.SHU_INFO_IS_EMPTY);
+                shuHisEntity.setShuCode(shuEntity.getShuCode());
+                String shuHisId = shuHisService.saveOrUpdateShuHis(shuHisEntity);
+                shuHisEntity.setId(shuHisId);
+                cangKuRequest.put("shuHisId", shuHisId);
             } else {
-                SuoShuEntity suoShuEntity = new SuoShuEntity();
-                int suoShuCount = suoShuService.getSuoShuCount();
-                suoShuEntity.setSuoShuCode(String.valueOf(++suoShuCount));
-                suoShuEntity.setSuoShuName(suoShuName);
-                suoShuEntity.setSuoShuFenLei(suoShuFenLei);
-                suoShuEntity.setSuoShuMiaoShu(suoShuMiaoShu);
-                suoShuEntity.setUpdateTime(DateUtil.getCurrentDate());
-                suoShuEntity.setXiaoShuoId(xiaoShuoId);
-                suoShuEntity.setAddrId(addrId);
-                String suoShuInfoId = suoShuService.saveSuoShu(suoShuEntity);
-                cangKuRequest.put("suoShuId", suoShuInfoId);
-                suoShuHisEntity.setSuoShuId(suoShuInfoId);
-                suoShuHisEntity.setSuoShuCode(suoShuEntity.getSuoShuCode());
-                suoShuHisEntity.setUpdateTime(suoShuEntity.getUpdateTime());
-                String suoShuHisId = suoShuHisService.saveOrUpdateSuoShuHis(suoShuHisEntity);
-                cangKuRequest.put("suoShuHisId", suoShuHisId);
+                ShuEntity shuEntity = new ShuEntity();
+                int shuCount = shuService.getShuCount();
+                shuEntity.setShuCode(String.valueOf(++shuCount));
+                shuEntity.setShuName(shuName);
+                shuEntity.setShuFenLei(shuFenLei);
+                shuEntity.setShuMiaoShu(shuMiaoShu);
+                shuEntity.setUpdateTime(DateUtil.getCurrentDate());
+                shuEntity.setXiaoShuoId(xiaoShuoId);
+                shuEntity.setAddrId(addrId);
+                shuEntity.setShuJingJieId(shuJingJieId);
+                shuEntity.setShuPinJiId(shuPinJiId);
+                String shuInfoId = shuService.saveShu(shuEntity);
+                cangKuRequest.put("shuId", shuInfoId);
+                shuHisEntity.setShuId(shuInfoId);
+                shuHisEntity.setShuCode(shuEntity.getShuCode());
+                shuHisEntity.setUpdateTime(shuEntity.getUpdateTime());
+                String shuHisId = shuHisService.saveOrUpdateShuHis(shuHisEntity);
+                shuHisEntity.setId(shuHisId);
+                cangKuRequest.put("shuHisId", shuHisId);
             }
 
-            String shiJian = (String) cangKuRequest.get(XiuXingCommonConstant.SHI_JIAN);
-            String beiZhu = (String) cangKuRequest.get(XiuXingCommonConstant.BEI_ZHU);
+            String xiuXingShiJian = (String) cangKuRequest.get("xiuXingShiJian");
+            String beiZhu = (String) cangKuRequest.get("beiZhu");
             HenJiEntity henJiEntity = new HenJiEntity();
-            henJiEntity.setShiJian(StringUtils.isNotEmpty(shiJian) ? shiJian : null);
+            henJiEntity.setXiuXingShiJian(StringUtils.isNotEmpty(xiuXingShiJian) ? xiuXingShiJian : null);
             henJiEntity.setBeiZhu(StringUtils.isNotEmpty(beiZhu) ? beiZhu : null);
             henJiEntity.setXiaoShuoId(xiaoShuoId);
-            if (!(StringUtils.isEmpty(beiZhu) && StringUtils.isEmpty(shiJian))) {
+            if (!(StringUtils.isEmpty(beiZhu) && StringUtils.isEmpty(xiuXingShiJian))) {
                 String henJiId = henJiService.saveHenJi(henJiEntity);
                 cangKuRequest.put("henJiId", henJiId);
             }
@@ -177,41 +183,74 @@ public class CangKuAddUpdateFilter implements ServiceFilter {
                 cangKuRequest.put("henJiId", null);
             }
 
-            String lingWuJingJieId = (String) cangKuRequest.get(XiuXingCommonConstant.JING_JIE_ID);
-            String lingWuPinJiId = (String) cangKuRequest.get(XiuXingCommonConstant.PIN_JI_ID);
-            String suoShuJingJieId = (String) cangKuRequest.get(XiuXingCommonConstant.SUO_SHU_JING_JIE_ID);
-            String suoShuPinJiId = (String) cangKuRequest.get(XiuXingCommonConstant.SUO_SHU_PIN_JI_ID);
-            if (StringUtils.isNotEmpty(lingWuJingJieId)) {
-                JingJieEntity jingJieEntity = jingJieService.getJingJieById(lingWuJingJieId);
-                cangKuRequest.put("jingJieName", jingJieEntity.getJingJieName());
-            }
-            else {
-                cangKuRequest.put("jingJieName", null);
-            }
-
-            if (StringUtils.isNotEmpty(suoShuJingJieId)) {
-                JingJieEntity jingJieEntity = jingJieService.getJingJieById(suoShuJingJieId);
-                cangKuRequest.put("suoShuJingJieName", jingJieEntity.getJingJieName());
-            }
-            else {
-                cangKuRequest.put("suoShuJingJieName", null);
+            // 如果仓库信息中存在章节ID，则将从信息、属信息与章节ID信息保存到zhang_jie_cong_shu
+            String zhangJieId = (String) cangKuRequest.get("zhangJieId");
+            if (StringUtils.isNotEmpty(zhangJieId)) {
+                // 删除zhang_jie_cong_shu表中的对应章节的空数据
+                int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
+                LoggerUtil.info("[仓库]删除章节从空数据：{0}", emptyCount);
+                // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
+                // 如果存在，则不作任何处理
+                // 如果不存在，则添加到zhang_jie_cong_shu表中
+                ZhangJieCongShuEntity zhangJieCongShuEntity = new ZhangJieCongShuEntity();
+                zhangJieCongShuEntity.setType("从");
+                zhangJieCongShuEntity.setCongShuHisId(congHisEntity.getId());
+                zhangJieCongShuEntity.setCongShuId(congHisEntity.getCongId());
+                zhangJieCongShuEntity.setZhangJieId(zhangJieId);
+                zhangJieCongShuEntity.setXiaoShuoId(congHisEntity.getXiaoShuoId());
+                zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);
             }
 
-            if (StringUtils.isNotEmpty(lingWuPinJiId)) {
-                PinJiEntity pinJiEntity = pinJiService.getPinJiById(lingWuPinJiId);
-                cangKuRequest.put("pinJiName", pinJiEntity.getPinJiName());
-            }
-            else {
-                cangKuRequest.put("pinJiName", null);
+            // 如果仓库信息中存在章节ID，则将从信息、属信息与章节ID信息保存到zhang_jie_cong_shu
+            if (StringUtils.isNotEmpty(zhangJieId)) {
+                // 删除zhang_jie_cong_shu表中的对应章节的空数据
+                int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
+                LoggerUtil.info("[仓库]删除章节属空数据：{0}", emptyCount);
+                // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
+                // 如果存在，则不作任何处理
+                // 如果不存在，则添加到zhang_jie_cong_shu表中
+                ZhangJieCongShuEntity zhangJieCongShuEntity = new ZhangJieCongShuEntity();
+                zhangJieCongShuEntity.setType("属");
+                zhangJieCongShuEntity.setCongShuHisId(shuHisEntity.getId());
+                zhangJieCongShuEntity.setCongShuId(shuHisEntity.getShuId());
+                zhangJieCongShuEntity.setZhangJieId(zhangJieId);
+                zhangJieCongShuEntity.setXiaoShuoId(shuHisEntity.getXiaoShuoId());
+                zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);
             }
 
-            if (StringUtils.isNotEmpty(suoShuPinJiId)) {
-                PinJiEntity pinJiEntity = pinJiService.getPinJiById(suoShuPinJiId);
-                cangKuRequest.put("suoShuPinJiName", pinJiEntity.getPinJiName());
-            }
-            else {
-                cangKuRequest.put("suoShuPinJiName", null);
-            }
+//            String congJingJieId = (String) cangKuRequest.get("congJingJieId");
+//            String congPinJiId = (String) cangKuRequest.get("congPinJiId");
+//            if (StringUtils.isNotEmpty(congJingJieId)) {
+//                JingJieEntity jingJieEntity = jingJieService.getJingJieById(congJingJieId);
+//                cangKuRequest.put("congJingJieName", jingJieEntity.getJingJieName());
+//            }
+//            else {
+//                cangKuRequest.put("congJingJieName", null);
+//            }
+//
+//            if (StringUtils.isNotEmpty(congPinJiId)) {
+//                PinJiEntity pinJiEntity = pinJiService.getPinJiById(congPinJiId);
+//                cangKuRequest.put("congPinJiName", pinJiEntity.getPinJiName());
+//            }
+//            else {
+//                cangKuRequest.put("congPinJiName", null);
+//            }
+//
+//            if (StringUtils.isNotEmpty(shuJingJieId)) {
+//                JingJieEntity jingJieEntity = jingJieService.getJingJieById(shuJingJieId);
+//                cangKuRequest.put("shuJingJieName", jingJieEntity.getJingJieName());
+//            }
+//            else {
+//                cangKuRequest.put("shuJingJieName", null);
+//            }
+//
+//            if (StringUtils.isNotEmpty(shuPinJiId)) {
+//                PinJiEntity pinJiEntity = pinJiService.getPinJiById(shuPinJiId);
+//                cangKuRequest.put("shuPinJiName", pinJiEntity.getPinJiName());
+//            }
+//            else {
+//                cangKuRequest.put("shuPinJiName", null);
+//            }
         }
         return true;
     }

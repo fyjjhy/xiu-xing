@@ -20,4 +20,16 @@ public interface ConfigItemService {
     @Transactional(readOnly = true)
     List<ConfigItemEntity> queryConfItems(String funcId);
 
+    /**
+     * Description: 查询配置项<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param funcCode
+     * @param configCode
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    String getConfigItem(String funcCode, String configCode);
+
 }

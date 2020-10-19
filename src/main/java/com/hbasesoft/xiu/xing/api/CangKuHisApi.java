@@ -26,11 +26,11 @@ public interface CangKuHisApi {
      *
      * @author 付永杰<br>
      * @taskId <br>
-     * @param suoShuId
+     * @param congShuId
      * @return <br>
      */
-    @GetMapping("/minLingWuList")
-    Map<String, List<CangKuHis>> queryCangKuHisBySuoShu(@RequestParam("suoShuId") String suoShuId);
+    @GetMapping("/congShu")
+    Map<String, List<CangKuHis>> cangKuCongShuList(@RequestParam("congShuId") String congShuId);
 
     /**
      * Description: 同步灵物所属历史信息<br>

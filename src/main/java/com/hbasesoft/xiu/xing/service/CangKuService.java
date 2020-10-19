@@ -1,6 +1,7 @@
 package com.hbasesoft.xiu.xing.service;
 
 import com.hbasesoft.xiu.xing.entity.CangKuEntity;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <Description> <br>
@@ -23,5 +24,41 @@ public interface CangKuService {
      * @return <br>
      */
     CangKuEntity getCangKuByCangKuId(String cangKuId);
+
+    /**
+     * Description: 更新仓库信息，将源属信息更新成目标属信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param origin 源属信息
+     * @param target 目标属信息
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    int updateCangKuBySuoShuId(String origin, String target);
+
+    /**
+     * Description: 更新仓库信息，将源属信息更新成目标属信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param origin 源属信息
+     * @param target 目标属信息
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    int updateCangKuByCongShuId(String origin, String target);
+
+    /**
+     * Description: 更新仓库信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param congHisId
+     * @param congId
+     * @return <br>
+     */
+    @Transactional(rollbackFor = Throwable.class)
+    int updateCangKuByCongShuHisId(String congHisId, String congId);
 
 }

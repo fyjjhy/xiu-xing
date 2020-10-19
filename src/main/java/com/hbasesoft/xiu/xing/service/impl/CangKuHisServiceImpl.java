@@ -30,8 +30,8 @@ public class CangKuHisServiceImpl implements CangKuHisService {
     }
 
     @Override
-    public List<CangKuHisEntity> queryCangKuHisBySuoShu(String suoShuId) {
-        return cangKuHisDao.queryCangKuHisBySuoShu(suoShuId);
+    public List<CangKuHisEntity> queryCangKuHisByCongShu(String congShuId) {
+        return cangKuHisDao.queryCangKuHisByCongShu(congShuId);
     }
 
     @Override
@@ -146,5 +146,15 @@ public class CangKuHisServiceImpl implements CangKuHisService {
 //            }
 //        }
 
+    }
+
+    @Override
+    public int updateCangKuHisByCongShuId(String origin, String target) {
+        return cangKuHisDao.updateCangKuHisByCongShuId(origin, target);
+    }
+
+    @Override
+    public int updateCangKuHisByCongShuHisId(String congHisId, String congId) {
+        return cangKuHisDao.updateCangKuHisByCongShuHisId(congHisId, congId);
     }
 }

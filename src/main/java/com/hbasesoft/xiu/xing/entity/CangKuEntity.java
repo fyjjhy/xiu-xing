@@ -15,7 +15,7 @@ import java.util.Objects;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-09-06 <br>
+ * @CreateDate 2020-10-09 <br>
  * @since V1.0<br>
  * @see CangKuEntity <br>
  */
@@ -35,33 +35,57 @@ public class CangKuEntity extends BaseEntity {
     @Column(name = "ID", nullable = false, length = 32)
     private String id;
 
-    /** ling_wu_shu_xing */
-    @Column(name = "ling_wu_shu_xing")
-    private String lingWuShuXing;
+    /** cong_shu_xing */
+    @Column(name = "cong_shu_xing")
+    private String congShuXing;
 
-    /** ling_wu_state */
-    @Column(name = "ling_wu_state")
-    private String lingWuState;
+    /** cong_state */
+    @Column(name = "cong_state")
+    private String congState;
 
-    /** ling_wu_shu_liang */
-    @Column(name = "ling_wu_shu_liang")
-    private String lingWuShuLiang;
+    /** cong_shu_liang */
+    @Column(name = "cong_shu_liang")
+    private String congShuLiang;
 
     /** dan_wei */
     @Column(name = "dan_wei")
     private String danWei;
 
-    /** jing_jie_id */
-    @Column(name = "jing_jie_id")
-    private String jingJieId;
+    /** cong_his_id */
+    @Column(name = "cong_his_id")
+    private String congHisId;
 
-    /** pin_ji_id */
-    @Column(name = "pin_ji_id")
-    private String pinJiId;
+    /** cong_id */
+    @Column(name = "cong_id")
+    private String congId;
 
-    /** suo_shu_id */
-    @Column(name = "suo_shu_id")
-    private String suoShuId;
+    /** cong_jing_jie_id */
+    @Column(name = "cong_jing_jie_id")
+    private String congJingJieId;
+
+    /** cong_pin_ji_id */
+    @Column(name = "cong_pin_ji_id")
+    private String congPinJiId;
+
+    /** shu_his_id */
+    @Column(name = "shu_his_id")
+    private String shuHisId;
+
+    /** shu_id */
+    @Column(name = "shu_id")
+    private String shuId;
+
+    /** shu_jing_jie_id */
+    @Column(name = "shu_jing_jie_id")
+    private String shuJingJieId;
+
+    /** shu_pin_ji_id */
+    @Column(name = "shu_pin_ji_id")
+    private String shuPinJiId;
+
+    /** hen_ji_id */
+    @Column(name = "hen_ji_id")
+    private String henJiId;
 
     /** update_time */
     @Column(name = "update_time")
@@ -71,30 +95,6 @@ public class CangKuEntity extends BaseEntity {
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
 
-    /** suo_shu_pin_ji_id */
-    @Column(name = "suo_shu_pin_ji_id")
-    private String suoShuPinJiId;
-
-    /** suo_shu_jing_jie_id */
-    @Column(name = "suo_shu_jing_jie_id")
-    private String suoShuJingJieId;
-
-    /** ling_wu_his_id */
-    @Column(name = "ling_wu_his_id")
-    private String lingWuHisId;
-
-    /** suo_shu_his_id */
-    @Column(name = "suo_shu_his_id")
-    private String suoShuHisId;
-
-    /** hen_ji_id */
-    @Column(name = "hen_ji_id")
-    private String henJiId;
-
-    /** ling_wu_id */
-    @Column(name = "ling_wu_id")
-    private String lingWuId;
-
     public String getId() {
         return this.id;
     }
@@ -103,28 +103,28 @@ public class CangKuEntity extends BaseEntity {
         this.id = id;
     }
 
-    public String getLingWuShuXing() {
-        return this.lingWuShuXing;
+    public String getCongShuXing() {
+        return this.congShuXing;
     }
 
-    public void setLingWuShuXing(String lingWuShuXing) {
-        this.lingWuShuXing = lingWuShuXing;
+    public void setCongShuXing(String congShuXing) {
+        this.congShuXing = congShuXing;
     }
 
-    public String getLingWuState() {
-        return this.lingWuState;
+    public String getCongState() {
+        return this.congState;
     }
 
-    public void setLingWuState(String lingWuState) {
-        this.lingWuState = lingWuState;
+    public void setCongState(String congState) {
+        this.congState = congState;
     }
 
-    public String getLingWuShuLiang() {
-        return this.lingWuShuLiang;
+    public String getCongShuLiang() {
+        return this.congShuLiang;
     }
 
-    public void setLingWuShuLiang(String lingWuShuLiang) {
-        this.lingWuShuLiang = lingWuShuLiang;
+    public void setCongShuLiang(String congShuLiang) {
+        this.congShuLiang = congShuLiang;
     }
 
     public String getDanWei() {
@@ -135,28 +135,76 @@ public class CangKuEntity extends BaseEntity {
         this.danWei = danWei;
     }
 
-    public String getJingJieId() {
-        return this.jingJieId;
+    public String getCongHisId() {
+        return this.congHisId;
     }
 
-    public void setJingJieId(String jingJieId) {
-        this.jingJieId = jingJieId;
+    public void setCongHisId(String congHisId) {
+        this.congHisId = congHisId;
     }
 
-    public String getPinJiId() {
-        return this.pinJiId;
+    public String getCongId() {
+        return this.congId;
     }
 
-    public void setPinJiId(String pinJiId) {
-        this.pinJiId = pinJiId;
+    public void setCongId(String congId) {
+        this.congId = congId;
     }
 
-    public String getSuoShuId() {
-        return this.suoShuId;
+    public String getCongJingJieId() {
+        return this.congJingJieId;
     }
 
-    public void setSuoShuId(String suoShuId) {
-        this.suoShuId = suoShuId;
+    public void setCongJingJieId(String congJingJieId) {
+        this.congJingJieId = congJingJieId;
+    }
+
+    public String getCongPinJiId() {
+        return this.congPinJiId;
+    }
+
+    public void setCongPinJiId(String congPinJiId) {
+        this.congPinJiId = congPinJiId;
+    }
+
+    public String getShuHisId() {
+        return this.shuHisId;
+    }
+
+    public void setShuHisId(String shuHisId) {
+        this.shuHisId = shuHisId;
+    }
+
+    public String getShuId() {
+        return this.shuId;
+    }
+
+    public void setShuId(String shuId) {
+        this.shuId = shuId;
+    }
+
+    public String getShuJingJieId() {
+        return this.shuJingJieId;
+    }
+
+    public void setShuJingJieId(String shuJingJieId) {
+        this.shuJingJieId = shuJingJieId;
+    }
+
+    public String getShuPinJiId() {
+        return this.shuPinJiId;
+    }
+
+    public void setShuPinJiId(String shuPinJiId) {
+        this.shuPinJiId = shuPinJiId;
+    }
+
+    public String getHenJiId() {
+        return this.henJiId;
+    }
+
+    public void setHenJiId(String henJiId) {
+        this.henJiId = henJiId;
     }
 
     public java.util.Date getUpdateTime() {
@@ -175,78 +223,30 @@ public class CangKuEntity extends BaseEntity {
         this.xiaoShuoId = xiaoShuoId;
     }
 
-    public String getSuoShuPinJiId() {
-        return this.suoShuPinJiId;
-    }
-
-    public void setSuoShuPinJiId(String suoShuPinJiId) {
-        this.suoShuPinJiId = suoShuPinJiId;
-    }
-
-    public String getSuoShuJingJieId() {
-        return this.suoShuJingJieId;
-    }
-
-    public void setSuoShuJingJieId(String suoShuJingJieId) {
-        this.suoShuJingJieId = suoShuJingJieId;
-    }
-
-    public String getLingWuHisId() {
-        return this.lingWuHisId;
-    }
-
-    public void setLingWuHisId(String lingWuHisId) {
-        this.lingWuHisId = lingWuHisId;
-    }
-
-    public String getSuoShuHisId() {
-        return this.suoShuHisId;
-    }
-
-    public void setSuoShuHisId(String suoShuHisId) {
-        this.suoShuHisId = suoShuHisId;
-    }
-
-    public String getHenJiId() {
-        return this.henJiId;
-    }
-
-    public void setHenJiId(String henJiId) {
-        this.henJiId = henJiId;
-    }
-
-    public String getLingWuId() {
-        return this.lingWuId;
-    }
-
-    public void setLingWuId(String lingWuId) {
-        this.lingWuId = lingWuId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CangKuEntity that = (CangKuEntity) o;
-        return Objects.equals(lingWuShuXing, that.lingWuShuXing) &&
-                Objects.equals(lingWuState, that.lingWuState) &&
-                Objects.equals(lingWuShuLiang, that.lingWuShuLiang) &&
+        return Objects.equals(congShuXing, that.congShuXing) &&
+                Objects.equals(congState, that.congState) &&
+                Objects.equals(congShuLiang, that.congShuLiang) &&
                 Objects.equals(danWei, that.danWei) &&
-                Objects.equals(jingJieId, that.jingJieId) &&
-                Objects.equals(pinJiId, that.pinJiId) &&
-                Objects.equals(suoShuId, that.suoShuId) &&
-                Objects.equals(xiaoShuoId, that.xiaoShuoId) &&
-                Objects.equals(suoShuPinJiId, that.suoShuPinJiId) &&
-                Objects.equals(suoShuJingJieId, that.suoShuJingJieId) &&
-                Objects.equals(lingWuHisId, that.lingWuHisId) &&
-                Objects.equals(suoShuHisId, that.suoShuHisId) &&
+                Objects.equals(congHisId, that.congHisId) &&
+                Objects.equals(congId, that.congId) &&
+                Objects.equals(congJingJieId, that.congJingJieId) &&
+                Objects.equals(congPinJiId, that.congPinJiId) &&
+                Objects.equals(shuHisId, that.shuHisId) &&
+                Objects.equals(shuId, that.shuId) &&
+                Objects.equals(shuJingJieId, that.shuJingJieId) &&
+                Objects.equals(shuPinJiId, that.shuPinJiId) &&
                 Objects.equals(henJiId, that.henJiId) &&
-                Objects.equals(lingWuId, that.lingWuId);
+                Objects.equals(xiaoShuoId, that.xiaoShuoId);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(lingWuShuXing, lingWuState, lingWuShuLiang, danWei, jingJieId, pinJiId, suoShuId, xiaoShuoId, suoShuPinJiId, suoShuJingJieId, lingWuHisId, suoShuHisId, henJiId, lingWuId);
+        return Objects.hash(congShuXing, congState, congShuLiang, danWei, congHisId, congId, congJingJieId, congPinJiId, shuHisId, shuId, shuJingJieId, shuPinJiId, henJiId, xiaoShuoId);
     }
 }

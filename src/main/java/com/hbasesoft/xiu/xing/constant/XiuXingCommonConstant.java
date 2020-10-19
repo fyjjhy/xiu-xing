@@ -105,11 +105,21 @@ public interface XiuXingCommonConstant {
     /** 弟子 */
     String DI_ZI = "弟子";
 
-    /** 灵物 */
-    String LING_WU = "lingWu";
+    /** 从 */
+    String CONG = "cong";
 
-    /** 所属 */
-    String SUO_SHU = "suoShu";
+    String CONG_SHU_CONG = "从";
+
+    /** 从类型 */
+    String CONG_TYPE = "congType";
+
+    /** 属 */
+    String SHU = "shu";
+
+    String CONG_SHU_SHU = "属";
+
+    /** 属类型 */
+    String SHU_TYPE = "shuType";
 
     /** 未查询到任何信息 */
     String NO_DATA = "未查询到任何信息";
@@ -197,17 +207,17 @@ public interface XiuXingCommonConstant {
     /** 法术描述 */
     String FA_SHU_MIAO_SHU = "faShuMiaoShu";
 
-    /** 灵物代码 */
-    String LING_WU_CODE = "lingWuCode";
+    /** 从代码 */
+    String CONG_CODE = "congCode";
 
-    /** 灵物名称 */
-    String LING_WU_NAME = "lingWuName";
+    /** 从名称 */
+    String CONG_NAME = "congName";
 
-    /** 灵物分类 */
-    String LING_WU_FEN_LEI = "lingWuFenLei";
+    /** 从分类 */
+    String CONG_FEN_LEI = "congFenLei";
 
-    /** 灵物描述 */
-    String LING_WU_MIAO_SHU = "lingWuMiaoShu";
+    /** 从描述 */
+    String CONG_MIAO_SHU = "congMiaoShu";
 
     /** 法术编码 */
     String FA_SHU_CODE = "faShuCode";
@@ -402,6 +412,9 @@ public interface XiuXingCommonConstant {
     /** 其他灵物 */
     String QI_TA_LING_WU = "qiTaLingWu";
 
+    /** 其他灵物CODE */
+    String QI_TA_LING_WU_CODE = "qiTaLingWuCode";
+
     /** 阵法 */
     String ZHEN_FA = "zhenFa";
 
@@ -446,20 +459,47 @@ public interface XiuXingCommonConstant {
     /** 地名 */
     String DI_MING = "diMing";
 
-    /** 所属分类 */
-    String SUO_SHU_FEN_LEI = "suoShuFenLei";
+    /** 属分类 */
+    String SHU_FEN_LEI = "shuFenLei";
+
+    /** 属状态 */
+    String SHU_STATE = "shuState";
+
+    /** 属境界 */
+    String SHU_JING_JIE_ID = "shuJingJieId";
+
+    /** 属品级 */
+    String SHU_PIN_JI_ID = "shuPinJiId";
+
+    /** 从属分类 */
+    String CONG_SHU_FEN_LEI = "congShuFenLei";
+
+    /** 从属类型 */
+    String CONG_SHU_TYPE = "congShuType";
 
     /** 所属标识 */
-    String SUO_SHU_ID = "suoShuId";
+    String SHU_ID = "shuId";
 
-    /** 灵物标识 */
-    String LING_WU_ID = "lingWuId";
+    /** 从属标识 */
+    String CONG_SHU_ID = "congShuId";
 
-    /** 所属编码 */
-    String SUO_SHU_CODE = "suoShuCode";
+    /** 从标识 */
+    String CONG_ID = "congId";
+
+    /** 属编码 */
+    String SHU_CODE = "shuCode";
+
+    /** 从属编码 */
+    String CONG_SHU_CODE = "congShuCode";
 
     /** 所属名称 */
-    String SUO_SHU_MIAO_SHU = "suoShuMiaoShu";
+    String SHU_MIAO_SHU = "shuMiaoShu";
+
+    /** 从属名称 */
+    String CONG_SHU_MIAO_SHU = "congShuMiaoShu";
+
+    /** 从属修行时间 */
+    String CONG_SHU_XIU_XING_TIME = "congShuXiuXingTime";
 
     /** 灵物属性 */
     String LING_WU_SHU_XING = "lingWuShuXing";
@@ -480,7 +520,10 @@ public interface XiuXingCommonConstant {
 
     String LING_WU_SHU_LIANG = "lingWuShuLiang";
 
-    String SUO_SHU_NAME = "suoShuName";
+    String SHU_NAME = "shuName";
+
+    /** 从属名称 */
+    String CONG_SHU_NAME = "congShuName";
 
     String SUO_SHU_JING_JIE_NAME = "suoShuJingJieName";
 
@@ -510,7 +553,7 @@ public interface XiuXingCommonConstant {
 
     String XIU_XING_SUI_YUE = "xiuXingSuiYue";
 
-    String SHI_JIAN = "shiJian";
+    String XIU_XING_SHI_JIAN = "xiuXingShiJian";
 
     String BEI_ZHU = "beiZhu";
 
@@ -522,5 +565,41 @@ public interface XiuXingCommonConstant {
 
     /** 翻转标识 */
     String FAN_ZHUAN_FLAG = "fanZhuanFlag";
+
+    /** 合并 */
+    String HE_BING = "heBing";
+
+    /** 从属 */
+    String CONG_SHU = "congShu";
+
+    String CONGSHU = "从属";
+
+    String CONG_JING_JIE_ID = "congJingJieId";
+
+    String CONG_PIN_JI_ID = "congPinJiId";
+
+    String CONG_STATE_NAME = "congStateName";
+
+    String CONG_SHU_LIANG = "congShuLiang";
+
+    String CONG_JING_JIE_NAME = "congJingJieName";
+
+    String CONG_PIN_JI_NAME = "congPinJiName";
+
+    String SHU_JING_JIE_NAME = "shuJingJieName";
+
+    String SHU_PIN_JI_NAME = "shuPinJiName";
+
+    String SHU_STATE_NAME = "shuStateName";
+
+    String ZHANGZ_JIE = "zhangJie";
+
+    String ZHANG_JIE_CODE = "zhangJieCode";
+
+    String TYPE = "type";
+
+    String CONG_SHU_HIS_ID = "congShuHisId";
+
+    String ZHANG_JIE_ID = "zhangJieId";
 
 }

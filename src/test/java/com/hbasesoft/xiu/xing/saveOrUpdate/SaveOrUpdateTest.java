@@ -1,8 +1,7 @@
 package com.hbasesoft.xiu.xing.saveOrUpdate;
 
 import com.hbasesoft.xiu.xing.Application;
-import com.hbasesoft.xiu.xing.entity.LingWuEntity;
-import com.hbasesoft.xiu.xing.service.LingWuService;
+import com.hbasesoft.xiu.xing.service.CongService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -27,17 +26,12 @@ import javax.annotation.Resource;
 public class SaveOrUpdateTest {
 
     @Resource
-    private LingWuService lingWuService;
+    private CongService congService;
 
     @Test
     public void saveOrUpdate() {
-        LingWuEntity entity = new LingWuEntity();
-        entity.setLingWuName("1");
-        entity.setLingWuFenLei("1");
-//        entity.setLingWuId("1");
-        entity.setXiaoShuoId("1");
-        lingWuService.saveLingWu(entity);
-        System.out.println(entity);
+        int congCount = congService.getCongCount();
+        System.out.println("从数量:"+congCount);
     }
 
 }

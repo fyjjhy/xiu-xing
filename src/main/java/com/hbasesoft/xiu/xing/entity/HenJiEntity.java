@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-09-06 <br>
+ * @CreateDate 2020-10-11 <br>
  * @since V1.0<br>
  * @see HenJiEntity <br>
  */
@@ -38,9 +38,9 @@ public class HenJiEntity extends BaseEntity {
     @Column(name = "hen_ji_code")
     private String henJiCode;
 
-    /** shi_jian */
-    @Column(name = "shi_jian")
-    private String shiJian;
+    /** xiu_xing_shi_jian */
+    @Column(name = "xiu_xing_shi_jian")
+    private String xiuXingShiJian;
 
     /** bei_zhu */
     @Column(name = "bei_zhu")
@@ -66,12 +66,12 @@ public class HenJiEntity extends BaseEntity {
         this.henJiCode = henJiCode;
     }
 
-    public String getShiJian() {
-        return this.shiJian;
+    public String getXiuXingShiJian() {
+        return this.xiuXingShiJian;
     }
 
-    public void setShiJian(String shiJian) {
-        this.shiJian = shiJian;
+    public void setXiuXingShiJian(String xiuXingShiJian) {
+        this.xiuXingShiJian = xiuXingShiJian;
     }
 
     public String getBeiZhu() {

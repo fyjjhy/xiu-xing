@@ -29,52 +29,52 @@ public class CangKuHis extends AbstractVo {
     private String cangKuId;
 
     /** ling_wu_fen_lei */
-    private String lingWuFenLei;
+    private String congFenLei;
 
     /** ling_wu_shu_xing */
-    private String lingWuShuXing;
+    private String congShuXing;
 
     /** ling_wu_state */
-    private String lingWuState;
+    private String congState;
 
     /** ling_wu_name */
-    private String lingWuName;
+    private String congName;
 
     /** ling_wu_id */
-    private String lingWuId;
+    private String congId;
 
     /** ling_wu_shu_liang */
-    private String lingWuShuLiang;
+    private String congShuLiang;
 
     /** dan_wei */
     private String danWei;
 
     /** ling_wu_miao_shu */
-    private String lingWuMiaoShu;
+    private String congMiaoShu;
 
     /** jing_jie_id */
-    private String jingJieId;
+    private String congJingJieId;
 
     /** jing_jie_name */
-    private String jingJieName;
+    private String congJingJieName;
 
     /** pin_ji_id */
-    private String pinJiId;
+    private String congPinJiId;
 
     /** pin_ji_name */
-    private String pinJiName;
+    private String congPinJiName;
 
     /** suo_shu_fen_lei */
-    private String suoShuFenLei;
+    private String shuFenLei;
 
     /** suo_shu_name */
-    private String suoShuName;
+    private String shuName;
 
     /** suo_shu_id */
-    private String suoShuId;
+    private String shuId;
 
     /** suo_shu_miao_shu */
-    private String suoShuMiaoShu;
+    private String shuMiaoShu;
 
     /** update_time */
     private java.util.Date updateTime;
@@ -83,32 +83,35 @@ public class CangKuHis extends AbstractVo {
     private String xiaoShuoId;
 
     /** suo_shu_pin_ji_name */
-    private String suoShuPinJiName;
+    private String shuPinJiName;
 
     /** suo_shu_pin_ji_id */
-    private String suoShuPinJiId;
+    private String shuPinJiId;
 
     /** suo_shu_jing_jie_name */
-    private String suoShuJingJieName;
+    private String shuJingJieName;
 
     /** suo_shu_jing_jie_id */
-    private String suoShuJingJieId;
+    private String shuJingJieId;
 
     /** bei_zhu */
     private String beiZhu;
 
-    private String lingWuStateName;
+    private String congStateName;
 
-    private String lingWuFenLeiName;
+    private String congFenLeiName;
 
     private String xiuXingSuiYue;
 
-    private String lingWuHisId;
+    private String congHisId;
 
-    private String suoShuHisId;
+    private String shuHisId;
 
     private String henJiId;
 
-    private String shiJian;
+    private String xiuXingShiJian;
+
+    /** type:从属，从，属 */
+    private String type;
 
 }

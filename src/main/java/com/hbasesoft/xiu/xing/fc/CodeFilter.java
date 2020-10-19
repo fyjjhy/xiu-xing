@@ -1,5 +1,6 @@
 package com.hbasesoft.xiu.xing.fc;
 
+import com.hbasesoft.framework.common.GlobalConstants;
 import com.hbasesoft.framework.common.utils.Assert;
 import com.hbasesoft.framework.rule.core.FlowContext;
 import com.hbasesoft.xiu.xing.bean.ServiceFlowBean;
@@ -7,6 +8,8 @@ import com.hbasesoft.xiu.xing.component.ServiceFilter;
 import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.constant.XiuXingErrorCodeDef;
 import com.hbasesoft.xiu.xing.service.AddressService;
+import com.hbasesoft.xiu.xing.service.ConfigItemService;
+import com.hbasesoft.xiu.xing.service.CongShuService;
 import com.hbasesoft.xiu.xing.service.DiMingService;
 import com.hbasesoft.xiu.xing.service.FaShuService;
 import com.hbasesoft.xiu.xing.service.FenLeiService;
@@ -19,19 +22,22 @@ import com.hbasesoft.xiu.xing.service.KuiLeiService;
 import com.hbasesoft.xiu.xing.service.LingCaiService;
 import com.hbasesoft.xiu.xing.service.LingDanService;
 import com.hbasesoft.xiu.xing.service.LingQiService;
-import com.hbasesoft.xiu.xing.service.LingWuService;
+import com.hbasesoft.xiu.xing.service.CongService;
 import com.hbasesoft.xiu.xing.service.PinJiService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.SheDingService;
-import com.hbasesoft.xiu.xing.service.SuoShuService;
+import com.hbasesoft.xiu.xing.service.ShuService;
 import com.hbasesoft.xiu.xing.service.XiuXingRiZhiService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
+import com.hbasesoft.xiu.xing.service.ZhangJieService;
 import com.hbasesoft.xiu.xing.service.ZhenFaService;
 import com.hbasesoft.xiu.xing.service.ZongMenService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.text.DecimalFormat;
 import java.util.Map;
 
 /**
@@ -99,10 +105,10 @@ public class CodeFilter implements ServiceFilter {
     private DiMingService diMingService;
 
     @Resource
-    private SuoShuService suoShuService;
+    private ShuService shuService;
 
     @Resource
-    private LingWuService lingWuService;
+    private CongService congService;
 
     @Resource
     private XiuXingRiZhiService xiuXingRiZhiService;
@@ -115,6 +121,15 @@ public class CodeFilter implements ServiceFilter {
 
     @Resource
     private HenJiService henJiService;
+
+    @Resource
+    private CongShuService congShuService;
+
+    @Resource
+    private ZhangJieService zhangJieService;
+
+    @Resource
+    private ConfigItemService configItemService;
 
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
@@ -132,7 +147,7 @@ public class CodeFilter implements ServiceFilter {
                     break;
                 case XiuXingCommonConstant.QI_TA_LING_WU:
                     int qiTaLingWuCount = qiTaLingWuService.getQiTaLingWuCount();
-                    request.put(XiuXingCommonConstant.LING_WU_CODE, qiTaLingWuCount + 1);
+                    request.put(XiuXingCommonConstant.QI_TA_LING_WU_CODE, qiTaLingWuCount + 1);
                     break;
                 case XiuXingCommonConstant.ZHEN_FA:
                     int zhenFaCount = zhenFaService.getZhenFaCount();
@@ -186,13 +201,13 @@ public class CodeFilter implements ServiceFilter {
                     int diMingCount = diMingService.getDiMingCount();
                     request.put(XiuXingCommonConstant.DI_MING_CODE, diMingCount + 1);
                     break;
-                case XiuXingCommonConstant.LING_WU:
-                    int lingWuCount = lingWuService.getLingWuCount();
-                    request.put(XiuXingCommonConstant.LING_WU_CODE, String.valueOf(lingWuCount + 1));
+                case XiuXingCommonConstant.CONG:
+                    int congCount = congService.getCongCount();
+                    request.put(XiuXingCommonConstant.CONG_CODE, String.valueOf(congCount + 1));
                     break;
-                case XiuXingCommonConstant.SUO_SHU:
-                    int suoShuCount = suoShuService.getSuoShuCount();
-                    request.put(XiuXingCommonConstant.SUO_SHU_CODE, String.valueOf(suoShuCount + 1));
+                case XiuXingCommonConstant.SHU:
+                    int shuCount = shuService.getShuCount();
+                    request.put(XiuXingCommonConstant.SHU_CODE, String.valueOf(shuCount + 1));
                     break;
                 case XiuXingCommonConstant.XIU_XING_RI_ZHI:
                     int xiuXingRiZhiCount = xiuXingRiZhiService.getXiuXingRiZhiCount(null);
@@ -217,8 +232,50 @@ public class CodeFilter implements ServiceFilter {
                 case XiuXingCommonConstant.HEN_JI:
                     int henJiCode = henJiService.getHenJiCount();
                     request.put(XiuXingCommonConstant.HEN_JI_CODE, henJiCode + 1);
+                case XiuXingCommonConstant.CONG_SHU:
+                    int congShuCode = congShuService.getCongShuCount();
+                    request.put(XiuXingCommonConstant.CONG_SHU_CODE, congShuCode + 1);
+                case XiuXingCommonConstant.ZHANGZ_JIE:
+                    String xiaoShuoId = (String) request.get(XiuXingCommonConstant.XIAO_SHUO_ID);
+                    int zhangJieCount = zhangJieService.getZhangJieCount(xiaoShuoId);
+                    // 获取章节的规则编码
+                    String zhangJieCode = getFormatCode(xiaoShuoId, zhangJieCount, XiuXingCommonConstant.ZHANGZ_JIE);
+                    request.put(XiuXingCommonConstant.ZHANG_JIE_CODE, zhangJieCode);
             }
         }
         return true;
+    }
+
+    /**
+     * Description: 获取规则编码<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param xiaoShuoId
+     * @param code
+     * @param funcCode
+     * @return <br>
+     */
+    private String getFormatCode(String xiaoShuoId, int code, String funcCode) {
+        // 获取配置项
+        String codeTotalLength = configItemService.getConfigItem(funcCode, "codeLength");
+        if (StringUtils.isEmpty(codeTotalLength)) {
+            codeTotalLength = "6";
+        }
+        // 小说标识的长度
+        int xiaoShuoIdLength = StringUtils.isNotEmpty(xiaoShuoId) ? xiaoShuoId.length() : 0;
+        // 留给编码的长度
+        int codeLength = Integer.parseInt(codeTotalLength) - xiaoShuoIdLength;
+        // 生成指定长度的编码，长度不足，在前面补零
+        // 生成编码长度的0
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < codeLength; i++) {
+            stringBuilder.append("0");
+        }
+        DecimalFormat df = new DecimalFormat(stringBuilder.toString());
+        return new StringBuilder()
+                .append(StringUtils.isNotEmpty(xiaoShuoId) ? xiaoShuoId : GlobalConstants.BLANK)
+                .append(df.format(++code))
+                .toString();
     }
 }

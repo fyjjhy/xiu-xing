@@ -22,6 +22,12 @@ import java.util.List;
 public interface CangKuHisDao extends IGenericBaseDao {
 
     @Sql(bean = CangKuHisEntity.class)
-    List<CangKuHisEntity> queryCangKuHisBySuoShu(@Param("suoShuId") String suoShuId);
+    List<CangKuHisEntity> queryCangKuHisByCongShu(@Param("congShuId") String congShuId);
+
+    @Sql("UPDATE cang_ku_his SET shu_id = :target WHERE shu_id = :origin")
+    int updateCangKuHisByCongShuId(@Param("origin") String origin, @Param("target") String target);
+
+    @Sql("UPDATE cang_ku_his SET cong_id = :congId WHERE cong_his_id = :congHisId")
+    int updateCangKuHisByCongShuHisId(@Param("congHisId") String congHisId, @Param("congId") String congId);
 
 }
