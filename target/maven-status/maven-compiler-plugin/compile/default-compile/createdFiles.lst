@@ -2,6 +2,7 @@ com\hbasesoft\xiu\xing\dao\LingDanDao.class
 com\hbasesoft\xiu\xing\service\impl\ZhenFaServiceImpl.class
 com\hbasesoft\xiu\xing\service\DictDataService.class
 com\hbasesoft\xiu\xing\service\impl\ShuHisServiceImpl.class
+com\hbasesoft\xiu\xing\fc\CangKuAddUpdateBeforeFilter.class
 com\hbasesoft\xiu\xing\fc\CangKuHisQueryFilter.class
 com\hbasesoft\xiu\xing\service\FuncComponentService.class
 com\hbasesoft\xiu\xing\bean\Cong.class
@@ -191,6 +192,7 @@ com\hbasesoft\xiu\xing\service\HenJiService.class
 com\hbasesoft\xiu\xing\entity\FuncEntity.class
 com\hbasesoft\xiu\xing\fc\CongShuHeBingFilter.class
 com\hbasesoft\xiu\xing\dao\ServDao.class
+com\hbasesoft\xiu\xing\fc\CangKuAddUpdateAfterFilter.class
 com\hbasesoft\xiu\xing\service\impl\ConfigItemServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\FuLuServiceImpl.class
 com\hbasesoft\xiu\xing\constant\XiuXingStatusCodeDef.class
@@ -215,7 +217,6 @@ com\hbasesoft\xiu\xing\service\impl\FuncMetaDataServiceImpl.class
 com\hbasesoft\xiu\xing\service\impl\ServServiceImpl.class
 com\hbasesoft\xiu\xing\api\AddressApi.class
 com\hbasesoft\xiu\xing\service\ZhangJieCongShuService.class
-com\hbasesoft\xiu\xing\fc\CangKuAddUpdateFilter.class
 com\hbasesoft\xiu\xing\dao\LingQiDao.class
 com\hbasesoft\xiu\xing\component\ServiceFilter.class
 com\hbasesoft\xiu\xing\dao\ServiceFilterDao.class

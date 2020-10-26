@@ -12,6 +12,7 @@ import com.hbasesoft.xiu.xing.util.GlobalConstants;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -52,7 +53,12 @@ public class CongHisServiceImpl implements CongHisService {
         congCriteria.add(Restrictions.eq(XiuXingCommonConstant.CONG_CODE, congHisEntity.getCongCode()));
         congCriteria.add(Restrictions.eq(XiuXingCommonConstant.CONG_FEN_LEI, congHisEntity.getCongFenLei()));
         congCriteria.add(Restrictions.eq(XiuXingCommonConstant.CONG_ID, congHisEntity.getCongId()));
-        congCriteria.add(Restrictions.eq(XiuXingCommonConstant.XIAO_SHUO_ID, congHisEntity.getXiaoShuoId()));
+        if (StringUtils.isNotEmpty(congHisEntity.getXiaoShuoId())) {
+            congCriteria.add(Restrictions.eq(XiuXingCommonConstant.XIAO_SHUO_ID, congHisEntity.getXiaoShuoId()));
+        }
+        else {
+            congCriteria.add(Restrictions.isNull(XiuXingCommonConstant.XIAO_SHUO_ID));
+        }
         List<CongHisEntity> congHisEntityList = congHisDao.getListByCriteriaQuery(congCriteria);
         if (CollectionUtils.isEmpty(congHisEntityList)) {
             return (String) congHisDao.save(congHisEntity);
@@ -99,6 +105,7 @@ public class CongHisServiceImpl implements CongHisService {
     public List<CongHis> getCongHisListById(String congHisIds) {
         DetachedCriteria criteria = DetachedCriteria.forClass(CongHisEntity.class);
         criteria.add(Restrictions.in(XiuXingCommonConstant.ID, congHisIds.split(GlobalConstants.SPLITOR)));
+        criteria.addOrder(Order.desc(XiuXingCommonConstant.CONG_ID));
         List<CongHisEntity> congHisEntityList = congHisDao.getListByCriteriaQuery(criteria);
         if (CollectionUtils.isNotEmpty(congHisEntityList)) {
             return BeanTransferUtil.mapList(congHisEntityList, congHisEntity -> {

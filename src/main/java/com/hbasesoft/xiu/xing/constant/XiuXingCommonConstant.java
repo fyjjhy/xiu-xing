@@ -602,4 +602,6 @@ public interface XiuXingCommonConstant {
 
     String ZHANG_JIE_ID = "zhangJieId";
 
+    String SHU_XIU_XING = "shuXiuXing";
+
 }

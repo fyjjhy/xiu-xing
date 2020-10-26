@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-10-11 <br>
+ * @CreateDate 2020-10-22 <br>
  * @since V1.0<br>
  * @see ShuEntity <br>
  */
@@ -57,6 +57,10 @@ public class ShuEntity extends BaseEntity {
     /** shu_pin_ji_id */
     @Column(name = "shu_pin_ji_id")
     private String shuPinJiId;
+
+    /** shu_xiu_xing */
+    @Column(name = "shu_xiu_xing")
+    private String shuXiuXing;
 
     /** shu_miao_shu */
     @Column(name = "shu_miao_shu")
@@ -128,6 +132,14 @@ public class ShuEntity extends BaseEntity {
 
     public void setShuPinJiId(String shuPinJiId) {
         this.shuPinJiId = shuPinJiId;
+    }
+
+    public String getShuXiuXing() {
+        return this.shuXiuXing;
+    }
+
+    public void setShuXiuXing(String shuXiuXing) {
+        this.shuXiuXing = shuXiuXing;
     }
 
     public String getShuMiaoShu() {

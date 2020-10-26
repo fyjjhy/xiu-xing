@@ -23,6 +23,7 @@ import java.util.Map;
  * @see com.hbasesoft.xiu.xing.fc <br>
  * @since V1.0 <br>
  */
+@Deprecated
 @Component("CongShuHeBingFilter")
 public class CongShuHeBingFilter implements ServiceFilter {
 

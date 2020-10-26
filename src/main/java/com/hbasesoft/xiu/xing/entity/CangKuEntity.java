@@ -15,7 +15,7 @@ import java.util.Objects;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-10-09 <br>
+ * @CreateDate 2020-10-21 <br>
  * @since V1.0<br>
  * @see CangKuEntity <br>
  */
@@ -67,6 +67,10 @@ public class CangKuEntity extends BaseEntity {
     @Column(name = "cong_pin_ji_id")
     private String congPinJiId;
 
+    /** cong_xiu_xing */
+    @Column(name = "cong_xiu_xing")
+    private String congXiuXing;
+
     /** shu_his_id */
     @Column(name = "shu_his_id")
     private String shuHisId;
@@ -94,6 +98,10 @@ public class CangKuEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** bei_zhu */
+    @Column(name = "bei_zhu")
+    private String beiZhu;
 
     public String getId() {
         return this.id;
@@ -167,6 +175,14 @@ public class CangKuEntity extends BaseEntity {
         this.congPinJiId = congPinJiId;
     }
 
+    public String getCongXiuXing() {
+        return this.congXiuXing;
+    }
+
+    public void setCongXiuXing(String congXiuXing) {
+        this.congXiuXing = congXiuXing;
+    }
+
     public String getShuHisId() {
         return this.shuHisId;
     }
@@ -223,6 +239,14 @@ public class CangKuEntity extends BaseEntity {
         this.xiaoShuoId = xiaoShuoId;
     }
 
+    public String getBeiZhu() {
+        return this.beiZhu;
+    }
+
+    public void setBeiZhu(String beiZhu) {
+        this.beiZhu = beiZhu;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -236,17 +260,19 @@ public class CangKuEntity extends BaseEntity {
                 Objects.equals(congId, that.congId) &&
                 Objects.equals(congJingJieId, that.congJingJieId) &&
                 Objects.equals(congPinJiId, that.congPinJiId) &&
+                Objects.equals(congXiuXing, that.congXiuXing) &&
                 Objects.equals(shuHisId, that.shuHisId) &&
                 Objects.equals(shuId, that.shuId) &&
                 Objects.equals(shuJingJieId, that.shuJingJieId) &&
                 Objects.equals(shuPinJiId, that.shuPinJiId) &&
                 Objects.equals(henJiId, that.henJiId) &&
-                Objects.equals(xiaoShuoId, that.xiaoShuoId);
+                Objects.equals(xiaoShuoId, that.xiaoShuoId) &&
+                Objects.equals(beiZhu, that.beiZhu);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(congShuXing, congState, congShuLiang, danWei, congHisId, congId, congJingJieId, congPinJiId, shuHisId, shuId, shuJingJieId, shuPinJiId, henJiId, xiaoShuoId);
+        return Objects.hash(congShuXing, congState, congShuLiang, danWei, congHisId, congId, congJingJieId, congPinJiId, congXiuXing, shuHisId, shuId, shuJingJieId, shuPinJiId, henJiId, xiaoShuoId, beiZhu);
     }
 }

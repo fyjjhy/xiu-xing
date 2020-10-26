@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-10-09 <br>
+ * @CreateDate 2020-10-21 <br>
  * @since V1.0<br>
  * @see CangKuHisEntity <br>
  */
@@ -70,6 +70,10 @@ public class CangKuHisEntity extends BaseEntity {
     @Column(name = "cong_pin_ji_id")
     private String congPinJiId;
 
+    /** cong_xiu_xing */
+    @Column(name = "cong_xiu_xing")
+    private String congXiuXing;
+
     /** shu_his_id */
     @Column(name = "shu_his_id")
     private String shuHisId;
@@ -97,6 +101,10 @@ public class CangKuHisEntity extends BaseEntity {
     /** xiao_shuo_id */
     @Column(name = "xiao_shuo_id")
     private String xiaoShuoId;
+
+    /** bei_zhu */
+    @Column(name = "bei_zhu")
+    private String beiZhu;
 
     public String getId() {
         return this.id;
@@ -178,6 +186,14 @@ public class CangKuHisEntity extends BaseEntity {
         this.congPinJiId = congPinJiId;
     }
 
+    public String getCongXiuXing() {
+        return this.congXiuXing;
+    }
+
+    public void setCongXiuXing(String congXiuXing) {
+        this.congXiuXing = congXiuXing;
+    }
+
     public String getShuHisId() {
         return this.shuHisId;
     }
@@ -232,6 +248,14 @@ public class CangKuHisEntity extends BaseEntity {
 
     public void setXiaoShuoId(String xiaoShuoId) {
         this.xiaoShuoId = xiaoShuoId;
+    }
+
+    public String getBeiZhu() {
+        return this.beiZhu;
+    }
+
+    public void setBeiZhu(String beiZhu) {
+        this.beiZhu = beiZhu;
     }
 
 }

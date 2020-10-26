@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-10-17 <br>
+ * @CreateDate 2020-10-25 <br>
  * @since V1.0<br>
  * @see ZhangJieCongShuEntity <br>
  */
@@ -45,6 +45,10 @@ public class ZhangJieCongShuEntity extends BaseEntity {
     /** cong_shu_id */
     @Column(name = "cong_shu_id")
     private String congShuId;
+
+    /** addr_id */
+    @Column(name = "addr_id")
+    private String addrId;
 
     /** zhang_jie_id */
     @Column(name = "zhang_jie_id")
@@ -84,6 +88,14 @@ public class ZhangJieCongShuEntity extends BaseEntity {
 
     public void setCongShuId(String congShuId) {
         this.congShuId = congShuId;
+    }
+
+    public String getAddrId() {
+        return this.addrId;
+    }
+
+    public void setAddrId(String addrId) {
+        this.addrId = addrId;
     }
 
     public String getZhangJieId() {

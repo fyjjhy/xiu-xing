@@ -18,6 +18,7 @@ import com.hbasesoft.xiu.xing.util.GlobalConstants;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -93,6 +94,12 @@ public class ShuHisServiceImpl implements ShuHisService {
         else {
             shuHisCriteria.add(Restrictions.isNull(XiuXingCommonConstant.SHU_PIN_JI_ID));
         }
+        if (StringUtils.isNotEmpty(shuHisEntity.getShuXiuXing())) {
+            shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.SHU_XIU_XING, shuHisEntity.getShuXiuXing()));
+        }
+        else {
+            shuHisCriteria.add(Restrictions.isNull(XiuXingCommonConstant.SHU_XIU_XING));
+        }
         shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.SHU_NAME, shuHisEntity.getShuName()));
         shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.SHU_CODE, shuHisEntity.getShuCode()));
         shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.SHU_ID, shuHisEntity.getShuId()));
@@ -143,6 +150,7 @@ public class ShuHisServiceImpl implements ShuHisService {
     public List<ShuHis> getShuHisListById(String shuHisIds) {
         DetachedCriteria criteria = DetachedCriteria.forClass(ShuHisEntity.class);
         criteria.add(Restrictions.in(XiuXingCommonConstant.ID, shuHisIds.split(GlobalConstants.SPLITOR)));
+        criteria.addOrder(Order.desc(XiuXingCommonConstant.SHU_ID));
         List<ShuHisEntity> shuHisEntityList = shuHisDao.getListByCriteriaQuery(criteria);
         if (CollectionUtils.isNotEmpty(shuHisEntityList)) {
             return BeanTransferUtil.mapList(shuHisEntityList, shuHisEntity -> {
