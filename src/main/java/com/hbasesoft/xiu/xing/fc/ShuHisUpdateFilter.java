@@ -34,14 +34,17 @@ public class ShuHisUpdateFilter implements ServiceFilter {
     @Override
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
         Map<String, Object> shuHisReqMap = flowBean.getRequest();
+        LoggerUtil.info("[属操作记录] 更新入参：{0}", shuHisReqMap);
         JSONObject shuHisJson = new JSONObject(shuHisReqMap);
-        ShuHisEntity shuHisEntity =  JSON.toJavaObject(shuHisJson, ShuHisEntity.class);
+        ShuHisEntity shuHisEntity = JSON.toJavaObject(shuHisJson, ShuHisEntity.class);
+        String addrId = (String) shuHisReqMap.get("addrId");
+
         // 如果属信息中存在章节ID，则将属信息与章节ID信息保存到zhang_jie_cong_shu
         String zhangJieId = (String) shuHisReqMap.get("zhangJieId");
         if (StringUtils.isNotEmpty(zhangJieId)) {
             // 删除zhang_jie_cong_shu表中的对应章节的空数据
-            int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
-            LoggerUtil.info("删除章节属空数据：{0}", emptyCount);
+            // int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
+            // LoggerUtil.info("删除章节属空数据：{0}", emptyCount);
             // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
             // 如果存在，则不作任何处理
             // 如果不存在，则添加到zhang_jie_cong_shu表中
@@ -49,6 +52,14 @@ public class ShuHisUpdateFilter implements ServiceFilter {
             zhangJieCongShuEntity.setType("属");
             zhangJieCongShuEntity.setCongShuHisId(shuHisEntity.getId());
             zhangJieCongShuEntity.setCongShuId(shuHisEntity.getShuId());
+            // zhangJieCongShuEntity.setCongShuFenLei(shuHisEntity.getShuFenLei());
+            // zhangJieCongShuEntity.setCongShuMiaoShu(shuHisEntity.getShuMiaoShu());
+            // zhangJieCongShuEntity.setCongShuName(shuHisEntity.getShuName());
+            // zhangJieCongShuEntity.setCongShuJingJie(shuHisEntity.getShuJingJieId());
+            // zhangJieCongShuEntity.setCongShuPinJi(shuHisEntity.getShuPinJiId());
+            // zhangJieCongShuEntity.setCongShuState(shuHisEntity.getShuState());
+            // zhangJieCongShuEntity.setCongShuXiuXing(shuHisEntity.getShuXiuXing());
+            zhangJieCongShuEntity.setAddrId(addrId);
             zhangJieCongShuEntity.setZhangJieId(zhangJieId);
             zhangJieCongShuEntity.setXiaoShuoId(shuHisEntity.getXiaoShuoId());
             zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);

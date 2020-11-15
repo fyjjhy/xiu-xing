@@ -27,6 +27,7 @@ import com.hbasesoft.xiu.xing.service.PinJiService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.SheDingService;
+import com.hbasesoft.xiu.xing.service.ShengWuFenLeiService;
 import com.hbasesoft.xiu.xing.service.ShuService;
 import com.hbasesoft.xiu.xing.service.XiuXingRiZhiService;
 import com.hbasesoft.xiu.xing.service.YaoShouService;
@@ -130,6 +131,9 @@ public class CodeFilter implements ServiceFilter {
 
     @Resource
     private ConfigItemService configItemService;
+
+    @Resource
+    private ShengWuFenLeiService shengWuFenLeiService;
 
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
@@ -241,6 +245,9 @@ public class CodeFilter implements ServiceFilter {
                     // 获取章节的规则编码
                     String zhangJieCode = getFormatCode(xiaoShuoId, zhangJieCount, XiuXingCommonConstant.ZHANGZ_JIE);
                     request.put(XiuXingCommonConstant.ZHANG_JIE_CODE, zhangJieCode);
+                case XiuXingCommonConstant.SHENG_WU_FEN_LEI:
+                    int shengWuFenLeiCode = shengWuFenLeiService.getShengWuFenLeiCount();
+                    request.put(XiuXingCommonConstant.CODE, shengWuFenLeiCode + 1);
             }
         }
         return true;

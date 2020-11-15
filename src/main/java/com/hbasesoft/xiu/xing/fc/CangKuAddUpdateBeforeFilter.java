@@ -10,12 +10,10 @@ import com.hbasesoft.xiu.xing.entity.CongEntity;
 import com.hbasesoft.xiu.xing.entity.CongHisEntity;
 import com.hbasesoft.xiu.xing.entity.ShuEntity;
 import com.hbasesoft.xiu.xing.entity.ShuHisEntity;
-import com.hbasesoft.xiu.xing.entity.ZhangJieCongShuEntity;
 import com.hbasesoft.xiu.xing.service.CongHisService;
 import com.hbasesoft.xiu.xing.service.CongService;
 import com.hbasesoft.xiu.xing.service.ShuHisService;
 import com.hbasesoft.xiu.xing.service.ShuService;
-import com.hbasesoft.xiu.xing.service.ZhangJieCongShuService;
 import com.hbasesoft.xiu.xing.util.DateUtil;
 import org.apache.commons.collections.MapUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -48,9 +46,6 @@ public class CangKuAddUpdateBeforeFilter implements ServiceFilter {
 
     @Resource
     private ShuHisService shuHisService;
-
-    @Resource
-    private ZhangJieCongShuService zhangJieCongShuService;
 
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
@@ -101,7 +96,6 @@ public class CangKuAddUpdateBeforeFilter implements ServiceFilter {
             String shuName = (String) cangKuRequest.get("shuName");
             String shuState = (String) cangKuRequest.get("shuState");
             String shuMiaoShu = (String) cangKuRequest.get("shuMiaoShu");
-            String addrId = (String) cangKuRequest.get("addrId");
             String shuJingJieId = (String) cangKuRequest.get("shuJingJieId");
             String shuPinJiId = (String) cangKuRequest.get("shuPinJiId");
             String shuXiuXing = (String) cangKuRequest.get("shuXiuXing");
@@ -113,7 +107,7 @@ public class CangKuAddUpdateBeforeFilter implements ServiceFilter {
             shuHisEntity.setShuMiaoShu(shuMiaoShu);
             shuHisEntity.setXiaoShuoId(xiaoShuoId);
             shuHisEntity.setUpdateTime(DateUtil.getCurrentDate());
-            shuHisEntity.setAddrId(addrId);
+//            shuHisEntity.setAddrId(addrId);
             shuHisEntity.setShuJingJieId(shuJingJieId);
             shuHisEntity.setShuPinJiId(shuPinJiId);
             shuHisEntity.setShuXiuXing(shuXiuXing);
@@ -134,7 +128,7 @@ public class CangKuAddUpdateBeforeFilter implements ServiceFilter {
                 shuEntity.setShuMiaoShu(shuMiaoShu);
                 shuEntity.setUpdateTime(DateUtil.getCurrentDate());
                 shuEntity.setXiaoShuoId(xiaoShuoId);
-                shuEntity.setAddrId(addrId);
+//                shuEntity.setAddrId(addrId);
                 shuEntity.setShuJingJieId(shuJingJieId);
                 shuEntity.setShuPinJiId(shuPinJiId);
                 shuEntity.setShuXiuXing(shuXiuXing);
@@ -146,41 +140,6 @@ public class CangKuAddUpdateBeforeFilter implements ServiceFilter {
                 String shuHisId = shuHisService.saveOrUpdateShuHis(shuHisEntity);
                 shuHisEntity.setId(shuHisId);
                 cangKuRequest.put("shuHisId", shuHisId);
-            }
-
-            // 如果仓库信息中存在章节ID，则将从信息、属信息与章节ID信息保存到zhang_jie_cong_shu
-            String zhangJieId = (String) cangKuRequest.get("zhangJieId");
-            if (StringUtils.isNotEmpty(zhangJieId)) {
-                // 删除zhang_jie_cong_shu表中的对应章节的空数据
-                int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
-                LoggerUtil.info("[仓库]删除章节从空数据：{0}", emptyCount);
-                // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
-                // 如果存在，则不作任何处理
-                // 如果不存在，则添加到zhang_jie_cong_shu表中
-                ZhangJieCongShuEntity zhangJieCongShuEntity = new ZhangJieCongShuEntity();
-                zhangJieCongShuEntity.setType("从");
-                zhangJieCongShuEntity.setCongShuHisId(congHisEntity.getId());
-                zhangJieCongShuEntity.setCongShuId(congHisEntity.getCongId());
-                zhangJieCongShuEntity.setZhangJieId(zhangJieId);
-                zhangJieCongShuEntity.setXiaoShuoId(congHisEntity.getXiaoShuoId());
-                zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);
-            }
-
-            // 如果仓库信息中存在章节ID，则将从信息、属信息与章节ID信息保存到zhang_jie_cong_shu
-            if (StringUtils.isNotEmpty(zhangJieId)) {
-                // 删除zhang_jie_cong_shu表中的对应章节的空数据
-                int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
-                LoggerUtil.info("[仓库]删除章节属空数据：{0}", emptyCount);
-                // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
-                // 如果存在，则不作任何处理
-                // 如果不存在，则添加到zhang_jie_cong_shu表中
-                ZhangJieCongShuEntity zhangJieCongShuEntity = new ZhangJieCongShuEntity();
-                zhangJieCongShuEntity.setType("属");
-                zhangJieCongShuEntity.setCongShuHisId(shuHisEntity.getId());
-                zhangJieCongShuEntity.setCongShuId(shuHisEntity.getShuId());
-                zhangJieCongShuEntity.setZhangJieId(zhangJieId);
-                zhangJieCongShuEntity.setXiaoShuoId(shuHisEntity.getXiaoShuoId());
-                zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);
             }
         }
         return true;

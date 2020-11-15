@@ -73,4 +73,15 @@ public interface ShuHisService {
     @Transactional(readOnly = true)
     List<ShuHis> getShuHisListById(String shuHisIds);
 
+    /**
+     * Description: 获取属历史信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param shuHisId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    ShuHisEntity getShuHis(String shuHisId);
+
 }
