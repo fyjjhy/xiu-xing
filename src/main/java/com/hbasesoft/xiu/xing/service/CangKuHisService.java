@@ -26,7 +26,7 @@ public interface CangKuHisService {
      * @return <br>
      */
     @Transactional(rollbackFor = Throwable.class)
-    void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity);
+    String saveOrUpdateCangKuHis(CangKuHisEntity hisEntity);
 
     /**
      * Description: 查询从属者的仓库信息<br>
@@ -73,5 +73,16 @@ public interface CangKuHisService {
      */
     @Transactional(rollbackFor = Throwable.class)
     int updateCangKuHisByCongShuHisId(String congHisId, String congId);
+
+    /**
+     * Description: 获取仓库历史信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param cangKuHisId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    CangKuHisEntity getCangKuHis(String cangKuHisId);
 
 }

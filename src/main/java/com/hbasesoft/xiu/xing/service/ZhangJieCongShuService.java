@@ -73,4 +73,15 @@ public interface ZhangJieCongShuService {
     @Transactional(rollbackFor = Throwable.class)
     int updateZhangJieCongShuByCongShuHisId(String congHisId, String congId);
 
+    /**
+     * Description: 查询章节信息列表<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param zhangJieId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    List<ZhangJieCongShuEntity> getZhangJieCongShuListByZhangJieId(String zhangJieId);
+
 }

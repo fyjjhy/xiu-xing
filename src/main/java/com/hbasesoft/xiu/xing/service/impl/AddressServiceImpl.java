@@ -41,4 +41,9 @@ public class AddressServiceImpl implements AddressService {
         }
         return addressDao.getListByCriteriaQuery(criteria);
     }
+
+    @Override
+    public AddressEntity getAddress(String addrId) {
+        return addressDao.get(AddressEntity.class, addrId);
+    }
 }

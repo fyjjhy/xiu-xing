@@ -51,10 +51,11 @@ public class ShuAddUpdateFilter implements ServiceFilter {
 
     @Override
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
-        String action =  flowBean.getAction();
+        String action = flowBean.getAction();
         Map<String, Object> shuReqMap = flowBean.getRequest();
+        LoggerUtil.info("[属] 新增或更新入参：{0}", shuReqMap);
         JSONObject shuJson = new JSONObject(shuReqMap);
-        ShuHisEntity shuHisEntity =  JSON.toJavaObject(shuJson, ShuHisEntity.class);
+        ShuHisEntity shuHisEntity = JSON.toJavaObject(shuJson, ShuHisEntity.class);
         shuHisEntity.setId(null);
         if (ServiceFlowBean.ACTION_ADD.equals(action)) {
             shuHisEntity.setShuId((String) flowBean.getResponse());
@@ -66,6 +67,7 @@ public class ShuAddUpdateFilter implements ServiceFilter {
 
         // 如果属信息中存在章节ID，则将属信息与章节ID信息保存到zhang_jie_cong_shu
         String zhangJieId = (String) shuReqMap.get("zhangJieId");
+        String addrId = (String) shuReqMap.get("addrId");
 
         // 如果属类型包含从，则在从中也添加对应的记录
         String shuType = (String) shuReqMap.get(XiuXingCommonConstant.SHU_TYPE);
@@ -84,7 +86,7 @@ public class ShuAddUpdateFilter implements ServiceFilter {
                 congEntity.setCongMiaoShu(congHisEntity.getCongMiaoShu());
                 congEntity.setXiaoShuoId(congHisEntity.getXiaoShuoId());
                 congEntity.setUpdateTime(congHisEntity.getUpdateTime());
-                int congCount =  congService.getCongCount();
+                int congCount = congService.getCongCount();
                 congEntity.setCongCode(String.valueOf(++congCount));
                 String congId = congService.saveCong(congEntity);
                 congHisEntity.setCongId(congId);
@@ -94,8 +96,8 @@ public class ShuAddUpdateFilter implements ServiceFilter {
                 // 属管理中，新增或编辑同步到从管理中时，存在章节ID
                 if (StringUtils.isNotEmpty(zhangJieId)) {
                     // 删除zhang_jie_cong_shu表中的对应章节的空数据
-                    int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
-                    LoggerUtil.info("[属]删除章节从空数据：{0}", emptyCount);
+                    // int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
+                    // LoggerUtil.info("[属]删除章节从空数据：{0}", emptyCount);
                     // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
                     // 如果存在，则不作任何处理
                     // 如果不存在，则添加到zhang_jie_cong_shu表中
@@ -103,6 +105,10 @@ public class ShuAddUpdateFilter implements ServiceFilter {
                     zhangJieCongShuEntity.setType("从");
                     zhangJieCongShuEntity.setCongShuHisId(congHisId);
                     zhangJieCongShuEntity.setCongShuId(congHisEntity.getCongId());
+                    // zhangJieCongShuEntity.setCongShuFenLei(congHisEntity.getCongFenLei());
+                    // zhangJieCongShuEntity.setCongShuMiaoShu(congHisEntity.getCongMiaoShu());
+                    // zhangJieCongShuEntity.setCongShuName(congHisEntity.getCongName());
+                    zhangJieCongShuEntity.setAddrId(addrId);
                     zhangJieCongShuEntity.setZhangJieId(zhangJieId);
                     zhangJieCongShuEntity.setXiaoShuoId(congHisEntity.getXiaoShuoId());
                     zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);
@@ -112,8 +118,8 @@ public class ShuAddUpdateFilter implements ServiceFilter {
 
         if (StringUtils.isNotEmpty(zhangJieId)) {
             // 删除zhang_jie_cong_shu表中的对应章节的空数据
-            int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
-            LoggerUtil.info("[属]删除章节属空数据：{0}", emptyCount);
+            // int emptyCount = zhangJieCongShuService.delEmptyZhangJieCongShu(zhangJieId);
+            // LoggerUtil.info("[属]删除章节属空数据：{0}", emptyCount);
             // 查询zhang_jie_cong_shu中是否已经存在章节从属信息
             // 如果存在，则不作任何处理
             // 如果不存在，则添加到zhang_jie_cong_shu表中
@@ -121,6 +127,14 @@ public class ShuAddUpdateFilter implements ServiceFilter {
             zhangJieCongShuEntity.setType("属");
             zhangJieCongShuEntity.setCongShuHisId(shuHisId);
             zhangJieCongShuEntity.setCongShuId(shuHisEntity.getShuId());
+            // zhangJieCongShuEntity.setCongShuFenLei(shuHisEntity.getShuFenLei());
+            // zhangJieCongShuEntity.setCongShuMiaoShu(shuHisEntity.getShuMiaoShu());
+            // zhangJieCongShuEntity.setCongShuName(shuHisEntity.getShuName());
+            // zhangJieCongShuEntity.setCongShuJingJie(shuHisEntity.getShuJingJieId());
+            // zhangJieCongShuEntity.setCongShuPinJi(shuHisEntity.getShuPinJiId());
+            // zhangJieCongShuEntity.setCongShuState(shuHisEntity.getShuState());
+            // zhangJieCongShuEntity.setCongShuXiuXing(shuHisEntity.getShuXiuXing());
+            zhangJieCongShuEntity.setAddrId(addrId);
             zhangJieCongShuEntity.setZhangJieId(zhangJieId);
             zhangJieCongShuEntity.setXiaoShuoId(shuHisEntity.getXiaoShuoId());
             zhangJieCongShuService.saveZhangJieCongShu(zhangJieCongShuEntity);

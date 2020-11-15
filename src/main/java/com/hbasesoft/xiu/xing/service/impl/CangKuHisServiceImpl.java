@@ -25,8 +25,8 @@ public class CangKuHisServiceImpl implements CangKuHisService {
     private CangKuHisDao cangKuHisDao;
 
     @Override
-    public void saveOrUpdateCangKuHis(CangKuHisEntity hisEntity) {
-        cangKuHisDao.save(hisEntity);
+    public String saveOrUpdateCangKuHis(CangKuHisEntity hisEntity) {
+        return (String) cangKuHisDao.save(hisEntity);
     }
 
     @Override
@@ -156,5 +156,10 @@ public class CangKuHisServiceImpl implements CangKuHisService {
     @Override
     public int updateCangKuHisByCongShuHisId(String congHisId, String congId) {
         return cangKuHisDao.updateCangKuHisByCongShuHisId(congHisId, congId);
+    }
+
+    @Override
+    public CangKuHisEntity getCangKuHis(String cangKuHisId) {
+        return cangKuHisDao.get(CangKuHisEntity.class, cangKuHisId);
     }
 }

@@ -118,6 +118,8 @@ public interface XiuXingCommonConstant {
 
     String CONG_SHU_SHU = "属";
 
+    String CANG_CONG = "仓从";
+
     /** 属类型 */
     String SHU_TYPE = "shuType";
 
@@ -498,6 +500,18 @@ public interface XiuXingCommonConstant {
     /** 从属名称 */
     String CONG_SHU_MIAO_SHU = "congShuMiaoShu";
 
+    /** 从属境界 */
+    String CONG_SHU_JING_JIE = "congShuJingJie";
+
+    /** 从属品级 */
+    String CONG_SHU_PIN_JI = "congShuPinJi";
+
+    /** 从属状态 */
+    String CONG_SHU_STATE = "congShuState";
+
+    /** 从属修行 */
+    String CONG_SHU_XIU_XING = "congShuXiuXing";
+
     /** 从属修行时间 */
     String CONG_SHU_XIU_XING_TIME = "congShuXiuXingTime";
 
@@ -574,6 +588,9 @@ public interface XiuXingCommonConstant {
 
     String CONGSHU = "从属";
 
+    /** 从属属性 */
+    String CONG_SHU_SHU_XING = "congShuShuXing";
+
     String CONG_JING_JIE_ID = "congJingJieId";
 
     String CONG_PIN_JI_ID = "congPinJiId";
@@ -603,5 +620,35 @@ public interface XiuXingCommonConstant {
     String ZHANG_JIE_ID = "zhangJieId";
 
     String SHU_XIU_XING = "shuXiuXing";
+
+    /** 编码 */
+    String CODE = "code";
+
+    /** 生物分类 */
+    String SHENG_WU_FEN_LEI = "shengWuFenLei";
+
+    /** 域 */
+    String YU_LEI_BIE = "yu";
+
+    /** 界 */
+    String JIE_LEI_BIE = "jie";
+
+    /** 门 */
+    String MEN_LEI_BIE = "men";
+
+    /** 纲 */
+    String GANG_LEI_BIE = "gang";
+
+    /** 目 */
+    String MU_LEI_BIE = "mu";
+
+    /** 科 */
+    String KE_LEI_BIE = "ke";
+
+    /** 属 */
+    String SHU_LEI_BIE = "shu";
+
+    /** 种 */
+    String ZHONG_LEI_BIE = "zhong";
 
 }

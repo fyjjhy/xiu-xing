@@ -4,6 +4,8 @@ import com.hbasesoft.xiu.xing.util.AbstractVo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * <Description> shu_his的Entity<br>
  * 
@@ -37,6 +39,8 @@ public class ShuHis extends AbstractVo {
     /** shu_state */
     private String shuState;
 
+    private String shuStateName;
+
     /** shu_fen_lei */
     private String shuFenLei;
 
@@ -52,6 +56,9 @@ public class ShuHis extends AbstractVo {
 
     private String shuPinJiName;
 
+    /** shu_xiu_xing */
+    private String shuXiuXing;
+
     /** shu_miao_shu */
     private String shuMiaoShu;
 
@@ -65,5 +72,9 @@ public class ShuHis extends AbstractVo {
 
     /** xiao_shuo_id */
     private String xiaoShuoId;
+
+    private List<String> fullNames;
+
+    private List<String> addrIds;
 
 }

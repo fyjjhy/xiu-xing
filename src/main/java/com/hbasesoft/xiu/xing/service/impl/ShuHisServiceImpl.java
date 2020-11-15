@@ -64,12 +64,12 @@ public class ShuHisServiceImpl implements ShuHisService {
         else {
             shuHisCriteria.add(Restrictions.isNull(XiuXingCommonConstant.SHU_MIAO_SHU));
         }
-        if (StringUtils.isNotEmpty(shuHisEntity.getAddrId())) {
-            shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.ADDR_ID, shuHisEntity.getAddrId()));
-        }
-        else {
-            shuHisCriteria.add(Restrictions.isNull(XiuXingCommonConstant.ADDR_ID));
-        }
+//        if (StringUtils.isNotEmpty(shuHisEntity.getAddrId())) {
+//            shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.ADDR_ID, shuHisEntity.getAddrId()));
+//        }
+//        else {
+//            shuHisCriteria.add(Restrictions.isNull(XiuXingCommonConstant.ADDR_ID));
+//        }
         if (StringUtils.isNotEmpty(shuHisEntity.getShuFenLei())) {
             shuHisCriteria.add(Restrictions.eq(XiuXingCommonConstant.SHU_FEN_LEI, shuHisEntity.getShuFenLei()));
         }
@@ -187,5 +187,10 @@ public class ShuHisServiceImpl implements ShuHisService {
             });
         }
         return new ArrayList<>();
+    }
+
+    @Override
+    public ShuHisEntity getShuHis(String shuHisId) {
+        return shuHisDao.get(ShuHisEntity.class, shuHisId);
     }
 }

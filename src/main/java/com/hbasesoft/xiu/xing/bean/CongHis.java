@@ -4,6 +4,8 @@ import com.hbasesoft.xiu.xing.util.AbstractVo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * <Description> cong_his的Entity<br>
  * 
@@ -47,5 +49,27 @@ public class CongHis extends AbstractVo {
 
     /** xiao_shuo_id */
     private String xiaoShuoId;
+
+    private String addrFullName;
+
+    private String congStateName;
+
+    private String congJingJieName;
+
+    private String congPinJiName;
+
+    private List<String> fullNames;
+
+    private List<String> addrIds;
+
+    private String congShuXing;
+
+    private String congState;
+
+    private String congJingJiId;
+
+    private String congPinJiId;
+
+    private String congXiuXing;
 
 }

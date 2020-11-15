@@ -39,4 +39,15 @@ public interface AddressService {
     @Transactional(readOnly = true)
     List<AddressEntity> queryAddressListByAddrType(String addrType);
 
+    /**
+     * Description: 获取地址信息<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param addrId
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    AddressEntity getAddress(String addrId);
+
 }
