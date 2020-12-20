@@ -27,6 +27,7 @@ import com.hbasesoft.xiu.xing.service.PinJiService;
 import com.hbasesoft.xiu.xing.service.QiTaLingWuService;
 import com.hbasesoft.xiu.xing.service.RenWuService;
 import com.hbasesoft.xiu.xing.service.SheDingService;
+import com.hbasesoft.xiu.xing.service.ShengChengService;
 import com.hbasesoft.xiu.xing.service.ShengWuFenLeiService;
 import com.hbasesoft.xiu.xing.service.ShuService;
 import com.hbasesoft.xiu.xing.service.XiuXingRiZhiService;
@@ -134,6 +135,9 @@ public class CodeFilter implements ServiceFilter {
 
     @Resource
     private ShengWuFenLeiService shengWuFenLeiService;
+
+    @Resource
+    private ShengChengService shengChengService;
 
     @Override
     public boolean before(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams) {
@@ -248,6 +252,9 @@ public class CodeFilter implements ServiceFilter {
                 case XiuXingCommonConstant.SHENG_WU_FEN_LEI:
                     int shengWuFenLeiCode = shengWuFenLeiService.getShengWuFenLeiCount();
                     request.put(XiuXingCommonConstant.CODE, shengWuFenLeiCode + 1);
+                case XiuXingCommonConstant.SHENG_CHENG:
+                    int shengChengCode = shengChengService.getShengChengCount();
+                    request.put(XiuXingCommonConstant.SHENG_CHENG_CODE, shengChengCode + 1);
             }
         }
         return true;

@@ -184,7 +184,7 @@ public class ZhangJieGetFilter implements ServiceFilter {
 
                                     if (StringUtils.isNotEmpty(shuHisEntity.getShuJingJieId())) {
                                         JingJieEntity jingJieEntity = jingJieService.getJingJieById(shuHisEntity.getShuJingJieId());
-                                        if (jingJieEntity != null) {
+                                        if (jingJieEntity != null && !XiuXingCommonConstant.WU.equals(jingJieEntity.getJingJieName())) {
                                             shuInfoName.append(jingJieEntity.getJingJieName());
                                             congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
                                         }
@@ -192,7 +192,7 @@ public class ZhangJieGetFilter implements ServiceFilter {
 
                                     if (StringUtils.isNotEmpty(shuHisEntity.getShuPinJiId())) {
                                         PinJiEntity pinJiEntity = pinJiService.getPinJiById(shuHisEntity.getShuPinJiId());
-                                        if (pinJiEntity != null) {
+                                        if (pinJiEntity != null && !XiuXingCommonConstant.WU.equals(pinJiEntity.getPinJiName())) {
                                             shuInfoName.append(pinJiEntity.getPinJiName());
                                             congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
                                         }
@@ -274,7 +274,7 @@ public class ZhangJieGetFilter implements ServiceFilter {
 
                                         if (StringUtils.isNotEmpty(cangKuHisEntity.getCongJingJieId())) {
                                             JingJieEntity jingJieEntity = jingJieService.getJingJieById(cangKuHisEntity.getCongJingJieId());
-                                            if (jingJieEntity != null) {
+                                            if (jingJieEntity != null && !XiuXingCommonConstant.WU.equals(jingJieEntity.getJingJieName())) {
                                                 shuInfoName.append(jingJieEntity.getJingJieName());
                                                 congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
                                             }
@@ -282,7 +282,7 @@ public class ZhangJieGetFilter implements ServiceFilter {
 
                                         if (StringUtils.isNotEmpty(cangKuHisEntity.getCongPinJiId())) {
                                             PinJiEntity pinJiEntity = pinJiService.getPinJiById(cangKuHisEntity.getCongPinJiId());
-                                            if (pinJiEntity != null) {
+                                            if (pinJiEntity != null && !XiuXingCommonConstant.WU.equals(pinJiEntity.getPinJiName())) {
                                                 shuInfoName.append(pinJiEntity.getPinJiName());
                                                 congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
                                             }

@@ -76,163 +76,6 @@ public class ZhangJieInfoFilter implements ServiceFilter {
     public void after(ServiceFlowBean flowBean, FlowContext flowContext, Map<String, Object> configParams, Exception e) {
         // 获取单条数据
         List<Map<String, Object>> zhangJieInfoList = (List<Map<String, Object>>) flowBean.getResponse();
-//        if (CollectionUtils.isNotEmpty(zhangJieInfoList)) {
-//            Map<String, List<Map<String, Object>>> zhangJieAddrMap = new HashMap<>();
-//            for (Map<String, Object> zhangJieInfoMap : zhangJieInfoList) {
-//                String addrFullName = (String) zhangJieInfoMap.get("addrFullName");
-//                if (StringUtils.isEmpty(addrFullName)) {
-//                    addrFullName = "未归属";
-//                }
-//                List<Map<String, Object>> zhangJieInfos = zhangJieAddrMap.get(addrFullName);
-//                if (zhangJieInfos == null) {
-//                    zhangJieInfos = new ArrayList<>();
-//                }
-//                String congShuType = (String) zhangJieInfoMap.get("type");
-//                String congShuHisId = (String) zhangJieInfoMap.get("congShuHisId");
-//                if (StringUtils.isNotEmpty(congShuHisId)) {
-//                    if (XiuXingCommonConstant.CONG_SHU_CONG.equals(congShuType)) {
-//                        CongHisEntity congHisEntity = congHisService.getCongHis(congShuHisId);
-//                        if (congHisEntity != null) {
-//                            CongShuInfo congShuInfo = new CongShuInfo();
-//                            congShuInfo.setCongShuId(congHisEntity.getCongId());
-//                            congShuInfo.setCongShuHisId(congHisEntity.getId());
-//                            congShuInfo.setCongShuName(congHisEntity.getCongName());
-//                            congShuInfo.setCongShuFenLei(congHisEntity.getCongFenLei());
-//                            congShuInfo.setCongShuMiaoShu(congHisEntity.getCongMiaoShu());
-//                            congShuInfo.setXiaoShuoId(congHisEntity.getXiaoShuoId());
-//                            congShuInfo.setCongShuType("从");
-//                            if (StringUtils.isNotEmpty(congHisEntity.getCongFenLei())) {
-//                                FenLeiEntity fenLeiEntity = fenLeiService.getFenLei(congHisEntity.getCongFenLei());
-//                                if (fenLeiEntity != null) {
-//                                    congShuInfo.setCongShuFenLeiName(fenLeiEntity.getFenLeiName());
-//                                }
-//                            }
-//
-//                            if (StringUtils.isNotEmpty(congHisEntity.getXiaoShuoId())) {
-//                                XiaoShuoEntity xiaoShuoEntity = xiaoShuoService.getXiaoShuo(congHisEntity.getXiaoShuoId());
-//                                if (xiaoShuoEntity != null) {
-//                                    congShuInfo.setXiaoShuoName(xiaoShuoEntity.getName());
-//                                }
-//                            }
-//                            Map<String, Object> congShuInfoMap = JSON.parseObject(JSON.toJSONString(congShuInfo), new TypeReference<Map<String, Object>>(){});
-//                            zhangJieInfos.add(congShuInfoMap);
-//                        }
-//                    }
-//                    else if (XiuXingCommonConstant.CONG_SHU_SHU.equals(congShuType)) {
-//                        ShuHisEntity shuHisEntity = shuHisService.getShuHis(congShuHisId);
-//                        if (shuHisEntity != null) {
-//                            CongShuInfo congShuInfo = new CongShuInfo();
-//                            congShuInfo.setCongShuHisId(shuHisEntity.getId());
-//                            congShuInfo.setCongShuId(shuHisEntity.getShuId());
-//                            congShuInfo.setCongShuName(shuHisEntity.getShuName());
-//                            congShuInfo.setCongShuState(shuHisEntity.getShuState());
-//                            congShuInfo.setCongShuJingJieId(shuHisEntity.getShuJingJieId());
-//                            congShuInfo.setCongShuPinJiId(shuHisEntity.getShuPinJiId());
-//                            congShuInfo.setCongShuFenLei(shuHisEntity.getShuFenLei());
-//                            congShuInfo.setCongShuXiuXing(shuHisEntity.getShuXiuXing());
-//                            congShuInfo.setXiaoShuoId(shuHisEntity.getXiaoShuoId());
-//                            congShuInfo.setCongShuMiaoShu(shuHisEntity.getShuMiaoShu());
-//                            congShuInfo.setCongShuType("属");
-//                            if (StringUtils.isNotEmpty(shuHisEntity.getShuState())) {
-//                                FenLeiEntity fenLeiEntity = fenLeiService.getFenLei(shuHisEntity.getShuState());
-//                                if (fenLeiEntity != null) {
-//                                    congShuInfo.setCongShuStateName(fenLeiEntity.getFenLeiName());
-//                                }
-//                            }
-//
-//                            if (StringUtils.isNotEmpty(shuHisEntity.getShuJingJieId())) {
-//                                JingJieEntity jingJieEntity = jingJieService.getJingJieById(shuHisEntity.getShuJingJieId());
-//                                if (jingJieEntity != null) {
-//                                    congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
-//                                }
-//                            }
-//
-//                            if (StringUtils.isNotEmpty(shuHisEntity.getShuPinJiId())) {
-//                                PinJiEntity pinJiEntity = pinJiService.getPinJiById(shuHisEntity.getShuPinJiId());
-//                                if (pinJiEntity != null) {
-//                                    congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
-//                                }
-//                            }
-//
-//                            if (StringUtils.isNotEmpty(shuHisEntity.getShuFenLei())) {
-//                                FenLeiEntity fenLeiEntity = fenLeiService.getFenLei(shuHisEntity.getShuFenLei());
-//                                if (fenLeiEntity != null) {
-//                                    congShuInfo.setCongShuFenLeiName(fenLeiEntity.getFenLeiName());
-//                                }
-//                            }
-//
-//                            if (StringUtils.isNotEmpty(shuHisEntity.getXiaoShuoId())) {
-//                                XiaoShuoEntity xiaoShuoEntity = xiaoShuoService.getXiaoShuo(shuHisEntity.getXiaoShuoId());
-//                                if (xiaoShuoEntity != null) {
-//                                    congShuInfo.setXiaoShuoName(xiaoShuoEntity.getName());
-//                                }
-//                            }
-//                            Map<String, Object> congShuInfoMap = JSON.parseObject(JSON.toJSONString(congShuInfo), new TypeReference<Map<String, Object>>(){});
-//                            zhangJieInfos.add(congShuInfoMap);
-//                        }
-//                    }
-//                    else if (XiuXingCommonConstant.CANG_CONG.equals(congShuType)) {
-//                        CangKuHisEntity cangKuHisEntity = cangKuHisService.getCangKuHis(congShuHisId);
-//                        if (cangKuHisEntity != null) {
-//                            CongHisEntity congHisEntity = congHisService.getCongHis(cangKuHisEntity.getCongHisId());
-//                            if (congHisEntity != null) {
-//                                CongShuInfo congShuInfo = new CongShuInfo();
-//                                congShuInfo.setCongShuHisId(congHisEntity.getId());
-//                                congShuInfo.setCongShuId(congHisEntity.getCongId());
-//                                congShuInfo.setCongShuName(congHisEntity.getCongName());
-//                                congShuInfo.setCongShuShuXing(cangKuHisEntity.getCongShuXing());
-//                                congShuInfo.setCongShuState(cangKuHisEntity.getCongState());
-//                                congShuInfo.setCongShuJingJieId(cangKuHisEntity.getCongJingJieId());
-//                                congShuInfo.setCongShuPinJiId(cangKuHisEntity.getCongPinJiId());
-//                                congShuInfo.setCongShuFenLei(congHisEntity.getCongFenLei());
-//                                congShuInfo.setCongShuMiaoShu(congHisEntity.getCongMiaoShu());
-//                                congShuInfo.setXiaoShuoId(congHisEntity.getXiaoShuoId());
-//                                congShuInfo.setCongShuType("仓从");
-//                                if (StringUtils.isNotEmpty(cangKuHisEntity.getCongState())) {
-//                                    FenLeiEntity fenLeiEntity = fenLeiService.getFenLei(cangKuHisEntity.getCongState());
-//                                    if (fenLeiEntity != null) {
-//                                        congShuInfo.setCongShuStateName(fenLeiEntity.getFenLeiName());
-//                                    }
-//                                }
-//
-//                                if (StringUtils.isNotEmpty(cangKuHisEntity.getCongJingJieId())) {
-//                                    JingJieEntity jingJieEntity = jingJieService.getJingJieById(cangKuHisEntity.getCongJingJieId());
-//                                    if (jingJieEntity != null) {
-//                                        congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
-//                                    }
-//                                }
-//
-//                                if (StringUtils.isNotEmpty(cangKuHisEntity.getCongPinJiId())) {
-//                                    PinJiEntity pinJiEntity = pinJiService.getPinJiById(cangKuHisEntity.getCongPinJiId());
-//                                    if (pinJiEntity != null) {
-//                                        congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
-//                                    }
-//                                }
-//
-//                                if (StringUtils.isNotEmpty(congHisEntity.getCongFenLei())) {
-//                                    FenLeiEntity fenLeiEntity = fenLeiService.getFenLei(congHisEntity.getCongFenLei());
-//                                    if (fenLeiEntity != null) {
-//                                        congShuInfo.setCongShuFenLeiName(fenLeiEntity.getFenLeiName());
-//                                    }
-//                                }
-//
-//                                if (StringUtils.isNotEmpty(congHisEntity.getXiaoShuoId())) {
-//                                    XiaoShuoEntity xiaoShuoEntity = xiaoShuoService.getXiaoShuo(congHisEntity.getXiaoShuoId());
-//                                    if (xiaoShuoEntity != null) {
-//                                        congShuInfo.setXiaoShuoName(xiaoShuoEntity.getName());
-//                                    }
-//                                }
-//                                Map<String, Object> congShuInfoMap = JSON.parseObject(JSON.toJSONString(congShuInfo), new TypeReference<Map<String, Object>>(){});
-//                                zhangJieInfos.add(congShuInfoMap);
-//                            }
-//                        }
-//                    }
-//                }
-//                zhangJieAddrMap.put(addrFullName, zhangJieInfos);
-//            }
-//            flowBean.setResponse(zhangJieAddrMap);
-//        }
-
         if (CollectionUtils.isNotEmpty(zhangJieInfoList)) {
             List<Map<String, Object>> congShuInfoList = new ArrayList<>();
             for (Map<String, Object> zhangJieInfoMap : zhangJieInfoList) {
@@ -303,14 +146,14 @@ public class ZhangJieInfoFilter implements ServiceFilter {
 
                             if (StringUtils.isNotEmpty(shuHisEntity.getShuJingJieId())) {
                                 JingJieEntity jingJieEntity = jingJieService.getJingJieById(shuHisEntity.getShuJingJieId());
-                                if (jingJieEntity != null) {
+                                if (jingJieEntity != null && !XiuXingCommonConstant.WU.equals(jingJieEntity.getJingJieName())) {
                                     congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
                                 }
                             }
 
                             if (StringUtils.isNotEmpty(shuHisEntity.getShuPinJiId())) {
                                 PinJiEntity pinJiEntity = pinJiService.getPinJiById(shuHisEntity.getShuPinJiId());
-                                if (pinJiEntity != null) {
+                                if (pinJiEntity != null && !XiuXingCommonConstant.WU.equals(pinJiEntity.getPinJiName())) {
                                     congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
                                 }
                             }
@@ -362,14 +205,14 @@ public class ZhangJieInfoFilter implements ServiceFilter {
 
                                 if (StringUtils.isNotEmpty(cangKuHisEntity.getCongJingJieId())) {
                                     JingJieEntity jingJieEntity = jingJieService.getJingJieById(cangKuHisEntity.getCongJingJieId());
-                                    if (jingJieEntity != null) {
+                                    if (jingJieEntity != null && !XiuXingCommonConstant.WU.equals(jingJieEntity.getJingJieName())) {
                                         congShuInfo.setCongShuJingJieName(jingJieEntity.getJingJieName());
                                     }
                                 }
 
                                 if (StringUtils.isNotEmpty(cangKuHisEntity.getCongPinJiId())) {
                                     PinJiEntity pinJiEntity = pinJiService.getPinJiById(cangKuHisEntity.getCongPinJiId());
-                                    if (pinJiEntity != null) {
+                                    if (pinJiEntity != null && !XiuXingCommonConstant.WU.equals(pinJiEntity.getPinJiName())) {
                                         congShuInfo.setCongShuPinJiName(pinJiEntity.getPinJiName());
                                     }
                                 }

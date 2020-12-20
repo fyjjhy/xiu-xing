@@ -651,4 +651,16 @@ public interface XiuXingCommonConstant {
     /** 种 */
     String ZHONG_LEI_BIE = "zhong";
 
+    /** 生成 */
+    String SHENG_CHENG = "shengCheng";
+
+    /** 生成编码 */
+    String SHENG_CHENG_CODE = "shengChengCode";
+
+    /** 字名 */
+    String ZI_NAME = "ziName";
+
+    /** 字级 */
+    String ZI_JI = "ziJi";
+
 }

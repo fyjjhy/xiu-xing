@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * <Description> <br>
@@ -76,7 +77,19 @@ public class CangKuHisQueryFilter implements ServiceFilter {
             if (cangKuEntity != null) {
                 JSONObject cangKuHisJson = new JSONObject(cangKuHis);
                 CangKuEntity cangKuHisEntity =  JSON.toJavaObject(cangKuHisJson, CangKuEntity.class);
-                if (cangKuHisEntity.equals(cangKuEntity)) {
+                if (Objects.equals(cangKuHisEntity.getCongShuXing(), cangKuEntity.getCongShuXing()) &&
+                        Objects.equals(cangKuHisEntity.getCongState(), cangKuEntity.getCongState()) &&
+                        Objects.equals(cangKuHisEntity.getCongShuLiang(), cangKuEntity.getCongShuLiang()) &&
+                        Objects.equals(cangKuHisEntity.getDanWei(), cangKuEntity.getDanWei()) &&
+                        Objects.equals(cangKuHisEntity.getCongHisId(), cangKuEntity.getCongHisId()) &&
+                        Objects.equals(cangKuHisEntity.getCongId(), cangKuEntity.getCongId()) &&
+                        Objects.equals(cangKuHisEntity.getCongJingJieId(), cangKuEntity.getCongJingJieId()) &&
+                        Objects.equals(cangKuHisEntity.getCongPinJiId(), cangKuEntity.getCongPinJiId()) &&
+                        Objects.equals(cangKuHisEntity.getCongXiuXing(), cangKuEntity.getCongXiuXing()) &&
+                        Objects.equals(cangKuHisEntity.getShuHisId(), cangKuEntity.getShuHisId()) &&
+                        Objects.equals(cangKuHisEntity.getShuId(), cangKuEntity.getShuId()) &&
+                        Objects.equals(cangKuHisEntity.getXiaoShuoId(), cangKuEntity.getXiaoShuoId()) &&
+                        Objects.equals(cangKuHisEntity.getBeiZhu(), cangKuEntity.getBeiZhu())) {
                     cangKuHis.put(XiuXingCommonConstant.FAN_ZHUAN_FLAG, GlobalConstants.YES);
                 }
             }
