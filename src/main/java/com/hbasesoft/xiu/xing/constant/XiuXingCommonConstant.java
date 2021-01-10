@@ -663,4 +663,7 @@ public interface XiuXingCommonConstant {
     /** 字级 */
     String ZI_JI = "ziJi";
 
+    /** 置顶时间 */
+    String TOPPING_TIME = "toppingTime";
+
 }

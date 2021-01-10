@@ -14,7 +14,7 @@ import javax.persistence.Table;
  * 
  * @author 工具生成<br>
  * @version 1.0<br>
- * @CreateDate 2020-11-07 <br>
+ * @CreateDate 2020-12-20 <br>
  * @since V1.0<br>
  * @see XiaoShuoEntity <br>
  */
@@ -46,6 +46,10 @@ public class XiaoShuoEntity extends BaseEntity {
     @Column(name = "miao_shu")
     private String miaoShu;
 
+    /** topping_time */
+    @Column(name = "topping_time")
+    private java.util.Date toppingTime;
+
     public String getId() {
         return this.id;
     }
@@ -76,6 +80,14 @@ public class XiaoShuoEntity extends BaseEntity {
 
     public void setMiaoShu(String miaoShu) {
         this.miaoShu = miaoShu;
+    }
+
+    public java.util.Date getToppingTime() {
+        return this.toppingTime;
+    }
+
+    public void setToppingTime(java.util.Date toppingTime) {
+        this.toppingTime = toppingTime;
     }
 
 }

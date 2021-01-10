@@ -26,4 +26,15 @@ public interface XiaoShuoService {
     @Transactional(readOnly = true)
     XiaoShuoEntity getXiaoShuo(String xiaoShuoId);
 
+    /**
+     * Description: 获取置顶小说<br>
+     *
+     * @author 付永杰<br>
+     * @taskId <br>
+     * @param
+     * @return <br>
+     */
+    @Transactional(readOnly = true)
+    XiaoShuoEntity getXiaoShuoOne();
+
 }

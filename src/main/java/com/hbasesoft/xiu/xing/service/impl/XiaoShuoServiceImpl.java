@@ -1,11 +1,16 @@
 package com.hbasesoft.xiu.xing.service.impl;
 
+import com.hbasesoft.xiu.xing.constant.XiuXingCommonConstant;
 import com.hbasesoft.xiu.xing.dao.XiaoShuoDao;
 import com.hbasesoft.xiu.xing.entity.XiaoShuoEntity;
 import com.hbasesoft.xiu.xing.service.XiaoShuoService;
+import org.apache.commons.collections.CollectionUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <Description> <br>
@@ -26,5 +31,16 @@ public class XiaoShuoServiceImpl implements XiaoShuoService {
     @Override
     public XiaoShuoEntity getXiaoShuo(String xiaoShuoId) {
         return xiaoShuoDao.get(XiaoShuoEntity.class, xiaoShuoId);
+    }
+
+    @Override
+    public XiaoShuoEntity getXiaoShuoOne() {
+        DetachedCriteria criteria = DetachedCriteria.forClass(XiaoShuoEntity.class);
+        criteria.addOrder(Order.desc(XiuXingCommonConstant.TOPPING_TIME));
+        List<XiaoShuoEntity> entities = xiaoShuoDao.getListByCriteriaQuery(criteria);
+        if (CollectionUtils.isNotEmpty(entities)) {
+            return entities.get(0);
+        }
+        return null;
     }
 }
