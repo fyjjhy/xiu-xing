@@ -15,7 +15,7 @@ server: #系统配置
 master: #主数据库配置
  db:
   type: mysql
-  url: jdbc:mysql://localhost:3306/xiu_xing?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+  url: jdbc:mysql://localhost:3306/xiu_xing?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
   username: root
   password: fyjjhy123!@#
 
